@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:hacksw/handcal//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:1c5e14614f89e3b06ca16e4952d9c2d4
+DTSTAMP:1699246675
+DTSTART:20231107T190000Z
+DTEND:20231107T210000Z
+SUMMARY:SPRINT TRES - REVIEW UNIT 1
+LOCATION:This is a Zoom web conference
+DESCRIPTION:Booking Title: SPRINT TRES - REVIEW UNIT 1
+
+Sprint 3 (04-11 NOV) 
+Review unit 1
+
+
+Para tu primera Review en directo dispones de cuatro opciones horarias diferentes:
+
+
+👉Lunes 6 de Noviembre a la 9:30h (CEST)
+👉Martes 7 de Noviembre e las 20:00h (CEST)
+👉Viernes 10 de Noviembre a las 16:00h (CEST)
+👉Sábado 11 de Noviembre a las 08:30h (CEST)
+
+
+➡️Selecciona la opción que mejor te convenga y déjala agendada en tu calendario. 📆
+
+
+➡️ Recuerda que necesitarás aproximadamente 3 horas de estudio para realizar el Work-Out previo.
+
+Location: This is a Zoom web conference
+
+
+Created by TidyCal.com
+
+URL;VALUE=URI:https://tidycal.com/b/1042k6g/1rynel9/confirmation
+END:VEVENT
+END:VCALENDAR

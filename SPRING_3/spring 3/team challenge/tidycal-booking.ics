@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:hacksw/handcal//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:c04513d70c39ae599da8d8b69a4fed10
+DTSTAMP:1699246786
+DTSTART:20231110T193000Z
+DTEND:20231110T213000Z
+SUMMARY:SPRINT TRES - TEAM CHALLENGE
+LOCATION:This is a Zoom web conference
+DESCRIPTION:Booking Title: SPRINT TRES - TEAM CHALLENGE
+
+Sprint 3 ( 04 - 11 NOV) 
+Team Challenge
+
+
+Debes elegir entre las opciones disponibles, según el horario que mejor te convenga:
+
+
+👉Viernes 10 de Noviembre a las 20:30h (CEST) 
+👉Sábado 11 de Noviembre a las 13:00h (CEST) 
+
+
+➡️Selecciona la opción y déjala agendada en tu calendario. 📆
+➡️Recuerda tus selecciones anteriores en el sprint, primero debes asistir a la Review 1, luego a la Review 2, por último el Team Challenge.
+
+
+Esta semana no tenemos Team Challenge 1 ya que el jueves es festivo, lo mejor será que os reagrupéis en las otras opciones disponibles.
+
+Location: This is a Zoom web conference
+
+
+Created by TidyCal.com
+
+URL;VALUE=URI:https://tidycal.com/b/mp5eg6d/364r6v4/confirmation
+END:VEVENT
+END:VCALENDAR
