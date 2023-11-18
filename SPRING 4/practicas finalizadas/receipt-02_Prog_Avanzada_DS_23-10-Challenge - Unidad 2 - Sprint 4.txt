@@ -1,0 +1,8 @@
+La entrega se realizó correctamente.
+Curso: 02_Prog_Avanzada_DS_23-10, 02 Programación y herramientas avanzadas
+Evaluación: Challenge - Unidad 2 - Sprint 4
+
+Fecha de entrega: 17/11/23 15:52
+Tamaño de entrega: undefined
+Remitente: Víctor Manuel Martínez Barbera
+Número de confirmación: 5d3c46f77dd547f0a2208600f28e2b97
