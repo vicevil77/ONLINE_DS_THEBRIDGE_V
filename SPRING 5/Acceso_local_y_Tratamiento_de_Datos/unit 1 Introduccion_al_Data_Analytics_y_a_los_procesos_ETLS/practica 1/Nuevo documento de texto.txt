@@ -1,0 +1,51 @@
+df['Duration'].str.contains(...):esto aplica la función str.contains a la columna 'Duration' del DataFrame, 
+devolviendo una Serie de booleanos que indica si cada fila contiene o no el patrón proporcionado.
+
+
+r'\b\d{2,3}\s*min\b': (PELICULA)
+
+
+\b: Esto representa un límite de palabra, asegurando que el número esté separado por límites de palabras 
+para evitar coincidencias parciales.
+
+\d{2,3}: Esto representa 2 o 3 dígitos consecutivos. 
+\d coincide con un dígito, y {2,3} indica que queremos de 2 a 3 dígitos.
+
+\s*: Esto permite cero o más espacios en blanco entre los dígitos y la palabra "min".
+
+min: Es simplemente la cadena "min" que estamos buscando.
+
+\b: Otro límite de palabra al final del patrón.
+
+case=False: Hace que la búsqueda sea insensible a mayúsculas y minúsculas.
+
+na=False: Indica que los valores NaN en la columna 'Duration' se deben tratar como False en lugar de levantar una excepción.
+
+'Tipo'] = 'Película': Cuando la expresión regular encuentra una coincidencia en la columna 'Duration', asigna el valor 'Película' a la columna 'Tipo' en esa fila.
+
+
+
+
+r'\s*\b\d{1,2}\s*Season(?:s)?\b': (SERIE)
+
+Esta es la expresión regular utilizada para definir el patrón que estamos buscando. Desglosemos cada parte de la expresión:
+
+\s*: Esto permite cero o más espacios en blanco al principio del patrón.
+
+\b: Esto representa un límite de palabra, asegurando que el número esté separado por límites de palabras para evitar coincidencias parciales.
+
+\d{1,2}: Esto representa 1 o 2 dígitos consecutivos. \d coincide con un dígito, y {1,2} indica que queremos de 1 a 2 dígitos.
+
+\s*: Esto permite cero o más espacios en blanco entre los dígitos y la palabra "Season" o "Seasons".
+
+Season: Es la cadena "Season" que estamos buscando.
+
+(?:s)?: Esto es una construcción no capturadora que hace que la 's' en "Seasons" sea opcional. ?: indica que no queremos capturar el grupo, y s? indica que la 's' es opcional.
+
+\b: Otro límite de palabra al final del patrón.
+
+case=False: Hace que la búsqueda sea insensible a mayúsculas y minúsculas.
+
+na=False: Indica que los valores NaN en la columna 'Duration' se deben tratar como False en lugar de levantar una excepción.
+
+'Tipo'] = 'Serie': Cuando la expresión regular encuentra una coincidencia en la columna 'Duration', asigna el valor 'Serie' a la columna 'Tipo' en esa fila.
