@@ -1,0 +1,8 @@
+La entrega se realizó correctamente.
+Curso: 03_Procesado_y_analisis_DS_23-10, 03 Procesado y Análisis de Datos
+Evaluación: Challenge - Unidad 2 - Sprint 5
+
+Fecha de entrega: 22/11/23 5:53
+Tamaño de entrega: undefined
+Remitente: Víctor Manuel Martínez Barbera
+Número de confirmación: 20ff94d1c9154d508006fa3b504c3ad2
