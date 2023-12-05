@@ -16,11 +16,11 @@ def pinta_distribucion_categoricas(df, columnas_categoricas, relativa=False, mos
         if relativa:
             total = df[col].value_counts().sum()
             serie = df[col].value_counts().apply(lambda x: x / total)
-            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis', hue = serie.index, legend = False)
+            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis')
             ax.set_ylabel('Frecuencia Relativa')
         else:
             serie = df[col].value_counts()
-            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis', hue = serie.index, legend = False)
+            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis')
             ax.set_ylabel('Frecuencia')
 
         ax.set_title(f'Distribución de {col}')
@@ -37,6 +37,11 @@ def pinta_distribucion_categoricas(df, columnas_categoricas, relativa=False, mos
         axes[j].axis('off')
 
     plt.tight_layout()
+    
+    # Añadir leyenda
+    if relativa:
+        fig.legend(title='Legend Title', labels=['Frecuencia Relativa'], loc='upper right')
+    
     plt.show()
 
 
@@ -250,6 +255,45 @@ def grafico_dispersion_con_correlacion(df, columna_x, columna_y, tamano_puntos=5
     plt.ylabel(columna_y)
     plt.grid(True)
     plt.show()
+
+    
+def graficos_dispersión_combinados(datos, categorias, colores=None):
+    """
+    Combina múltiples gráficos de dispersión bivariantes en uno solo.
+
+    Parámetros:
+    - datos: Un diccionario donde las claves son las categorías y los valores son matrices 2D con los datos.
+    - categorias: Lista de categorías en el orden en que deben aparecer en el gráfico combinado.
+    - colores: Lista opcional de colores para cada categoría.
+
+    """
+    if colores is None:
+        colores = plt.cm.jet(np.linspace(0, 1, len(categorias)))
+
+    fig, ax = plt.subplots()
+
+    for categoria, color in zip(categorias, colores):
+        datos_categoria = datos[categoria]
+        x = datos_categoria[:, 0]
+        y = datos_categoria[:, 1]
+        ax.scatter(x, y, label=categoria, color=color)
+
+    ax.set_xlabel('Variable X')
+    ax.set_ylabel('Variable Y')
+    ax.legend()
+    plt.show()
+
+    # Supongamos que tienes un diccionario llamado datos con claves 'Categoria1', 'Categoria2', ...
+# y valores que son matrices 2D de datos.
+
+# datos = {'Categoria1': np.random.rand(50, 2),
+#          'Categoria2': np.random.rand(50, 2),
+#          'Categoria3': np.random.rand(50, 2)}
+
+# categorias = ['Categoria1', 'Categoria2', 'Categoria3']
+
+# graficos_dispersión_combinados(datos, categorias)
+
 
 
 def bubble_plot(df, col_x, col_y, col_size, scale = 1000):
