@@ -317,4 +317,51 @@ def bubble_plot(df, col_x, col_y, col_size, scale = 1000):
     plt.title(f'Burbujas de {col_x} vs {col_y} con Tamaño basado en {col_size}')
     plt.show()
 
+    """def columnas_cardin(df):
+    # Obtener todas las columnas
+        todas_las_columnas = df.columns
+
+    # Imprimir encabezados
+    print(f"{'Columna': <15}{'Cardinalidad': <15}{'Tipo': <20}")
+
+    for col in todas_las_columnas:
+        if col in df.select_dtypes(include=[np.number]).columns:
+            # Columnas numéricas
+            cardinalidad = df[col].nunique()
+
+            if cardinalidad == 2:
+                tipo_columna = 'binaria'
+            elif cardinalidad == 1:
+                tipo_columna = 'constante'
+            elif df[col].dtype == np.int64:
+                tipo_columna = 'numérica discreta'
+            elif df[col].dtype == np.float64:
+                tipo_columna = 'numérica continua'
+            else:
+                tipo_columna = 'otro'
+
+        else:
+            # Columnas no numéricas
+            cardinalidad = df[col].nunique()
+
+            # Identificar columnas binarias
+            if cardinalidad == 2:
+                tipo_columna = 'binaria'
+            else:
+                # Intentar determinar si es categórica ordinal o nominal
+                try:
+                    is_ordinal = df[col].apply(lambda x: pd.api.types.CategoricalDtype.ordered if pd.notna(x) else np.nan).dropna().unique()[0]
+                    # la línea lambda se utiliza para determinar si una columna categórica es ordenada. Primero, convierte la columna a un tipo categórico ordenado 
+                    # si no es un valor nulo, y luego, después de eliminar los nulos y obtener los valores únicos, devuelve el primer valor único. 
+                    # Esto se hace para verificar si todos los valores únicos son nulos (NaN), lo que indica que la columna original no era ordenada.
+                    if is_ordinal:
+                        tipo_columna = 'categórica ordinal'
+                    else:
+                        tipo_columna = 'categórica nominal'
+                except Exception as e:
+                    tipo_columna = 'otro'
+
+        # Imprimir la información de cada columna
+        print(f"{col: <15}{cardinalidad: <15}{tipo_columna: <20}")"""
+
 
