@@ -1,0 +1,1 @@
+ buscar también información más general con la que contrastar siempre los datos que tenéis (por ejemplo en el titanic hubiera estado muy bien tener información sobre otros accidentes navales, sus tasas, recorridos, etc).
