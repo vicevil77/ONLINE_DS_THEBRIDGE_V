@@ -1,41 +1,52 @@
 
-import pandas as pd
+# -*- coding: utf-8 -*-
+
+import time
 import folium
 from folium.plugins import PolyLineTextPath
-from geoip2.database import Reader
-
-
-
-# Ruta al archivo GeoLite2 City Database (descárgalo desde https://dev.maxmind.com/geoip/geoip2/geolite2/)
-GEOIP_DATABASE_PATH = r"E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\BBDD geoloca\GeoLite2-City_20231212\GeoLite2-City.mmdb"  # Reemplaza con la ruta correcta
-
+import geocoder
+import pandas as pd
 # Cargar el conjunto de datos
 df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado2.xlsx')
 
 # Crear una lista vacía para guardar las coordenadas de las IPs
 coords = []
 
-# Crear el objeto Reader para acceder a la base de datos de GeoLite2 City
-geoip_reader = Reader(GEOIP_DATABASE_PATH)
+# Definir la cantidad máxima de IPs a procesar en cada iteración (10,000 en este caso)
+max_ips_per_iteration = 10000
 
 # Iterar sobre las filas del dataset y obtener las coordenadas de cada IP
 for index, row in df.iterrows():
     ip_origen = row["Destino IP"]
     ip_destino = row["IP Origen"]
 
+    # Utilizar geocoder para obtener las coordenadas de la IP origen
+    g_origen = geocoder.ip(ip_origen)
+
+    # Utilizar geocoder para obtener las coordenadas de la IP destino
+    g_destino = geocoder.ip(ip_destino)
+
     try:
-        # Obtener la información de geolocalización de la IP origen
-        response_origen = geoip_reader.city(ip_origen)
-        lat_origen, lon_origen = response_origen.location.latitude, response_origen.location.longitude
+        # Verificar que ambas respuestas tengan información de geolocalización
+        if g_origen.latlng and g_destino.latlng:
+            # Obtener las coordenadas de la IP origen y destino
+            lat_origen, lon_origen = g_origen.latlng
+            lat_destino, lon_destino = g_destino.latlng
 
-        # Obtener la información de geolocalización de la IP destino
-        response_destino = geoip_reader.city(ip_destino)
-        lat_destino, lon_destino = response_destino.location.latitude, response_destino.location.longitude
+            coords.append([(lat_destino, lon_destino), (lat_origen, lon_origen)])   
+            print(f"No se encontraron resultados para la IP: {ip_origen} o {ip_destino}. Error: {e}")
 
-        coords.append([(lat_destino, lon_destino), (lat_origen, lon_origen)])
+        # Verificar si se alcanzó el límite de IPs por iteración
+        if index % max_ips_per_iteration == 0 and index > 0:
+            # Guardar las coordenadas en un archivo
+            df_coords = pd.DataFrame(coords, columns=["Coordenadas Destino", "Coordenadas Origen"])
+            df_coords.to_csv("coordenadas_ips.csv", index=False)
 
+        print(f"Procesadas {index} IPs. El programa se detendrá.")
+        break
     except Exception as e:
-        print(f"No se encontraron resultados para la IP: {ip_origen} o {ip_destino}. Error: {e}")
+    # Pausa de 30 segundos entre iteraciones
+        time.sleep(30)
 
 # Crear un mapa de Folium
 m = folium.Map(location=[0, 0], zoom_start=2)
@@ -48,6 +59,8 @@ for coord_pair in coords:
 # Unir las IPs origen con las de destino con líneas usando PolyLineTextPath
 for coord_pair in coords:
     PolyLineTextPath(coord_pair, df["Tipo_ataque"]).add_to(m)
+
+
 
 # Guardar el mapa como un archivo HTML
 m.save(r"E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\mapa_ips.html")
