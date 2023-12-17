@@ -8,7 +8,7 @@ import requests
 
 
 # Cargar el conjunto de datos
-df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado2.xlsx')
+df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado.xlsx')
 
 # Define tu clave de API de ipstack
 api_key = '5dbd572c7b96c5029e04f62e98d19e8f'
@@ -17,7 +17,7 @@ api_key = '5dbd572c7b96c5029e04f62e98d19e8f'
 coords = []
 
 # Definir la cantidad máxima de IPs a procesar en cada iteración (10,000 en este caso)
-max_ips_per_iteration = 1000
+max_ips_per_iteration = 10000
 
 # Iterar sobre las filas del dataset y obtener las coordenadas de cada IP
 for index, row in df.iterrows():
@@ -69,6 +69,6 @@ for index, row in df.iterrows():
         break
 
     # Pausa de 90 segundos entre iteraciones
-    time.sleep(90)
+    time.sleep(30)
         
 
