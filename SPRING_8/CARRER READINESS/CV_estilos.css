@@ -1,0 +1,75 @@
+/* CV_estilos.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('IMAGEN_FONDO_CV.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: black;
+  }
+  
+  header {
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  section {
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente blanco para mejorar la legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  h1, h2, h3 {
+    color: blue;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  .resumen img {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .educacion, .cursos, .experiencia, .idiomas, .skills {
+    margin-bottom: 20px;
+  }
+  
+  .educacion h2, .cursos h2, .experiencia h2, .idiomas h2, .skills h2 {
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 40px; /* O ajusta según sea necesario */
+}
+  
+  

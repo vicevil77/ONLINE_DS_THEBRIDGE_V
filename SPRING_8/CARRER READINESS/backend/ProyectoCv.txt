@@ -1,0 +1,8 @@
+- TuProyecto
+  - carpeta_principal
+    - index.html
+    - gracias.html
+    - error.html
+    - CV_estilos.css
+  - backend
+    - procesar_formulario.php
