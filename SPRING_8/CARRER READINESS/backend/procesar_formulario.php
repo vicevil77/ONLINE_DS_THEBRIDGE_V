@@ -16,12 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body .= "Mensaje:\n$message";
 
     // Envia el correo
-    mail($to, $subject, $body);
+    $headers = "From: $email"; // Puedes personalizar el remitente si es necesario
+    mail($to, $subject, $body, $headers);
 
     // Redirecciona o realiza otras acciones después de enviar el formulario
-    header("Location: ../ProyectoCV/gracias.html");
+    header("Location: ../Proyecto/gracias.html");
 } else {
     // Si alguien intenta acceder directamente al archivo PHP, redirige a una página de error
-    header("Location: ../ProyectoCV/error.html");
+    header("Location: ../Proyecto/error.html");
 }
 ?>
