@@ -7,7 +7,7 @@ from folium.plugins import PolyLineTextPath
 import geocoder
 import pandas as pd
 # Cargar el conjunto de datos
-df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado2.xlsx')
+df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado.xlsx')
 
 # Crear una lista vacía para guardar las coordenadas de las IPs
 coords = []
@@ -42,7 +42,7 @@ for index, row in df.iterrows():
             df_coords = pd.DataFrame(coords, columns=["Coordenadas Destino", "Coordenadas Origen"])
             df_coords.to_csv("coordenadas_ips.csv", index=False)
 
-        print(f"Procesadas {index} IPs. El programa se detendrá.")
+        print(f"Procesadas {index} IPs. El programa se detendra.")
         break
     except Exception as e:
     # Pausa de 30 segundos entre iteraciones
