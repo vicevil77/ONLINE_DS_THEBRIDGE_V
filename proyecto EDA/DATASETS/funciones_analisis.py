@@ -365,3 +365,55 @@ def columnas_cardin(df):
         print(f"{col: <15}{cardinalidad: <15}{tipo_columna: <20}")
 
 
+def analizar_dataframe(df):
+    # Crear un DataFrame de resumen
+    resumen = pd.DataFrame(index=df.columns)
+    
+    # Identificar el tipo de cada columna
+    resumen['Tipo'] = df.dtypes
+    
+    # Contar la cantidad de valores únicos y calcular la cardinalidad
+    resumen['Cardinalidad'] = df.nunique()
+    
+    # Calcular el porcentaje de valores nulos en cada columna
+    resumen['Porcentaje_Nulos'] = (df.isnull().mean()) * 100
+    
+    # Clasificar las columnas en categóricas, numéricas y binarias
+    resumen['Clasificación'] = 'Desconocida'
+    
+    # Identificar columnas categóricas
+    categóricas = df.select_dtypes(include='object').columns
+    resumen.loc[categóricas, 'Clasificación'] = 'Categórica'
+    
+    # Identificar columnas numéricas
+    numéricas = df.select_dtypes(include=['int', 'float']).columns
+    resumen.loc[numéricas, 'Clasificación'] = 'Numérica'
+    
+    # Identificar columnas binarias (que tienen solo dos valores únicos)
+    binarias = df.columns[df.nunique() == 2]
+    resumen.loc[binarias, 'Clasificación'] = 'Binaria'
+    
+    return resumen
+
+
+def convertir_notacion_india_numero_occidental(cantidad_india):
+    # Verificar si la entrada ya es un número
+    if isinstance(cantidad_india, (int, float)):
+        return cantidad_india  # No es una cadena, devolver el valor original
+
+    partes = cantidad_india.split(',')
+
+    crore = 0
+    lakh = 0
+    unidades = 0
+
+    if len(partes) == 1:
+        unidades = int(partes[0])
+    elif len(partes) == 2:
+        lakh, unidades = map(int, partes)
+    elif len(partes) == 3:
+        crore, lakh, unidades = map(int, partes)
+
+    numero_occidental = (crore * 10000000) + (lakh * 100000) + unidades
+
+    return numero_occidental
