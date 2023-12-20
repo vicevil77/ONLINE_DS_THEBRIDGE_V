@@ -417,3 +417,76 @@ def convertir_notacion_india_numero_occidental(cantidad_india):
     numero_occidental = (crore * 10000000) + (lakh * 100000) + unidades
 
     return numero_occidental
+
+
+#PARA HACER DIAGRAMAS DE FLUJO
+from graphviz import Digraph
+import pandas as pd
+
+# Abrir el DataFrame
+archivos_xlsx = r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado.xlsx'
+df_geo = pd.read_excel(archivos_xlsx, engine='openpyxl')
+
+# Crear un grafo dirigido (diagrama de flujo)
+G = Digraph()
+
+# Agregar nodos al grafo para cada columna en el DataFrame
+for col in df_geo.columns:
+    G.node(col)
+
+# Agregar arcos (flechas) entre nodos para representar el flujo de datos
+for i in range(len(df_geo.columns) - 1):
+    G.edge(df_geo.columns[i], df_geo.columns[i + 1])
+
+# Guardar el grafo como un archivo de imagen (por ejemplo, en formato PNG)
+imagen_path = r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DIAGRAMAS DE FLUJO\imagen.png'
+G.render(imagen_path, format='png', engine='dot', cleanup=True)
+
+print(f"Diagrama de flujo guardado en: {imagen_path}")
+
+
+
+
+
+from googletrans import Translator
+def traducir_columna(df, columna, idioma_destino):
+    # Definir la función para traducir si es necesario
+    def traducir(texto):
+        try:
+            # Convertir el texto a cadena si no es de tipo str
+            texto = str(texto)
+
+            # Verificar si el texto contiene solo números
+            if texto.isdigit():
+                return texto  # No traducir números, devolver el texto original
+
+            # Traducir solo si el idioma detectado no es el idioma de destino
+            idioma_detectado = detect(texto)
+            if idioma_detectado != idioma_destino:
+                # Intentar la traducción y manejar el error específico
+                try:
+                    traduccion = translate(texto, idioma_destino)
+                    if traduccion:
+                        return traduccion
+                    else:
+                        print(f"La traducción para el texto '{texto}' es None.")
+                        return texto
+                except Exception as e:
+                    print(f"Error durante la traducción: {e}. No se puede traducir el texto.")
+                    return texto
+            else:
+                return texto
+
+        except Exception as e:
+            print(f"Error durante la traducción: {e}")
+            return texto
+
+    # Aplicar la función de traducción a la columna
+    df[columna + '_traducido'] = df[columna].apply(traducir)
+    return df
+
+# Ejemplo de uso
+#df = df_esp
+#columna = "Payload Data"
+#idioma_destino = 'es'
+#df_traducido = traducir_columna(df, columna, idioma_destino)

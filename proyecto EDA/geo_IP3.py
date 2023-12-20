@@ -1,66 +1,57 @@
 
 # -*- coding: utf-8 -*-
-
+from geopy.geocoders import Nominatim
 import time
 import folium
-from folium.plugins import PolyLineTextPath
-import geocoder
+import geopandas as gpd
 import pandas as pd
+
 # Cargar el conjunto de datos
-df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado.xlsx')
+df = pd.read_excel(r'E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\DATASETS\DATASETS MODIFICADOS\ciber_modificado_ciudades_final.xlsx')
 
-# Crear una lista vacía para guardar las coordenadas de las IPs
-coords = []
-
-# Definir la cantidad máxima de IPs a procesar en cada iteración (10,000 en este caso)
-max_ips_per_iteration = 10000
-
-# Iterar sobre las filas del dataset y obtener las coordenadas de cada IP
-for index, row in df.iterrows():
-    ip_origen = row["Destino IP"]
-    ip_destino = row["IP Origen"]
-
-    # Utilizar geocoder para obtener las coordenadas de la IP origen
-    g_origen = geocoder.ip(ip_origen)
-
-    # Utilizar geocoder para obtener las coordenadas de la IP destino
-    g_destino = geocoder.ip(ip_destino)
-
+# Función para geocodificar direcciones con Nominatim
+def geocode_ips(direccion):
+    geolocator = Nominatim(user_agent="my_geocoder")
     try:
-        # Verificar que ambas respuestas tengan información de geolocalización
-        if g_origen.latlng and g_destino.latlng:
-            # Obtener las coordenadas de la IP origen y destino
-            lat_origen, lon_origen = g_origen.latlng
-            lat_destino, lon_destino = g_destino.latlng
-
-            coords.append([(lat_destino, lon_destino), (lat_origen, lon_origen)])   
-            print(f"No se encontraron resultados para la IP: {ip_origen} o {ip_destino}. Error: {e}")
-
-        # Verificar si se alcanzó el límite de IPs por iteración
-        if index % max_ips_per_iteration == 0 and index > 0:
-            # Guardar las coordenadas en un archivo
-            df_coords = pd.DataFrame(coords, columns=["Coordenadas Destino", "Coordenadas Origen"])
-            df_coords.to_csv("coordenadas_ips.csv", index=False)
-
-        print(f"Procesadas {index} IPs. El programa se detendra.")
-        break
+        location = geolocator.geocode(direccion)
+        if location:
+            print(f"Coordenadas obtenidas para '{direccion}': {location.latitude}, {location.longitude}")
+            return (location.latitude, location.longitude)
+        else:
+            print(f"No se pudieron obtener coordenadas para '{direccion}'")
+            return None
     except Exception as e:
-    # Pausa de 30 segundos entre iteraciones
-        time.sleep(30)
+        print(f"Error geocodificando direccion '{direccion}': {e}")
+    return None
 
-# Crear un mapa de Folium
-m = folium.Map(location=[0, 0], zoom_start=2)
+# Verificar si la columna 'coordenadas' ya está presente en el DataFrame
+if 'coordenadas' not in df.columns:
+    df['coordenadas'] = df["Destino IP"].apply(geocode_ips)
 
-# Pintar las IPs con puntos usando la función Marker de Folium
-for coord_pair in coords:
-    folium.Marker(coord_pair[1], icon=folium.Icon(color='red'), popup='Destino IP').add_to(m)
-    folium.Marker(coord_pair[0], icon=folium.Icon(color='blue'), popup='IP Origen').add_to(m)
+# Contador de IPs procesadas
+contador_total_ips = len(df)
+contador_ips_con_coordenadas = 0
+contador_ips_sin_coordenadas = 0
 
-# Unir las IPs origen con las de destino con líneas usando PolyLineTextPath
-for coord_pair in coords:
-    PolyLineTextPath(coord_pair, df["Tipo_ataque"]).add_to(m)
+# Bucle para geocodificar las direcciones IP
+for idx, row in df.iterrows():
+    if contador_ips_con_coordenadas + contador_ips_sin_coordenadas == 1000:
+        print("Se ha alcanzado el limite de 1000 IPs. Guardando resultados en HTML...")
+        # Guardar el DF como un archivo HTML
+        df.to_html(r"E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\coordenadas_ips_destino.html")
+        break
+
+    coordenadas = geocode_ips(row["Destino_IP"])
+    if coordenadas:
+        df.loc[idx, 'coordenadas'] = coordenadas
+        contador_ips_con_coordenadas += 1
+    else:
+        contador_ips_sin_coordenadas += 1
 
 
+# Imprimir resultados finales
+print(f"\nNumero total de IPs procesadas: {contador_total_ips}")
+print(f"Nnmero de IPs con coordenadas: {contador_ips_con_coordenadas}")
+print(f"Numero de IPs sin coordenadas: {contador_ips_sin_coordenadas}")
 
-# Guardar el mapa como un archivo HTML
-m.save(r"E:\Cursos\BC_Data_Science\Repositorio\ONLINE_DS_THEBRIDGE_V\proyecto EDA\mapa_ips.html")
+print("Geolocalizacion completada. Resultados guardados en mapa_geolocalizacion.html.")

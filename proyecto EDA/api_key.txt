@@ -1,5 +1,5 @@
 'AIzaSyBmJbAbqHwt127SIbXgtK8TO8Sb-_V2eMI' google maps
 
-7acfe9588146c079e834a9742a62fce6 - positionstack
+ 5dfbc624880d2662c9d0f22b4db98261 - positionstack
 
 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 - maxmind.com (geolite2
