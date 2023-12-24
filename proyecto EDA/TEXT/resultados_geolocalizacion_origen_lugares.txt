@@ -1,0 +1,1427 @@
+Longitud	Latitud	Info_Lugar
+24.3868333	120.6785751	
+10.862694	106.8094884	
+29.5557396	52.658705	83, Цэнтральная вуліца, Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+14.528044	121.004136	
+21.8742732	-82.7970498	Coordenadas en el mar u océano
+35.5545446	45.445429	República Autónoma de Crimea, Ucrania
+26.2300981	50.573701	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+25.0325657	121.5317085	
+26.1901559	50.5453511	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-35.6793612	-71.4374721	Coordenadas en el mar u océano
+53.100078249999996	17.903918659834787	Dhofar, Omán
+4.5667783	-74.1472274	Coordenadas en el mar u océano
+26.2177128	50.5660797	М-06;Н-25, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35702, Ucrania
+13.7824045	100.6817043	
+23.5319935	120.327124	
+36.1736946	43.9855204	Coordenadas en el mar u océano
+34.5113573	-80.0207483	Coordenadas en el mar u océano
+26.1266063	50.5575311	Здолбунівська міська громада, Рівненський район, Óblast de Rivne, Ucrania
+-17.9784478	-70.2384002	Coordenadas en el mar u océano
+35.5750464	45.4390042	República Autónoma de Crimea, Ucrania
+37.5409205	127.1188277	
+35.5830456	45.4173654	República Autónoma de Crimea, Ucrania
+35.5802193	45.4369701	República Autónoma de Crimea, Ucrania
+39.9111266	40.8555772	Güneyce, Arsin, Trabzon, Región del Mar Negro, Turquía
+35.5619785	45.4269467	República Autónoma de Crimea, Ucrania
+56.3193639	8.1386349	Coordenadas en el mar u océano
+26.2288559	50.5723461	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+51.9383873	40.5177503	Coordenadas en el mar u océano
+36.1724427	44.0032056	Coordenadas en el mar u océano
+-29.70435595	-53.87430529612854	Coordenadas en el mar u océano
+26.1701557	50.6221417	Обарів, Городоцька сільська громада, Рівненський район, Óblast de Rivne, 35307, Ucrania
+26.1862861	50.5443723	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+36.2049798	44.0121956	Coordenadas en el mar u océano
+44.6287701	5.0827978	Afder, Somali, Etiopía
+36.1890938	44.0136517	Coordenadas en el mar u océano
+35.5678245	45.3977088	República Autónoma de Crimea, Ucrania
+23.0084219	-82.474317	Coordenadas en el mar u océano
+59.755862	5.487319	Coordenadas en el mar u océano
+15.9198172	120.4145811	
+26.1910195	50.5478676	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+21.0348658	105.742967	
+26.1901559	50.5453511	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-7.5811823	110.90431	
+36.2047665	44.0205375	Coordenadas en el mar u océano
+33.350437	-97.181342	
+37.5953182	126.7976367	
+40.9847138	-72.2277113	Coordenadas en el mar u océano
+26.2539507	50.6623618	"ОЗ ""Шпанівський ліцей"", Робітнича вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania"
+12.4027712	-1.5602658	Provincia de Ogooué-Lolo, Gabón
+43.9925222	-92.3942754	
+55.5173679	21.6194057	محافظة العديد, Provincia Oriental, 36621, Arabia Saudita
+14.7166251	121.003274	
+54.6264836	24.9500598	أبوظبي, Abu Dabi, Emiratos Árabes Unidos
+24.9641428	121.5172018	
+35.5922918	45.4121411	República Autónoma de Crimea, Ucrania
+25.0123425	121.622324	
+48.749041	10.0405767	Laasqoray لاسقرى, Sanaag, Somalia
+35.5780212	45.4402888	República Autónoma de Crimea, Ucrania
+58.4629551	8.6873089	Coordenadas en el mar u océano
+9.1463175	99.5030202	
+25.0268441	121.550952	
+51.9992522	15.357332	Gobernación de Al Mahrah, Yemen
+49.1413699	13.5159685	Coordenadas en el mar u océano
+47.9084071	-53.0729517	Coordenadas en el mar u océano
+13.0018197	100.0595111	
+21.0066203	105.8135929	
+36.1599913	44.0264312	Coordenadas en el mar u océano
+61.3184305	12.1743114	Coordenadas en el mar u océano
+36.1612355	43.9873425	Coordenadas en el mar u océano
+37.4676674	127.0458795	
+36.1644933	44.0050703	Coordenadas en el mar u océano
+36.1687616	43.9834664	Coordenadas en el mar u océano
+26.1790135	50.6186282	Обарів, Городоцька сільська громада, Рівненський район, Óblast de Rivne, 35307, Ucrania
+33.3479886	44.3883651	Sebastopol, Южный федеральный округ, Rusia
+36.826035	54.434207	сельское поселение Деревня Зудна, Ферзиковский район, Óblast de Kaluga, Distrito federal Central, 249802, Rusia
+35.5736273	45.4009321	República Autónoma de Crimea, Ucrania
+33.3375727	44.4059482	Sebastopol, Южный федеральный округ, Rusia
+34.9317636	135.1844233	
+10.8416804	106.6626095	
+32.6295822	130.8883641	
+26.2645351	50.6166763	Покровський, 1, вулиця Княгині Ольги, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33014, Ucrania
+65.9419147	12.470747	Coordenadas en el mar u océano
+55.2012923	24.0655619	الخَزنة, العين, Abu Dabi, Emiratos Árabes Unidos
+25.1066041	121.5337452	
+10.7690945	106.6291431	
+51.0614016	17.0999773	مديرية منعر, Gobernación de Al Mahrah, Yemen
+40.9878833	27.5505099	محافظة موقق, Provincia de Hail, 81443, Arabia Saudita
+26.2267376	50.5776798	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+35.5912854	45.4068383	República Autónoma de Crimea, Ucrania
+64.1323089	-21.8935018	Coordenadas en el mar u océano
+25.068247	121.4885169	
+33.3506223	44.4011392	Sebastopol, Южный федеральный округ, Rusia
+38.2275075	34.4348292	ناحية تدمر, منطقة تدمر, Gobernación de Homs, Siria
+10.8411646	106.6630144	
+33.901932	-98.4445378	
+36.796174	-93.494873	
+55.8064417	21.8997567	Ad Dhahirah, Omán
+33.3336893	44.4107031	Sebastopol, Южный федеральный округ, Rusia
+48.9351338	5.0338882	Coordenadas en el mar u océano
+26.2484695	50.6571517	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+36.844934	-99.6293905	
+25.0274799	121.5480283	
+25.0386794	121.5059513	
+-21.3485066	-48.0670007	Coordenadas en el mar u océano
+13.4632376	44.0107815	Coordenadas en el mar u océano
+60.1123909	19.9808197	Coordenadas en el mar u océano
+40.514017	40.01263	Kop Dağı Tüneli, Aşkale, Erzurum, Doğu Anadolu Bölgesi, Turquía
+41.94754	-74.91197	Coordenadas en el mar u océano
+63.0	22.316667	Coordenadas en el mar u océano
+29.6288533	52.584264	43, вуліца Мірашнічэнкі, Печышчы, Сасноваборскі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 246284, Belarús
+53.1585154	15.400320875619894	Coordenadas en el mar u océano
+35.5598697	45.4833521	República Autónoma de Crimea, Ucrania
+33.3516922	44.4024602	Sebastopol, Южный федеральный округ, Rusia
+39.1800386	-108.0361603	
+33.8860773	35.5077758	Chipre del Norte, Chipre
+50.82338	19.0884002	محافظة شروره, Provincia de Najrán, Arabia Saudita
+33.3063792	44.4044071	Sebastopol, Южный федеральный округ, Rusia
+38.1659	28.0131417	محافظة تيماء, Provincia de Tabuk, 45911, Arabia Saudita
+47.0840431	-55.1461909	Coordenadas en el mar u océano
+35.318648	136.689085	
+34.4485736	-106.715191	
+33.8886567	133.0301883	
+45.8746821	13.5096339	مديرية خنفر, Gobernación de Abyan, Yemen
+46.2569085	-89.000087	Coordenadas en el mar u océano
+36.2133579	44.0380383	Coordenadas en el mar u océano
+54.4420234	23.0002629	أبو قْرَيْن, منطقة الظفرة, Abu Dabi, Emiratos Árabes Unidos
+55.8564651	23.9810179	شارع وادي صاع, حفيت, Buraimi, Omán
+36.1740131	43.9850847	Coordenadas en el mar u océano
+25.0277119	121.5389586	
+47.9239076	3.847117	Coordenadas en el mar u océano
+25.0310178	121.5311821	
+50.0528196	13.1430958	Coordenadas en el mar u océano
+33.3011039	44.3692857	Sebastopol, Южный федеральный округ, Rusia
+21.7396079	-82.7619233	Coordenadas en el mar u océano
+45.0929989	-0.3965968	Coordenadas en el mar u océano
+35.5781114	45.4343595	República Autónoma de Crimea, Ucrania
+24.948739	121.4815931	
+26.1854262	50.5442726	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+35.6012135	45.4087897	República Autónoma de Crimea, Ucrania
+29.5792347	52.6174278	1, Лясная вуліца, Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+47.4216549	3.9153146	Ceel Dheer, Galguduud, Galmudug غامدوغ, Somalia
+46.8116834	-122.1794824	
+33.3334191	44.4033104	Sebastopol, Южный федеральный округ, Rusia
+26.1855105	50.5440558	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+49.233918599999996	7.009954715740743	Jariiban جاريبان, Mudug, Galmudug غامدوغ, Somalia
+64.0738494	-21.9395168	Coordenadas en el mar u océano
+41.1021689	28.8580323	طعيسات غربة, محافظة حائل, Provincia de Hail, Arabia Saudita
+36.2030288	43.9994514	Coordenadas en el mar u océano
+45.4514279	9.116668253456934	Burco برعو, Togdheer, Somalia
+39.1028443	-94.5784041	
+43.0818429	13.8052656	مديرية الخوخة, Gobernación de Al Hudayda, Yemen
+30.3261984	31.769732	Coordenadas en el mar u océano
+31.3911713	-83.2317835	Coordenadas en el mar u océano
+10.7697094	106.6794255	
+26.2487989	50.6557747	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+25.0443435	121.5771284	
+20.9803395	105.8175304	
+25.3641481	51.476951	Прилісненська сільська громада, Камінь-Каширський район, Óblast de Volinia, Ucrania
+35.5727952	45.4608881	República Autónoma de Crimea, Ucrania
+34.3263076	133.8481956	
+66.7115269	26.8306513	Laekar, تحصیل وڈھ, ضلع خضدار, قلات ڈویژن, Baluchistán, Pakistán
+60.2074214	19.660077	Coordenadas en el mar u océano
+29.5349869	52.6229407	Н5013, Вялікі Бор, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+36.034285	14.249019	ود الحليوة, Kasala, Sudán
+29.5783484	52.5532509	Сасноваборскі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+57.8628788	26.9964479	دهستان گشمیران, بخش مرکزی, شهرستان منوجان, Kermán, Irán
+22.9769984	-82.380878	Coordenadas en el mar u océano
+43.871263	-121.1020562	
+-7.6190844	110.8205119	
+36.1581331	44.0112443	Coordenadas en el mar u océano
+25.0008585	121.4646522	
+24.245031	120.5414775	
+43.5867727	11.807968	Coordenadas en el mar u océano
+40.8168136	16.6841477	Coordenadas en el mar u océano
+25.068247	121.4885169	
+49.2403906	6.9851629	Jariiban جاريبان, Mudug, Galmudug غامدوغ, Somalia
+37.5478372	126.8702628	
+35.5813766	45.4024148	República Autónoma de Crimea, Ucrania
+35.438537	133.3271838	
+26.1862861	50.5443723	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+34.5902424	50.8566215	Великі Вільми, Садівська сільська громада, Сумський район, Óblast de Sumy, 42345, Ucrania
+36.1687103	128.5505242	
+35.5808105	45.4216818	República Autónoma de Crimea, Ucrania
+47.9710975	-3.2756692	Coordenadas en el mar u océano
+48.09138385	-1.6362339219421953	Coordenadas en el mar u océano
+-26.8819862	-52.0216268	Coordenadas en el mar u océano
+26.1932538	50.54387	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+10.7662149	106.6500749	
+33.7883061	133.7390621	
+52.9184198	16.4523815	Gobernación de Al Mahrah, Yemen
+24.9619379	121.5391895	
+35.8390204	14.4637115	Bashafenagsh, Kasala, Sudán
+-0.1727806	-76.64996267179549	Coordenadas en el mar u océano
+33.316275	44.4253235	Sebastopol, Южный федеральный округ, Rusia
+35.56201	45.4405375	República Autónoma de Crimea, Ucrania
+35.5683332	45.4143507	República Autónoma de Crimea, Ucrania
+39.0721189	33.8999237	ناحية تدمر, منطقة تدمر, Gobernación de Homs, Siria
+25.0573077	121.5960375	
+35.5809886	45.4223129	República Autónoma de Crimea, Ucrania
+35.114136	133.200335	
+38.4251225	28.9425898	Gobernación de Tabuk, Provincia de Tabuk, Arabia Saudita
+26.185331	50.5465111	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+36.1739403	43.9903318	Coordenadas en el mar u océano
+26.2455035	127.6952257	
+34.8887981	135.4462413	
+64.1126743	-21.8435199	Coordenadas en el mar u océano
+26.1852289	50.5451301	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+25.0602001	121.548797	
+33.3391948	44.3918556	Sebastopol, Южный федеральный округ, Rusia
+-25.9587453	32.570016	Coordenadas en el mar u océano
+34.8241773	134.6929967	
+25.0344695	121.5560138	
+36.1659851	43.9989766	Coordenadas en el mar u océano
+36.2158516	44.0234668	Coordenadas en el mar u océano
+33.3481728	44.3914287	Sebastopol, Южный федеральный округ, Rusia
+55.0826165	22.6080783	محافظة العديد, Provincia Oriental, 36621, Arabia Saudita
+34.738697	10.5132636	Asosa, Benishangul-Gumaz, Etiopía
+34.988186	133.4571064	
+25.020575	121.4231547	
+35.5869986	45.4036453	República Autónoma de Crimea, Ucrania
+34.2723384	133.9746888	
+29.6303091	52.5947904	60, вуліца Мірашнічэнкі, Печышчы, Сасноваборскі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 246284, Belarús
+35.5551513	45.438596	República Autónoma de Crimea, Ucrania
+49.2086308	-124.456742	
+54.5427296	24.1576736	الظفرة, البِحوث, أبوظبي, Abu Dabi, Emiratos Árabes Unidos
+29.5775396	52.6388595	Н5013, Вялікі Бор, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+32.463269	35.3036986	Chipre
+21.0458683	105.7588097	
+-25.301694949999998	-57.61675163278362	Coordenadas en el mar u océano
+29.5607945	52.6143613	Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+33.5399847	-5.1033181	Uyui, Región de Tabora, Central Zone, Tanzania
+33.3473859	44.3978897	Sebastopol, Южный федеральный округ, Rusia
+35.5951462	45.4164109	República Autónoma de Crimea, Ucrania
+50.3565195	1.7670895	Coordenadas en el mar u océano
+26.180251	50.6167208	Тинне, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33004, Ucrania
+-27.3844362	-55.9445213	Coordenadas en el mar u océano
+25.032755	121.5305543	
+47.1046748	37.5540483	اوشندل, دهستان کوهسار, بخش مرکزی, شهرستان هشترود, Azerbaiyán Oriental, Irán
+49.6682595	-103.1129179	
+54.9534761	23.0576763	القوع, العين, Abu Dabi, Emiratos Árabes Unidos
+36.1947098	44.0123297	Coordenadas en el mar u océano
+47.8618084	-123.005258	
+35.5705726	45.3793589	República Autónoma de Crimea, Ucrania
+34.5026463	-84.9529602	Coordenadas en el mar u océano
+35.5654804	45.4159047	República Autónoma de Crimea, Ucrania
+46.8453786	29.6748249	Safwan, قضاء الزبير, Gobernación de Basora, 61005, Irak
+44.6571678	9.2296719	Hargeysa هرجيسا, Woqooyi Galbeed, Somalia
+-27.3743483	-55.9440921	Coordenadas en el mar u océano
+26.1852289	50.5451301	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+24.894959	121.265684	
+25.1038959	121.4529225	
+39.352974	-83.374914	Coordenadas en el mar u océano
+48.3959504	-119.5453884	
+26.1233626	50.5649672	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+23.2655622	120.9552683	
+48.2179708	6.2199162	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+54.0757133	12.094193	Coordenadas en el mar u océano
+25.134088	121.4619159	
+35.5766172	45.404195	República Autónoma de Crimea, Ucrania
+40.9220663	-72.8925363	Coordenadas en el mar u océano
+35.5943425	45.4133091	República Autónoma de Crimea, Ucrania
+64.0091922	-22.5665372	Coordenadas en el mar u océano
+23.1665211	120.3278151	
+26.2294714	50.5728178	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+26.2487989	50.6557747	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+33.203843	131.6043948	
+60.2065865	19.6251645	Coordenadas en el mar u océano
+35.5758571	45.4386227	República Autónoma de Crimea, Ucrania
+25.0187848	121.5531788	
+36.2154943	44.024287	Coordenadas en el mar u océano
+60.2463541	25.1444109	دهستان کهیر, بخش مرکزی, شهرستان کنارک, Sistán y Baluchistán, Irán
+60.167574349999995	24.92551536592346	Coordenadas en el mar u océano
+35.5854133	45.393028	República Autónoma de Crimea, Ucrania
+33.6250009	-117.9331124	
+62.1355153	-6.8469872	Coordenadas en el mar u océano
+58.509195	8.8437482	Coordenadas en el mar u océano
+37.3384664	42.1282419	Coordenadas en el mar u océano
+14.526054	121.0111023	
+23.1699731	-82.2671318	Coordenadas en el mar u océano
+35.5598789	45.4489754	República Autónoma de Crimea, Ucrania
+44.6958176	-0.1616541	Coordenadas en el mar u océano
+37.0051702	37.7873749	Kuzey, Karamanlı, Dulkadiroğlu, Kahramanmaraş, Región del Mediterráneo, Turquía
+62.7372534	7.1617202	Coordenadas en el mar u océano
+35.017506	128.7245106	
+40.5257279	34.9536552	القريا, ناحية العشارة, منطقة الميادين, Gobernación de Deir ez-Zor, Siria
+10.7659229	106.6503102	
+10.7834744	106.6302328	
+48.755623	10.0706818	Laasqoray لاسقرى, Sanaag, Somalia
+46.1842097	4.7305409	Ceel Buur, Galguduud, Galmudug غامدوغ, Somalia
+50.9146948	-102.3780669	
+38.9991038	33.8537919	ناحية تدمر, منطقة تدمر, Gobernación de Homs, Siria
+35.5621975	45.4190987	República Autónoma de Crimea, Ucrania
+70.2166279	21.7245589	Upleta Taluka, Rajkot District, Guyarat, India
+36.1634356	44.0213761	Coordenadas en el mar u océano
+35.9326146	14.3472955	Abuda, Kasala, Sudán
+35.5892532	45.3917341	República Autónoma de Crimea, Ucrania
+26.24825	50.6551214	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+60.797164	11.0726296	Coordenadas en el mar u océano
+35.5870116	45.4013153	República Autónoma de Crimea, Ucrania
+34.006388	131.992743	
+46.5484846	-1.138221	Coordenadas en el mar u océano
+33.1716971	131.6247413	
+25.0619257	121.5632683	
+40.7803607	15.1293791	Coordenadas en el mar u océano
+66.3781251	23.6941943	Coordenadas en el mar u océano
+35.5643168	45.4530355	República Autónoma de Crimea, Ucrania
+36.1622736	44.0205962	Coordenadas en el mar u océano
+39.695021	39.6820671	Terzibaba Mah., Altınbaşak, Üzümlü, Erzincan, Doğu Anadolu Bölgesi, Turquía
+14.5514777	120.9977944	
+26.2301707	50.5783451	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+33.8761591	133.7676004	
+36.1975688	44.0016063	Coordenadas en el mar u océano
+25.0296095	121.4305389	
+33.8147869	-98.1984219	
+59.9961006	5.0947581	Coordenadas en el mar u océano
+34.6572655	50.8357424	С-191541, Павлючки, Садівська сільська громада, Сумський район, Óblast de Sumy, 42345, Ucrania
+63.9744118	-22.3574088	Coordenadas en el mar u océano
+37.600277	-93.007881	
+36.1982386	44.0008052	Coordenadas en el mar u océano
+41.086321	32.9269781	ناحية مرکز قضاء االرطبة, قضاء الرطبة, Gobernación de Ambar, Irak
+26.2301707	50.5783451	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+35.9803544	136.1599883	
+48.2466479	5.9849059	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+50.7949259	-103.8829354	
+29.562146	52.6582336	Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+26.2496296	50.6565677	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+55.7449609	12.5562822	Coordenadas en el mar u océano
+30.3069786	31.7615203	Coordenadas en el mar u océano
+48.777405	10.0688609	Laasqoray لاسقرى, Sanaag, Somalia
+29.5599508	52.6151421	Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+35.7605566	139.5465834	
+29.7753651	52.4463482	Асташкавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+35.5790756	45.4263593	República Autónoma de Crimea, Ucrania
+25.0809856	121.4883302	
+35.7471046	137.8808222	
+26.1909902	50.5379775	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-5.1063767	-42.7615814	Coordenadas en el mar u océano
+33.2887034	129.8342932	
+64.1241281	-21.8196656	Coordenadas en el mar u océano
+54.4554424	-118.0309457	
+61.9703647	5.5106141	Coordenadas en el mar u océano
+36.1612355	43.9873425	Coordenadas en el mar u océano
+27.0711808	-82.32093621396413	Coordenadas en el mar u océano
+12.855339350000001	102.60881446635895	
+58.2915093	7.9926911	Coordenadas en el mar u océano
+49.7510821	21.2907035	محافظة الأحساء, Provincia Oriental, Arabia Saudita
+-11.8842091	-77.0182045	Coordenadas en el mar u océano
+35.5828973	45.384711	República Autónoma de Crimea, Ucrania
+36.1896138	44.0317855	Coordenadas en el mar u océano
+35.5811201	45.4329335	República Autónoma de Crimea, Ucrania
+49.0274609	10.188725	Laasqoray لاسقرى, Sanaag, Somalia
+50.0079528	-119.3975036	
+49.348104	-102.9931629	
+12.3302644	-1.5248957	Nzambi I, Provincia de Ogooué-Lolo, Gabón
+58.8769444	9.0170211	Coordenadas en el mar u océano
+62.5558961	6.6243994	Coordenadas en el mar u océano
+37.6743589	126.9190113	
+47.5069506	-53.2131189	Coordenadas en el mar u océano
+25.0815518	121.4598495	
+35.575721	45.3958558	República Autónoma de Crimea, Ucrania
+32.3374659	-95.2917298	
+41.0192135	14.5564424	Debubawi Keyih Bahri, Eritrea
+25.0672035	121.5326983	
+26.1840288	50.5420685	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+35.7054123	51.4879576	Толмачевка, Любимовский сельсовет, Большесолдатский район, Óblast de Kursk, Distrito federal Central, Rusia
+47.0558723	-0.2657487	Coordenadas en el mar u océano
+43.6251893	0.9218408	Savaro, Baraawe مدينة ﺑَﺮَﺍﻭَة, Shabeellaha Hoose, Koonfur Galbeed جنوب غرب, Somalia
+25.1069304	121.5331912	
+38.3901759	27.09709	محافظة تيماء, Provincia de Tabuk, 45911, Arabia Saudita
+34.077145	-94.735508	
+54.2701316	23.7665686	طريق الساحل, الزَّرَّافْ, منطقة الظفرة, Abu Dabi, Emiratos Árabes Unidos
+43.5867727	11.807968	Coordenadas en el mar u océano
+9.9116119	-84.078794	Coordenadas en el mar u océano
+-21.915578099999998	-60.105708594963986	Coordenadas en el mar u océano
+26.1268534	50.5455241	Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35710, Ucrania
+34.9885947	135.91478477033735	
+42.03862855	-71.21270187806124	Coordenadas en el mar u océano
+55.0385464	-1.7110522	Coordenadas en el mar u océano
+26.1232993	50.5647347	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+25.032755	121.5305543	
+26.2624035	50.6178933	12, Соборна вулиця, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33017, Ucrania
+35.570476	45.3787505	República Autónoma de Crimea, Ucrania
+39.3025004	40.3472585	Hanlar Mahallesi, Kaden, Karamustafa, Gümüşhane, Región del Mar Negro, Turquía
+37.4135914	44.0950474	Coordenadas en el mar u océano
+36.1649375	44.0294751	Coordenadas en el mar u océano
+33.3161911	44.4230189	Sebastopol, Южный федеральный округ, Rusia
+26.2496178	50.6562585	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+55.9464182	-2.8147198828375504	Coordenadas en el mar u océano
+61.7944832	-6.7483451	Coordenadas en el mar u océano
+35.5763841	45.3990245	República Autónoma de Crimea, Ucrania
+10.788348	106.5881319	
+54.7171314	23.2222746	أبو قْرَيْن, منطقة الظفرة, Abu Dabi, Emiratos Árabes Unidos
+36.1656961	44.0106107	Coordenadas en el mar u océano
+40.982816	-84.399285	Coordenadas en el mar u océano
+35.5793433	45.4355312	República Autónoma de Crimea, Ucrania
+29.7966204	52.4142421	Асташкавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+29.5625142	52.6262729	Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+62.0638734	-6.9301939	Coordenadas en el mar u océano
+62.3844057	21.2531481	Coordenadas en el mar u océano
+10.7262177	106.6211118	
+56.0768805	12.1914396	Coordenadas en el mar u océano
+25.0817873	121.4562435	
+56.018912	21.652255	Ad Dhahirah, Omán
+47.6167069	-53.5100938	Coordenadas en el mar u océano
+48.6577993	51.7563408	Рукопольское сельское поселение, Краснопартизанский район, Óblast de Sarátov, Приволжский федеральный округ, Rusia
+40.9766177	-72.2709674	Coordenadas en el mar u océano
+34.7121869	135.2467557	
+41.5021786	-72.4524144	Coordenadas en el mar u océano
+33.33102	44.4049276	Sebastopol, Южный федеральный округ, Rusia
+36.1819177	44.0126766	Coordenadas en el mar u océano
+35.5800098	45.4312967	República Autónoma de Crimea, Ucrania
+36.2342192	36.2069527	Gökçegöz yolu, Gökçegöz, Antioquía, Hatay, Región del Mediterráneo, Turquía
+12.922630999999999	80.24950594014084	Coordenadas en el mar u océano
+34.3226149	133.8547088	
+35.6999783	51.4862285	2-я Косторная, Любимовский сельсовет, Большесолдатский район, Óblast de Kursk, Distrito federal Central, Rusia
+26.1880552	50.5437499	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+35.5872569	45.407717	República Autónoma de Crimea, Ucrania
+26.6266952	128.1785881	
+-28.0223432	153.2686793	
+41.3464078	34.8792724	ناحية الرمانة, قضاء القائم, Gobernación de Ambar, Irak
+26.1879728	50.5476375	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-47.7380315	-65.9029809	Coordenadas en el mar u océano
+37.4442558	-88.3290443	Coordenadas en el mar u océano
+37.6661529	126.8046507	
+59.9406801	10.9929176	Coordenadas en el mar u océano
+37.2171349	-119.484186	
+25.0243087	121.4907044	
+10.7688577	106.6796297	
+59.9493181	11.044430236782215	Coordenadas en el mar u océano
+40.9820399	-72.220808	Coordenadas en el mar u océano
+59.306483	18.0139528	Coordenadas en el mar u océano
+26.2279861	50.5770479	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+33.3465315	44.3948072	Sebastopol, Южный федеральный округ, Rusia
+36.165784	43.9821291	Coordenadas en el mar u océano
+62.2732524	25.9004372	تحصیل بالنیگور, ضلع کیچ, مکران ڈویژن, Baluchistán, Pakistán
+26.2248523	50.5738847	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+18.25144595	99.47640238973322	
+-17.9773303	-70.2368106	Coordenadas en el mar u océano
+35.5618484	45.4657559	República Autónoma de Crimea, Ucrania
+21.8794029	-82.7938142	Coordenadas en el mar u océano
+67.8144818	24.7925909	Thatta, تعلقہ ٹھٹہ, ضلع ٹھٹہ, Sind, 73130, Pakistán
+22.239862	-83.5844789	Coordenadas en el mar u océano
+60.0421895	5.2037254	Coordenadas en el mar u océano
+4.9123301	114.8528878	
+21.067961	105.833932	
+25.0337518	121.4411104	
+55.2075385	14.9725255	Coordenadas en el mar u océano
+60.1217049	19.9880988	Coordenadas en el mar u océano
+59.649562	6.002167	Coordenadas en el mar u océano
+65.9784945	12.5671521	Coordenadas en el mar u océano
+46.2654177	4.1403595	Bulo Burti بولو بورتي, Hiiraan, Hirshabeelle هيرشابيل, Somalia
+24.9925427	121.5133058	
+10.7640685	106.6513182	
+48.2867642	-0.9954832	Coordenadas en el mar u océano
+35.5781169	45.389842	República Autónoma de Crimea, Ucrania
+36.585338	-90.79567	
+25.0815518	121.4598495	
+29.4875777	73.1040179	Coordenadas en el mar u océano
+14.5435446	120.9995297	
+36.2163496	44.0025146	Coordenadas en el mar u océano
+15.3371105	38.9366333	Italia
+-26.3884757	-69.3751056	Coordenadas en el mar u océano
+54.6922382	23.1454396	أبو قْرَيْن, منطقة الظفرة, Abu Dabi, Emiratos Árabes Unidos
+36.1870518	44.0377048	Coordenadas en el mar u océano
+38.5117861	31.5655489	محافظة طريف, Provincia de la Frontera del Norte, Arabia Saudita
+36.72794355	10.466227011339008	West Gojjam, Amhara, Etiopía
+28.2147748	83.977905	Coordenadas en el mar u océano
+35.5844142	45.4194577	República Autónoma de Crimea, Ucrania
+35.58715	45.4106417	República Autónoma de Crimea, Ucrania
+59.3082198	18.1188888	Coordenadas en el mar u océano
+26.2653168	50.6179287	Грабник, вулиця Івана Франка, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33023, Ucrania
+-18.0474511	-70.2518233	Coordenadas en el mar u océano
+59.2805917	18.0371591	Coordenadas en el mar u océano
+26.1910195	50.5478676	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+32.5599227	35.3539444	Chipre del Norte, Chipre
+32.6877733	129.8271648	
+35.5699687	45.4519125	República Autónoma de Crimea, Ucrania
+44.6974402	-0.1519553	Coordenadas en el mar u océano
+36.1910589	44.0026668	Coordenadas en el mar u océano
+30.2645935	-84.2757774	Coordenadas en el mar u océano
+42.72132	-83.1213623	Coordenadas en el mar u océano
+36.1657778	43.9794949	Coordenadas en el mar u océano
+48.7833566	10.1597308	Laasqoray لاسقرى, Sanaag, Somalia
+36.2191242	44.0338292	Coordenadas en el mar u océano
+-21.875683000000002	-60.0866723560016	Coordenadas en el mar u océano
+10.8447575	106.6797781	
+48.1155735	0.3660471	Coordenadas en el mar u océano
+36.1661069	43.9835808	Coordenadas en el mar u océano
+60.2863995	25.1400425	دهستان جهلیان, بخش مرکزی, شهرستان کنارک, Sistán y Baluchistán, Irán
+30.9099313	-86.9042355	Coordenadas en el mar u océano
+36.3586469	43.1406544	Coordenadas en el mar u océano
+36.2171157	44.0231118	Coordenadas en el mar u océano
+-11.8782142	-77.0164471	Coordenadas en el mar u océano
+12.4026897	-1.5625762	Provincia de Ogooué-Lolo, Gabón
+34.0649055	132.9944935	
+25.0344695	121.5560138	
+34.7891017	10.520593	Belfodiyo, Asosa, Benishangul-Gumaz, Etiopía
+26.2314964	50.5792348	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+37.29324	-87.135982	Coordenadas en el mar u océano
+26.1857203	50.5457689	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+35.5635108	45.4487205	República Autónoma de Crimea, Ucrania
+36.1683027	44.0329391	Coordenadas en el mar u océano
+25.0762981	121.4326434	
+26.1856173	50.5446946	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+36.1712567	43.993594	Coordenadas en el mar u océano
+35.40171	-77.9850556	Coordenadas en el mar u océano
+34.9878162	133.4569783	
+26.362569	126.715963	
+34.533372	-79.556441	Coordenadas en el mar u océano
+23.7089418	120.2006947	
+59.9078002	10.6289103	Coordenadas en el mar u océano
+32.3870916	131.041816	
+53.3741075	-6.2846211	Coordenadas en el mar u océano
+33.3455771	44.3862301	Sebastopol, Южный федеральный округ, Rusia
+35.574917	45.4636896	República Autónoma de Crimea, Ucrania
+27.5735536	85.4917398	Coordenadas en el mar u océano
+42.2732072	86.731723	Coordenadas en el mar u océano
+64.6657852	24.4782915	Coordenadas en el mar u océano
+35.5882018	45.3906728	República Autónoma de Crimea, Ucrania
+23.1404269	120.4317394	
+35.5733886	45.4434278	República Autónoma de Crimea, Ucrania
+41.0392899	73.04828689962716	Coordenadas en el mar u océano
+52.1920955	-1.3718487	Coordenadas en el mar u océano
+60.8878866	10.6712852	Coordenadas en el mar u océano
+35.555041	45.4371973	República Autónoma de Crimea, Ucrania
+26.1866294	50.5459651	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+65.363142	12.17159	Coordenadas en el mar u océano
+26.2301707	50.5783451	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+36.8873639	40.0335299	Sivas Merkez, Sivas, İç Anadolu Bölgesi, Turquía
+14.6180101	120.970819	
+49.2218728	6.0095822	Coordenadas en el mar u océano
+10.8026792	106.7081769	
+57.8291063	26.5287334	دهستان سردشت, بخش مرکزی, شهرستان بشاگرد, Hormozgan, Irán
+47.1372687	-0.2948787	Coordenadas en el mar u océano
+36.7285003	10.467686480009725	West Gojjam, Amhara, Etiopía
+45.9780943	-67.4684085	Coordenadas en el mar u océano
+26.2301707	50.5783451	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+33.3402009	44.3978826	Sebastopol, Южный федеральный округ, Rusia
+40.9777976	-72.2708368	Coordenadas en el mar u océano
+58.7052576	15.7678723	Coordenadas en el mar u océano
+14.5338003	121.0004266	
+41.5757596	-71.8580283	Coordenadas en el mar u océano
+58.4591907	6.0044992	Coordenadas en el mar u océano
+54.4441764	24.4386021	شارع الشَّبَاب, Al Matar, حديقة خليفة, Abu Dabi, أبوظبي, Abu Dabi, Emiratos Árabes Unidos
+40.6798722	40.2545939	Kızılhasan, Sper, Erzurum, Doğu Anadolu Bölgesi, Turquía
+34.2891563	134.2488681	
+60.2504569	24.8332345	Coordenadas en el mar u océano
+25.0355477	121.5273832	
+25.064245	121.5338503	
+35.5744257	45.4518726	República Autónoma de Crimea, Ucrania
+49.669121	-107.020447	
+68.9555411	16.6498045	Coordenadas en el mar u océano
+36.1693742	43.9894633	Coordenadas en el mar u océano
+55.5173679	21.6194057	محافظة العديد, Provincia Oriental, 36621, Arabia Saudita
+33.3493887	44.3948813	Sebastopol, Южный федеральный округ, Rusia
+48.0906904	-53.0026307	Coordenadas en el mar u océano
+25.0375198	121.5636796	
+26.1909902	50.5379775	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+35.42145	128.37822	
+31.2171558	35.100644	Coordenadas en el mar u océano
+36.1882967	44.0334247	Coordenadas en el mar u océano
+35.2801026	138.5675364	
+33.3342365	44.4087466	Sebastopol, Южный федеральный округ, Rusia
+35.5691312	45.3940216	República Autónoma de Crimea, Ucrania
+60.2840517	24.747566	Coordenadas en el mar u océano
+35.5792525	45.4558413	República Autónoma de Crimea, Ucrania
+42.5281502	-75.521642	Coordenadas en el mar u océano
+10.7959046	106.5916608	
+35.5632267	45.4372382	República Autónoma de Crimea, Ucrania
+35.5663838	45.3906714	República Autónoma de Crimea, Ucrania
+45.2866018	6.2948878	Dollo, Somali, Etiopía
+36.2077049	43.9900307	Coordenadas en el mar u océano
+35.5583488	45.4826268	República Autónoma de Crimea, Ucrania
+35.5805836	45.4164961	República Autónoma de Crimea, Ucrania
+47.6748623	-53.265205	Coordenadas en el mar u océano
+36.2000933	44.0280023	Coordenadas en el mar u océano
+-16.0060173	-47.9899912	Coordenadas en el mar u océano
+25.0204511	121.4227325	
+35.5893619	45.4176958	República Autónoma de Crimea, Ucrania
+26.2296706	50.5769358	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+64.1239138	-21.8229682	Coordenadas en el mar u océano
+35.5856322	45.4126706	República Autónoma de Crimea, Ucrania
+69.1324599	18.0628666	Coordenadas en el mar u océano
+35.4685399	134.2515443	
+35.5631418	45.4680516	República Autónoma de Crimea, Ucrania
+40.6162806	-112.498767	
+25.0355818	121.541945	
+36.2019227	43.9866896	Coordenadas en el mar u océano
+36.3422329	138.2852807	
+36.1658342	43.9880265	Coordenadas en el mar u océano
+26.1858618	50.5455532	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+37.5173558	13.7182722	Western Tigray, Tigray, Etiopía
+25.0421069	121.5083483	
+36.1653806	44.012944	Coordenadas en el mar u océano
+63.5409832	29.1738104	تحصیل دالبندین, ضلع چاغی, رخشان ڈویژن, Baluchistán, Pakistán
+47.84941	6.3888875	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+55.1072746	25.3218783	Dubái, Emiratos Árabes Unidos
+32.1552542	34.9550421	Chipre
+-22.002267	-68.194543	Coordenadas en el mar u océano
+35.5887282	45.4228266	República Autónoma de Crimea, Ucrania
+35.5590827	45.4531592	República Autónoma de Crimea, Ucrania
+47.4309796	5.843832	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+26.1847226	50.5453489	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+64.6323213	25.2928629	تحصیل اورماڑہ, ضلع گوادر, مکران ڈویژن, Baluchistán, 91400, Pakistán
+47.1018346	1.4506313	Coordenadas en el mar u océano
+10.7478739	106.6896614	
+34.3368517	134.2351318	
+35.5636753	45.4714908	República Autónoma de Crimea, Ucrania
+26.24825	50.6551214	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+26.1852295	50.5449157	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-11.8773253	-77.0168313	Coordenadas en el mar u océano
+25.0268441	121.550952	
+38.102062	-92.702237	
+35.5886371	45.4157992	República Autónoma de Crimea, Ucrania
+26.1847226	50.5453489	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+29.561714	52.6601164	Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+33.33134285	44.38957109636726	Sebastopol, Южный федеральный округ, Rusia
+44.6287701	5.0827978	Afder, Somali, Etiopía
+69.1183866	18.1837705	Coordenadas en el mar u océano
+42.760245	-71.869549	Coordenadas en el mar u océano
+26.0667533	42.6488936	Близнец, Твърдица, Сливен, Bulgaria
+37.9365048	-92.7414134	
+48.2965015	6.1233832	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+36.179228	44.036557	Coordenadas en el mar u océano
+36.8538101	28.2394541	Gobernación de Tabuk, Provincia de Tabuk, Arabia Saudita
+63.4135322	-20.2838418	Coordenadas en el mar u océano
+60.2237029	24.7496136	Coordenadas en el mar u océano
+37.721509	-80.344788	Coordenadas en el mar u océano
+23.8917664	120.4592796	
+35.5639099	45.4453987	República Autónoma de Crimea, Ucrania
+56.7125859	-5.2369706	Coordenadas en el mar u océano
+48.2373696	-3.4194273	Coordenadas en el mar u océano
+49.5222502	-105.6587818	
+48.5548473	-84.739772	Coordenadas en el mar u océano
+22.7716339	-81.0210803	Coordenadas en el mar u océano
+41.0749506	26.5753299	محافظة السليمي, Provincia de Hail, Arabia Saudita
+22.9769577	-82.3802403	Coordenadas en el mar u océano
+33.5546551	130.5306475	
+35.5857629	45.3909449	República Autónoma de Crimea, Ucrania
+45.8057837	13.8448604	مدنقة, نعمان, مديرية لودر, Gobernación de Abyan, Yemen
+23.7394892	120.2554235	
+26.1901559	50.5453511	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+38.490329	26.9447159	محافظة تيماء, Provincia de Tabuk, 45911, Arabia Saudita
+12.3468184	-1.5456452	Provincia de Ogooué-Lolo, Gabón
+35.5755674	45.4190205	República Autónoma de Crimea, Ucrania
+26.2487497	50.6549332	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+47.2694983	-0.4498678	Coordenadas en el mar u océano
+12.3479714	-1.5489405	Provincia de Ogooué-Lolo, Gabón
+29.7152983	52.4426159	Н5009, Пажыхар, Асташкавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+23.4204396	120.4343586	
+35.5855721	45.4057995	República Autónoma de Crimea, Ucrania
+-11.877726	-77.0160212	Coordenadas en el mar u océano
+24.682215	121.6910499	
+29.1413454	-98.1528067	
+14.5166479	121.0012766	
+48.3147828	17.5053578	مديرية زمخ ومنوخ, Gobernación de Hadramaut, Yemen
+26.1220935	50.5658868	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+35.5740289	45.4667892	República Autónoma de Crimea, Ucrania
+19.8712005	75.363679	Coordenadas en el mar u océano
+26.1724017	50.6219339	Городоцька сільська громада, Рівненський район, Óblast de Rivne, 35307, Ucrania
+26.1890781	50.5438996	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+21.877406	-82.7981166	Coordenadas en el mar u océano
+48.772367149999994	9.19439278930827	Taleex تلأ ح, Sool, Somalia
+62.5558961	6.6243994	Coordenadas en el mar u océano
+26.652521	127.8812924	
+35.5589664	45.4687029	República Autónoma de Crimea, Ucrania
+25.088092	121.5208375	
+26.37797	126.7563492	
+35.5581105	45.4626226	República Autónoma de Crimea, Ucrania
+33.3394	44.389827	Sebastopol, Южный федеральный округ, Rusia
+23.4748403	120.4366012	
+37.6999289	41.9218297	Coordenadas en el mar u océano
+33.3310969	44.4090421	Sebastopol, Южный федеральный округ, Rusia
+34.81606	135.5632407	
+43.15051565	21.253744230069124	محافظة رنيه, Provincia de La Meca, 18211, Arabia Saudita
+49.6703662	18.3245347	مديرية القف, Gobernación de Hadramaut, Yemen
+25.0354132	121.5557279	
+35.7216467	51.4786564	38К-004, Любимовский сельсовет, Большесолдатский район, Óblast de Kursk, Distrito federal Central, Rusia
+32.3276076	53.9981709	Снегиревское сельское поселение, Шумячский район, Óblast de Smolensk, Distrito federal Central, Rusia
+52.5361111	17.5852999	مديرية شحن, Gobernación de Al Mahrah, Yemen
+-38.6351501	-73.2972876	Coordenadas en el mar u océano
+29.561714	52.6601164	Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+23.9780785	120.6804646	
+59.8753655	9.8765258	Coordenadas en el mar u océano
+48.94193235	2.4861143550726537	Coordenadas en el mar u océano
+34.291983	134.2400311	
+60.2713667	25.202134	دهستان جهلیان, بخش مرکزی, شهرستان کنارک, Sistán y Baluchistán, Irán
+50.8497278	2.3078584	Coordenadas en el mar u océano
+35.56418	137.077184	
+36.1779494	44.015298	Coordenadas en el mar u océano
+25.1319982	121.7444294	
+37.4826102	126.9225555	
+35.5762426	45.3995453	República Autónoma de Crimea, Ucrania
+25.103601	121.7570415	
+32.8364172	-98.9472002	
+35.5722747	45.4468176	República Autónoma de Crimea, Ucrania
+25.0480352	121.4276977	
+34.6630172	50.8675794	Никонці, Ясени, Садівська сільська громада, Сумський район, Óblast de Sumy, 42343, Ucrania
+42.6742165	-71.11889324424342	Coordenadas en el mar u océano
+22.6383941	120.2809622	
+10.7667148	106.6472936	
+54.0995549	23.8244007	أم ليله, منطقة الظفرة, Abu Dabi, Emiratos Árabes Unidos
+36.16213	-81.8777481	Coordenadas en el mar u océano
+50.8089362	12.8200208	Coordenadas en el mar u océano
+25.0212498	121.4213882	
+31.307876	-86.036013	Coordenadas en el mar u océano
+24.3493018	120.6170619	
+36.826035	54.434207	сельское поселение Деревня Зудна, Ферзиковский район, Óblast de Kaluga, Distrito federal Central, 249802, Rusia
+42.0093149	21.4461308	محافظة رنيه, Provincia de La Meca, 18211, Arabia Saudita
+36.1033166	-5.4506297	Zajilwa, Chamwino, Región de Dodoma, Central Zone, Tanzania
+21.8739271	-82.8042166	Coordenadas en el mar u océano
+-27.3745531	-55.9493043	Coordenadas en el mar u océano
+61.144742300000004	70.30218102799532	Coordenadas en el mar u océano
+60.1885227	10.2315747	Coordenadas en el mar u océano
+45.517289950000006	9.15582349178859	Burco برعو, Togdheer, Somalia
+22.8365762	-82.0341153	Coordenadas en el mar u océano
+35.582275	45.4204674	República Autónoma de Crimea, Ucrania
+35.5623872	45.4664279	República Autónoma de Crimea, Ucrania
+51.2730164	15.7868945	مديرية قشن, Gobernación de Al Mahrah, Yemen
+61.19806295	70.13121076925708	Coordenadas en el mar u océano
+33.51623	133.918219	
+36.9013652	8.4179174	Jimma, Oromia, Etiopía
+49.8814179	8.6558151	Qardho قرضو, Bari, Puntland أرض البنط, Somalia
+35.5808203	45.4306083	República Autónoma de Crimea, Ucrania
+35.313425	139.8168045	
+34.8950724	-82.9880148	Coordenadas en el mar u océano
+-29.6578835	-71.2533224	Coordenadas en el mar u océano
+41.5021564	-72.2032202	Coordenadas en el mar u océano
+50.7834541	12.0601625	Caluula علولة, Bari, Puntland أرض البنط, Somalia
+37.4733204	38.7881612	Bağlıçay, Gürün, Sivas, İç Anadolu Bölgesi, Turquía
+33.4198851	130.5318938	
+35.584353	45.4010435	República Autónoma de Crimea, Ucrania
+36.7141096	136.7014188	
+38.6663066	-6.9789599	Kisarawe, Región de Pwani, Coastal Zone, Tanzania
+33.3472021	44.3929946	Sebastopol, Южный федеральный округ, Rusia
+35.5604872	45.4183204	República Autónoma de Crimea, Ucrania
+10.8003691	106.7058918	
+29.130668	54.0435603	Дзмітравіцкі сельскі Савет, Бярэзінскі раён, Provincia de Minsk, Belarús
+25.1290462	121.7563721	
+33.3527007	44.3829952	Sebastopol, Южный федеральный округ, Rusia
+25.0776619	121.433766	
+35.5727952	45.4608881	República Autónoma de Crimea, Ucrania
+35.3073429	134.2014033	
+34.0272084	131.5771741	
+40.9938193	-72.2466955	Coordenadas en el mar u océano
+26.2281751	50.5721692	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+39.1447233	42.5341949	Coordenadas en el mar u océano
+48.181718599999996	11.559406555813219	Coordenadas en el mar u océano
+30.2591386	-84.2605608	Coordenadas en el mar u océano
+62.081634	-6.7246373	Coordenadas en el mar u océano
+48.501371	5.5228899	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+25.0337518	121.4411104	
+-21.0460626	55.2788892	Coordenadas en el mar u océano
+33.5040312	132.4475411	
+22.8610631	120.2543064	
+26.2292798	50.5779906	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+46.6659554	3.9217475	Ceel Dheer, Galguduud, Galmudug غامدوغ, Somalia
+25.1071951	121.7937009	
+36.1685658	44.0197389	Coordenadas en el mar u océano
+26.185331	50.5465111	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+53.15843295	15.400674506625215	Coordenadas en el mar u océano
+36.20882505	5.428833972194919	Kuchuru, South Omo, Naciones, Nacionalidades y Pueblos del Sur, Etiopía
+33.3476006	44.3972088	Sebastopol, Южный федеральный округ, Rusia
+36.2995515	139.0733492	
+46.6453433	-122.0606371	
+6.9636961	100.5690913	
+35.5874063	45.400695	República Autónoma de Crimea, Ucrania
+26.1271634	50.5542164	Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35710, Ucrania
+26.2596226	50.6210344	Інститут Мистецтв, 7, вулиця Миколи Хвильового, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33017, Ucrania
+48.119228899999996	-1.7075957310917744	Coordenadas en el mar u océano
+62.1782081	27.8284927	دهستان سینگان, بخش مرکزی, شهرستان گلشن, Sistán y Baluchistán, Irán
+26.2290827	50.5735031	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+32.3244113	50.8418916	Ічнянська міська громада, Прилуцький район, Óblast de Chernihiv, Ucrania
+35.5669028	45.37717	República Autónoma de Crimea, Ucrania
+51.1265823	1.3333752	Coordenadas en el mar u océano
+-0.19393480000000002	-76.65746067491115	Coordenadas en el mar u océano
+41.5746771	-73.4169315	Coordenadas en el mar u océano
+36.1869576	43.9913691	Coordenadas en el mar u océano
+38.4726459	27.2492225	محافظة تيماء, Provincia de Tabuk, 45911, Arabia Saudita
+26.1854262	50.5442726	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+58.52627	22.3474157	شمال الشرقية, Omán
+35.7020698	51.4814297	2-я Косторная, Любимовский сельсовет, Большесолдатский район, Óblast de Kursk, Distrito federal Central, Rusia
+45.8570248	1.3235575	Coordenadas en el mar u océano
+32.9631043	130.7515317	
+48.8038188	1.7828684	Coordenadas en el mar u océano
+36.1674034	43.9850836	Coordenadas en el mar u océano
+35.5715796	45.3855485	República Autónoma de Crimea, Ucrania
+25.0243087	121.4907044	
+33.8048215	132.7601288	
+36.7360744	137.3106073	
+43.4646293	-1.3622542	Coordenadas en el mar u océano
+38.1432519	26.8819345	محافظة العلا, Provincia de Medina, 20115, Arabia Saudita
+21.0304029	105.7970731	
+61.9030277	-6.8779753	Coordenadas en el mar u océano
+24.9699723	121.2266689	
+66.2525457	27.3290685	تحصیل نال, ضلع خضدار, قلات ڈویژن, Baluchistán, Pakistán
+48.6990004	-0.967746	Coordenadas en el mar u océano
+35.5954969	45.4107771	República Autónoma de Crimea, Ucrania
+35.5799285	45.4257394	República Autónoma de Crimea, Ucrania
+44.119793	-106.712772	
+25.104588	121.52253	
+35.5112844	134.2181396	
+53.170270450000004	15.413021870046215	Coordenadas en el mar u océano
+41.5761089	-71.8561469	Coordenadas en el mar u océano
+26.1790135	50.6186282	Обарів, Городоцька сільська громада, Рівненський район, Óblast de Rivne, 35307, Ucrania
+60.1303183	19.939748	Coordenadas en el mar u océano
+49.584189	34.5043247	مخلص آباد, دهستان فرمهین, بخش مرکزی, شهرستان فراهان, Markazi, Irán
+49.4660373	18.4337419	مديرية القف, Gobernación de Hadramaut, Yemen
+58.0917806	7.8423551	Coordenadas en el mar u océano
+33.5518087	133.7502294	
+36.3927569	59.5095452	Кадуйский муниципальный округ, Óblast de Vólogda, Северо-Западный федеральный округ, Rusia
+29.5580615	52.6142569	Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+12.3818612	-1.5334816	Provincia de Ogooué-Lolo, Gabón
+36.1596159	43.9846932	Coordenadas en el mar u océano
+29.1300745	54.0442736	Дзмітравіцкі сельскі Савет, Бярэзінскі раён, Provincia de Minsk, Belarús
+36.1683222	43.9659869	Coordenadas en el mar u océano
+7.2315982	80.3470505	Coordenadas en el mar u océano
+31.1346976	121.6622748	
+29.1299357	54.0438239	Дзмітравіцкі сельскі Савет, Бярэзінскі раён, Provincia de Minsk, Belarús
+35.5691082	45.3778196	República Autónoma de Crimea, Ucrania
+53.1600781	15.400238156585367	Coordenadas en el mar u océano
+34.3363272	133.8870244	
+25.0652734	121.5021266	
+61.1691151	7.1684827	Coordenadas en el mar u océano
+26.2496296	50.6565677	Лугова вулиця, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+35.5960299	45.414332	República Autónoma de Crimea, Ucrania
+50.9356509	-104.4960473	
+37.8794886	30.3746936	Al Gurayat, Provincia de Yauf, 77454, Arabia Saudita
+58.543271	8.9748154	Coordenadas en el mar u océano
+26.1880552	50.5437499	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+26.1866294	50.5459651	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+34.5091846	135.7543526	
+40.6773133	30.5558155	محافظة سكاكا, Provincia de Yauf, Arabia Saudita
+55.5815673	12.9639964	Coordenadas en el mar u océano
+33.605866	133.979232	
+49.1447415	-124.0553751	
+41.7386051	-83.4553139	Coordenadas en el mar u océano
+60.2925447	5.2607757	Coordenadas en el mar u océano
+34.4003541	4.9973959966477555	Kapoeta Este, Ecuatoria Oriental, Sudán del Sur
+35.8440103	50.9231488	Бобравское сельское поселение, Ракитянский район, Óblast de Bélgorod, Distrito federal Central, Rusia
+35.0359183	135.6594146	
+36.217749	44.0382555	Coordenadas en el mar u océano
+50.332566	-107.975268	
+29.5589928	52.6578248	67, Цэнтральная вуліца, Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+26.1910195	50.5478676	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+56.3417568	22.1920439	Ad Dhahirah, Omán
+35.8893565	139.6422119	
+48.779542	1.7869949	Coordenadas en el mar u océano
+33.355966	130.417035	
+35.5626631	45.4471518	República Autónoma de Crimea, Ucrania
+36.695157	137.2260258	
+26.1849999	50.5460029	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+39.8708444	37.7557665	Çınar, Diyarbakir, Güneydoğu Anadolu Bölgesi, Turquía
+60.2986257	5.2896628	Coordenadas en el mar u océano
+41.0968917	28.8591894	طعيسات غربة, محافظة حائل, Provincia de Hail, Arabia Saudita
+48.769581599999995	2.456894112836288	Coordenadas en el mar u océano
+35.5772211	45.4355632	República Autónoma de Crimea, Ucrania
+26.1245585	50.5633625	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+29.5844348	52.645734	Н5013, Вялікі Бор, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+51.0831881	17.062186	مديرية منعر, Gobernación de Al Mahrah, Yemen
+35.5941417	45.4083169	República Autónoma de Crimea, Ucrania
+45.7915084	14.9478393	أم لقيط, مديرية عسيلان, Gobernación de Shabwah, Yemen
+33.3342365	44.4087466	Sebastopol, Южный федеральный округ, Rusia
+50.9669027	1.8608294	Coordenadas en el mar u océano
+33.3167907	44.3960083	Sebastopol, Южный федеральный округ, Rusia
+-11.6261022	-50.7046691	Coordenadas en el mar u océano
+25.0097207	121.3476914	
+35.5984861	45.4050767	República Autónoma de Crimea, Ucrania
+25.0208583	121.423281	
+8.7068403	-73.9539623	Coordenadas en el mar u océano
+26.2213178	50.548768	Здолбунів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35702, Ucrania
+47.5503565	-53.5441904	Coordenadas en el mar u océano
+68.7063129	15.416041	Coordenadas en el mar u océano
+26.1241419	50.5422557	Глинськ, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35710, Ucrania
+61.8239315	-6.7016077	Coordenadas en el mar u océano
+37.4516417	126.9294758	
+37.4647537	127.1254753	
+66.2525457	27.3290685	تحصیل نال, ضلع خضدار, قلات ڈویژن, Baluchistán, Pakistán
+35.5778943	45.4381633	República Autónoma de Crimea, Ucrania
+35.576986	45.3897016	República Autónoma de Crimea, Ucrania
+35.3731567	134.2165177	
+26.1879442	50.5394603	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+64.0512077	-21.9935647	Coordenadas en el mar u océano
+35.5660663	45.4000935	República Autónoma de Crimea, Ucrania
+26.1706093	50.621614	Обарів, Городоцька сільська громада, Рівненський район, Óblast de Rivne, 35307, Ucrania
+55.84867855	23.13006418938857	Ad Dhahirah, Omán
+59.0542735	10.0277833	Coordenadas en el mar u océano
+62.406656999999996	25.619122504807727	تحصیل دشت, ضلع کیچ, مکران ڈویژن, Baluchistán, Pakistán
+-37.7485617	-72.2773985	Coordenadas en el mar u océano
+48.7390928	9.9374922	Laasqoray لاسقرى, Sanaag, Somalia
+29.6852128	52.4750999	Асташкавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+12.3600312	-1.5453859	Provincia de Ogooué-Lolo, Gabón
+49.2644639	-1.4866557	Coordenadas en el mar u océano
+59.1355679	10.2079168	Coordenadas en el mar u océano
+31.9908434	130.9698073	
+-36.9636099	-59.2197123	Coordenadas en el mar u océano
+33.2483744	130.2020511	
+61.13220405	70.00665597471459	Заполярный район, Distrito autónomo de Nenetsia, Северо-Западный федеральный округ, Rusia
+33.3495495	44.3920877	Sebastopol, Южный федеральный округ, Rusia
+26.2642277	50.6182842	5, вулиця Князя Володимира, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33014, Ucrania
+-37.5212914	-72.9922197	Coordenadas en el mar u océano
+33.349789	44.4101322	Sebastopol, Южный федеральный округ, Rusia
+34.5920589	135.6692552	
+48.9198486	8.0824618	Garowe غاروي, Nugaal, Puntland أرض البنط, Somalia
+26.1264243	50.5597804	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+48.5962005	-84.6702245	Coordenadas en el mar u océano
+35.5617851	45.4221247	República Autónoma de Crimea, Ucrania
+29.5619406	52.6597234	Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+49.8307064	-102.3182732	
+51.4190218	12.1577258	Coordenadas en el mar u océano
+34.6187923	135.623922	
+44.8056799	-95.5457993	
+36.1829989	43.9901506	Coordenadas en el mar u océano
+29.4776402	73.117434	Coordenadas en el mar u océano
+10.7458255	106.6789223	
+36.2119943	44.0387335	Coordenadas en el mar u océano
+36.2101878	44.0109514	Coordenadas en el mar u océano
+34.7468288	10.5778431	Asosa, Benishangul-Gumaz, Etiopía
+46.2150439	15.3822249	مديرية عسيلان, Gobernación de Shabwah, Yemen
+48.7830511	10.0207791	Laasqoray لاسقرى, Sanaag, Somalia
+35.5554201	45.4773386	República Autónoma de Crimea, Ucrania
+46.5006137	-63.408807	Coordenadas en el mar u océano
+41.7187211	12.3144655	Zona 1, Afar, 7240, Etiopía
+29.6263753	52.5934019	61, вуліца Мірашнічэнкі, Печышчы, Сасноваборскі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 246284, Belarús
+35.5700015	45.378117	República Autónoma de Crimea, Ucrania
+36.3605055	43.1418452	Coordenadas en el mar u océano
+25.0138718	121.5274571	
+60.3509059	25.0756043	Coordenadas en el mar u océano
+21.0074603	105.9496433	
+48.3259767	-84.5517184	Coordenadas en el mar u océano
+32.1615711	-106.7056078	
+36.2043595	44.0442617	Coordenadas en el mar u océano
+39.393379	-79.150221	Coordenadas en el mar u océano
+43.0472636	6.1463437	Shabelle, Somali, Etiopía
+37.9449796	-92.9878916	
+36.2042586	44.0170127	Coordenadas en el mar u océano
+60.3189774	25.1149157	دهستان جهلیان, بخش مرکزی, شهرستان کنارک, Sistán y Baluchistán, Irán
+27.3516717	53.1537937	Бор, Грозаўскі сельскі Савет, Капыльскі раён, Provincia de Minsk, Belarús
+29.6127778	52.5731097	Сасноваборскі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+61.1994454	7.1536922	Coordenadas en el mar u océano
+33.3465209	44.3992432	Sebastopol, Южный федеральный округ, Rusia
+21.0396502	105.8227441	
+35.5739291	45.4157961	República Autónoma de Crimea, Ucrania
+40.9847138	-72.2277113	Coordenadas en el mar u océano
+30.3250314	31.7648864	Coordenadas en el mar u océano
+36.2155321	44.0085018	Coordenadas en el mar u océano
+35.5713909	45.4145109	República Autónoma de Crimea, Ucrania
+47.9307456	-53.074978	Coordenadas en el mar u océano
+56.1786967	22.5297664	Ad Dhahirah, Omán
+36.3458481	43.1453536	Coordenadas en el mar u océano
+46.7455247	-1.5041461	Coordenadas en el mar u océano
+41.6889485	33.5558457	ناحية مرکز قضاء االرطبة, قضاء الرطبة, Gobernación de Ambar, Irak
+24.9925427	121.5133058	
+70.0811677	25.0524862	69170, Sind, 69170, Pakistán
+-31.553716	-60.7581458	Coordenadas en el mar u océano
+35.5751598	45.4050065	República Autónoma de Crimea, Ucrania
+29.6374535	52.510793	Сасноваборскі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+44.8482502	2.7215923	Wanle Weyne ونلوين, Shabeellaha Hoose, Koonfur Galbeed جنوب غرب, Somalia
+25.0292927	121.5306152	
+35.6084692	140.4046639	
+36.793192	-93.481877	
+26.1857203	50.5457689	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+48.6452996	12.4737111	Coordenadas en el mar u océano
+53.8515407	13.6599006	Coordenadas en el mar u océano
+26.2626952	50.6175403	3, Соборна вулиця, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33017, Ucrania
+32.577633	131.537813	
+35.5786057	45.4397464	República Autónoma de Crimea, Ucrania
+36.1628482	43.9916207	Coordenadas en el mar u océano
+56.790848	60.50272251518341	Чердынский городской округ, Krai de Perm, Приволжский федеральный округ, Rusia
+37.4994741	13.880716	Golonco, Western Tigray, Tigray, Etiopía
+50.9150817	-104.5000619	
+34.3157293	133.9894603	
+35.562339	45.4209255	República Autónoma de Crimea, Ucrania
+25.1145207	121.6449837	
+14.5514777	120.9977944	
+32.6406969	130.8819544	
+25.1102971	121.4043747	
+-39.5296631	-72.4001303	Coordenadas en el mar u océano
+35.7255342	51.1771258	Новоселовка, Долгобудский сельсовет, Беловский район, Óblast de Kursk, Distrito federal Central, 307923, Rusia
+25.0680978	121.4953578	
+14.631618	120.9586842	
+47.0669401	-53.5667083	Coordenadas en el mar u océano
+49.5718882	17.8752695	مديرية القف, Gobernación de Hadramaut, Yemen
+24.9532548	121.3524434	
+10.7644257	106.608992	
+60.2111539	9.7244251	Coordenadas en el mar u océano
+37.9828503	-92.7825196	
+36.213769	43.9831872	Coordenadas en el mar u océano
+47.156021	1.4450105	Coordenadas en el mar u océano
+4.6823003	-74.0675839	Coordenadas en el mar u océano
+35.5899856	45.4067859	República Autónoma de Crimea, Ucrania
+68.7866724	16.5406413	Coordenadas en el mar u océano
+41.7388628	-83.4571214	Coordenadas en el mar u océano
+47.5951269	-2.1086762	Coordenadas en el mar u océano
+26.124577	50.5642496	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+36.2045225	44.0129681	Coordenadas en el mar u océano
+35.5702379	45.39229	República Autónoma de Crimea, Ucrania
+2.9879156	101.5430083	
+39.8678538	28.9892592	محافظة دومة الجندل, Provincia de Yauf, Arabia Saudita
+-0.28856119999999996	-76.66587866744993	Coordenadas en el mar u océano
+45.135892	-71.294723	Coordenadas en el mar u océano
+54.6536439	24.9176399	أبوظبي, Abu Dabi, Emiratos Árabes Unidos
+32.1566592	34.9551672	Chipre
+12.390502	-1.5545635	Provincia de Ogooué-Lolo, Gabón
+26.2132646	50.5571191	Н-25, Кошатів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+36.2169986	44.016664	Coordenadas en el mar u océano
+10.797356	106.6052195	
+26.2267376	50.5776798	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+35.5793716	45.4419504	República Autónoma de Crimea, Ucrania
+25.0674576	121.5005676	
+36.210253	44.0143004	Coordenadas en el mar u océano
+47.6449128	6.2781872	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+56.2871556	22.3818264	Ad Dhahirah, Omán
+10.7877527	106.5896003	
+33.3411467	44.3991235	Sebastopol, Южный федеральный округ, Rusia
+58.9938379	9.8628002	Coordenadas en el mar u océano
+45.40758	-75.7168858	Coordenadas en el mar u océano
+31.1992827	-83.2511032	Coordenadas en el mar u océano
+36.1710975	44.0021007	Coordenadas en el mar u océano
+26.1855105	50.5440558	вулиця Шевченка, Орестів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+35.5755674	45.4190205	República Autónoma de Crimea, Ucrania
+41.4278574	2.1524066	Baardheere بااردىرآ, Gedo, Jubaland جوبالاند, Somalia
+31.7344539	-97.6653794	
+26.1236154	50.5646128	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, Ucrania
+14.5335243	121.0034998	
+45.3897986	-75.5490336	Coordenadas en el mar u océano
+35.5802594	45.4510457	República Autónoma de Crimea, Ucrania
+3.0158614	101.5452675	
+67.5598007	24.2454122	تعلقہ کیٹی بندر, ضلع ٹھٹہ, Sind, 73241, Pakistán
+46.7020752	13.1611195	Coordenadas en el mar u océano
+50.5434385	2.8401169	Coordenadas en el mar u océano
+35.5735121	45.4677702	República Autónoma de Crimea, Ucrania
+27.3516717	53.1537937	Бор, Грозаўскі сельскі Савет, Капыльскі раён, Provincia de Minsk, Belarús
+35.6007796	45.4099334	República Autónoma de Crimea, Ucrania
+60.4104852	5.1957795	Coordenadas en el mar u océano
+34.2044513	134.0612419	
+35.5427134	139.4638141	
+33.786401	-81.9244016	Coordenadas en el mar u océano
+38.674807	26.7532455	محافظة العلا, Provincia de Medina, 20115, Arabia Saudita
+27.3516717	53.1537937	Бор, Грозаўскі сельскі Савет, Капыльскі раён, Provincia de Minsk, Belarús
+30.3214676	72.6476387	Coordenadas en el mar u océano
+43.3866713	-1.1412748	Coordenadas en el mar u océano
+55.5436474	11.708348358720231	Coordenadas en el mar u océano
+36.1615111	43.9786129	Coordenadas en el mar u océano
+48.8038188	1.7828684	Coordenadas en el mar u océano
+26.1701557	50.6221417	Обарів, Городоцька сільська громада, Рівненський район, Óblast de Rivne, 35307, Ucrania
+47.3314953	5.9081534	Cadaado, Galguduud, Galmudug غامدوغ, Somalia
+53.10142945	17.906324186769375	Dhofar, Omán
+35.8390204	14.4637115	Bashafenagsh, Kasala, Sudán
+35.5782716	45.41737	República Autónoma de Crimea, Ucrania
+47.528739	13.3557706	Coordenadas en el mar u océano
+36.2171353	44.009932	Coordenadas en el mar u océano
+44.5139533	33.514696350900124	ناحية بني سعد, قضاء بعقوبة, Diala, Irak
+53.15935235	15.400698422110715	Coordenadas en el mar u océano
+48.0933499	6.0435873	Hobyo هبيا, Mudug, Galmudug غامدوغ, Somalia
+48.8921631	7.9920494	Burtinle, Nugaal, Puntland أرض البنط, Somalia
+26.0638946	42.6484108	Близнец, Твърдица, Сливен, Bulgaria
+29.8173637	52.3932678	Хатыні, Чкалаўскі сельскі Савет, Raión de Kalinkavichy, Provincia de Gómel, Belarús
+48.6452996	12.4737111	Coordenadas en el mar u océano
+59.2963794	18.0600594	Coordenadas en el mar u océano
+36.163224	44.0058309	Coordenadas en el mar u océano
+33.336687	44.4055297	Sebastopol, Южный федеральный округ, Rusia
+49.811529	-102.4197215	
+29.5788959	52.6137452	Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, 247410, Belarús
+35.378327	139.175941	
+37.281722	-104.3826793	
+23.833487	120.7545948	
+60.2737985	5.331414	Coordenadas en el mar u océano
+40.9556056	-72.2797357	Coordenadas en el mar u océano
+-7.6627353	111.1880144	
+37.5089642	127.1039133	
+65.9979354	12.2679898	Coordenadas en el mar u océano
+35.5753918	45.4452571	República Autónoma de Crimea, Ucrania
+46.981927	-0.9173758	Coordenadas en el mar u océano
+61.1300905	70.42672999354087	Coordenadas en el mar u océano
+35.5811246	45.425165	República Autónoma de Crimea, Ucrania
+29.3935647	54.4538614	Акцябрскі сельскі Савет, Крупскі раён, Provincia de Minsk, 222028, Belarús
+46.190589	14.8997541	مديرية مرخة السفلى, Gobernación de Shabwah, Yemen
+7.2046264	125.8832581	
+60.3108834	5.2767795	Coordenadas en el mar u océano
+35.5751254	45.4629329	República Autónoma de Crimea, Ucrania
+48.7636559	9.9173157	Laasqoray لاسقرى, Sanaag, Somalia
+24.9001903	121.2763571	
+36.988185	-92.352266	
+26.3882039	127.8290482	
+62.5444111	6.2854074	Coordenadas en el mar u océano
+14.6060559	120.9709528	
+24.1025429	120.8053342	
+58.69638	5.656273	Coordenadas en el mar u océano
+26.2213178	50.548768	Здолбунів, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35702, Ucrania
+41.0513823	29.2428622	محافظة سكاكا, Provincia de Yauf, Arabia Saudita
+36.1842972	5.445516733589516	Kuchuru, South Omo, Naciones, Nacionalidades y Pueblos del Sur, Etiopía
+22.8578076	120.263167	
+29.5611667	52.6615518	Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+35.7021088	51.4791654	38Н-086, 1-я Косторная, Любимовский сельсовет, Большесолдатский район, Óblast de Kursk, Distrito federal Central, Rusia
+43.19363279777778	-79.18936668888888	Coordenadas en el mar u océano
+36.1754325	44.0352006	Coordenadas en el mar u océano
+24.5119143	120.834825	
+58.459554	6.015949	Coordenadas en el mar u océano
+59.324748400000004	18.530778904421105	Coordenadas en el mar u océano
+21.0451209	105.9283921	
+55.7403774	12.4573969	Coordenadas en el mar u océano
+24.7401237	125.2654389	
+-11.879306	-77.0182421	Coordenadas en el mar u océano
+40.71372545	0.7421650487864491	Wajir South, Condado de Wajir, North Eastern, Kenia
+26.1266063	50.5575311	Здолбунівська міська громада, Рівненський район, Óblast de Rivne, Ucrania
+33.062283	129.105217	
+25.1722697	121.4403784	
+36.1991953	44.013182	Coordenadas en el mar u océano
+62.4423122	23.946672	Coordenadas en el mar u océano
+26.2651473	50.6190641	Грабник, вулиця Івана Франка, Rivne, Рівненська міська громада, Рівненський район, Óblast de Rivne, 33023, Ucrania
+36.1693529	43.9876852	Coordenadas en el mar u océano
+37.266038	127.000991	
+10.7600008	106.6480658	
+38.3242011	34.2536938	ناحية تدمر, منطقة تدمر, Gobernación de Homs, Siria
+49.2905423	5.4692153	Coordenadas en el mar u océano
+48.74922415	8.817986345691406	Caanalskax, Taleex تلأ ح, Sool, Somalia
+40.3648544	-78.4298352	Coordenadas en el mar u océano
+48.605594	-83.8137229	Coordenadas en el mar u océano
+35.5772239	45.4001876	República Autónoma de Crimea, Ucrania
+21.0439944	105.8792004	
+40.210697	28.9368226	محافظة دومة الجندل, Provincia de Yauf, Arabia Saudita
+55.8624934	22.6157145	Ad Dhahirah, Omán
+40.8965829	17.2671419	Coordenadas en el mar u océano
+38.07898505	-92.80712457667096	
+29.5638951	52.6579732	Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+26.1921685	50.5382846	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-0.29041510000000004	-76.65752115830598	Coordenadas en el mar u océano
+56.7121176	-5.2379636	Coordenadas en el mar u océano
+23.4820143	120.5604047	
+53.9605729	-2.0231258	Coordenadas en el mar u océano
+-23.1366764	-70.3434148	Coordenadas en el mar u océano
+30.257013	-92.014915	
+-25.997703950000002	28.04190434852393	Coordenadas en el mar u océano
+3.0092502	101.5274281	
+48.6861055	-123.4093657	
+26.1870856	50.5484122	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+50.5008165	30.3950166	دهستان حومه, بخش مرکزی, شهرستان بهبهان, Juzestán, Irán
+22.9481747	120.2511977	
+23.5828353	58.3477241	Pärnu maakond, Estonia
+33.3467294	44.3921095	Sebastopol, Южный федеральный округ, Rusia
+34.4647055	135.8007497	
+25.6626696	58.8132793	Koigi küla, Järva vald, Järva maakond, 72501, Estonia
+25.1230858	121.7399656	
+33.8651274	35.5818122	Chipre del Norte, Chipre
+26.2041033	50.5621876	М-06, Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+-0.16368515	-76.64983435833976	Coordenadas en el mar u océano
+26.1910195	50.5478676	Ільпінь, Здолбунівська міська громада, Рівненський район, Óblast de Rivne, 35708, Ucrania
+64.2553472	-15.2084782	Coordenadas en el mar u océano
+38.2620778	140.3317435	
+53.3416766	17.4775744	
+24.4608126	120.719096	
+25.0172305	121.5507706	
+54.243769650000004	23.5131704566556	
+35.5825645	45.4240438	
+25.0869067	121.5188542	
+48.13171680000001	-1.7026530714802766	
+45.1664166	-68.2241941	
+29.3935647	54.4538614	
+23.1425666	120.4027731	
+27.3516717	53.1537937	
+35.5874552	45.4200335	
+48.2376094	-3.4209948	
+54.2131819	24.5912961	
+-21.83876	-68.614709	
+55.5320754	23.2265999	
+22.6221445	120.2999942	
+41.2159609	-3.1154145	
+26.2031885	127.6530712	
+27.3172386	53.2282303	
+36.1789999	44.0167742	
+30.0451439	-99.1452072	
+46.1050426	-70.6544018	
+26.1259993	50.5575691	
+35.3728405	128.8512238	
+23.9431357	120.5885714	
+10.769101	106.661102	
+30.3249791	31.7684614	
+10.7264645	106.6260652	
+23.7544857	120.6772876	
+51.061104150000006	-0.3155955021963147	
+24.3847328	123.7478711	
+59.07908	10.1599188	
+37.9297929	71.593691588522	
+45.51994475	9.181313083892288	
+62.5834128	29.7962813	
+36.2021282	44.0133608	
+-26.2144104	28.37233629534896	
+43.0471308	13.5318507	
+37.4603669	127.0270438	
+35.5655838	45.4252898	
+47.2099847	3.1821081	
+53.130049799999995	103.09621513591236	
+48.6225497	22.2883291	
+52.66157	16.08292	
+58.3752949	8.3728082	
+23.9488006	120.5756444	
+26.2635321	50.6186029	
+25.0762981	121.4326434	
+23.1848704	120.2411348	
+35.6745458	-89.5722618	
+52.70786005	16.379161605712376	
+49.9206214	2.8611417	
+10.7712473	106.6791028	
+-18.056411	-70.2478717	
+34.6174634	50.8433183	
+57.8541267	26.827973	
+65.3218756	25.3716223	
+25.0332488	121.5419007	
+25.0426085	121.5488495	
+40.712652000000006	0.7346789987281388	
+34.7342734	135.4594551	
+71.0445897	25.896399	
+36.9555	-92.516542	
+36.1634394	44.0282872	
+26.1855608	50.5434522	
+29.5628934	52.6262766	
+34.5087738	135.7961263	
+34.1047518	134.5424252	
+26.1854262	50.5442726	
+36.2136783	43.97784	
+36.3445758	43.1486048	
+36.2082316	44.0171855	
+44.0384289	1.1026481	
+23.1992631	120.2904262	
+-17.9815058	-70.2371672	
+29.562193	52.661862	
+63.9061896	24.5143528	
+6.3576846	2.4241584	
+44.3096112	0.7096471	
+49.9123422	3.0130644	
+35.5712055	45.4136102	
+36.1933282	44.0038234	
+45.3041691	7.5479547	
+49.475324	15.4784744	
+34.78297	135.424596	
+48.709193	10.1112339	
+26.205334	127.6995257	
+64.1362355	-21.9328038	
+46.0785031	-86.582595	
+-26.7921027	-65.2422746	
+31.6114374	131.323323	
+25.0271218	121.5468385	
+33.3472357	44.3965673	
+59.7218048	10.8462417	
+55.0385464	-1.7110522	
+56.2679656	21.5049887	
+29.7966204	52.4142421	
+25.1069304	121.5331912	
+12.3764835	-1.4903963	
+34.698522	-82.46468	
+10.7456891	106.6370734	
+39.1067058	-94.6213334	
+55.475106	22.6502431	
+35.7782595	127.800529	
+40.6687071	37.8055798	
+20.9200448	-89.6251318	
+60.7208173	24.7371807	
+36.8235925	54.4377191	
+40.9207147	-72.8944467	
+35.5845655	45.3885771	
+29.3084947	72.9607653784146	
+48.7988844	2.0450613	
+47.9226375	5.5790352	
+26.2633516	50.6201208	
+54.9534761	23.0576763	
+56.6172024	63.7069279	
+20.9906402	105.8757278	
+37.3406103	28.1374932	
+26.1253659	50.5590959	
+50.6652815	1.7469737	
+49.4690664	18.1595738	
+36.7272741	10.464533856922456	
+52.1796143	21.5708	
+37.773244000000005	-92.87344925860215	
+35.5876079	45.4204779	
+36.1807099	43.9889116	
+33.3476006	44.3972088	
+36.1842972	5.445516733589516	
+26.2626952	50.6175403	
+60.5645493	21.6031791	
+29.5629963	52.6574068	
+45.0614405	3.690891	
+39.1146662	16.2174379	
+35.5604872	45.4183204	
+33.3388086	44.4137133	
+36.1684939	44.0347338	
+48.7962153	10.1529818	
+55.5110187	24.6909493	
+36.1728862	43.9720193	
+35.5861906	45.4008699	
+35.5862066	45.4168574	
+-24.2537392	-65.2548317	
+10.7998777	106.6950545	
+39.092434	43.3392981	
+36.1621588	43.987069	
+24.9980287	121.4609684	
+55.781306	12.5267523	
+35.5925678	45.4101513	
+48.8647539	2.1611767	
+34.6299034	133.9664218	
+55.9350841	12.3604095	
+30.2942496	56.9822125	
+9.9908739	-84.7117783	
+29.5605529	52.6542401	
+63.9741781	25.7624597	
+60.2899873	25.0936696	
+25.1066041	121.5337452	
+61.1569801	5.502897	
+35.5766445	45.4296529	
+29.5576492	52.6575377	
+47.7628626	1.0020663	
+37.1448206	29.5555248	
+35.5827613	45.3999434	
+33.3480087	44.3938583	
+35.5582797	45.4335298	
+35.5831374	45.4292783	
+36.2108093	-119.1720432	
+21.8947866	-82.8130075	
+61.030108549999994	71.89082041971322	
+30.032225	-97.16473	
+36.6349837	-118.8115641	
+52.47422645	16.979126402026324	
+37.5184644	126.9946455	
+30.060283	-97.778998	
+55.9598704	23.318125	
+-11.8813429	-77.0193793	
+36.1660334	44.0110523	
+20.9963542	105.8204431	
+47.6467896	-52.7133993	
+38.2580249	38.8553824	
+4.5976772	114.3297999	
+26.1238099	50.5639789	
+48.2426472	-3.4248377	
+36.3378566	43.1573501	
+35.5650055	45.4220231	
+50.6734866	-104.8311089	
+36.1820368	43.993058	
+34.7463694	10.5229152	
+35.587781	45.3989108	
+58.249379	8.3761931	
+38.3926485	27.0985255	
+30.3250235	31.774613	
+33.3494132	44.3939039	
+35.556605	45.4511841	
+26.2635321	50.6186029	
+26.2046622	50.5547206	
+25.0411159	121.3539181	
+33.3390604	44.4068178	
+46.2505232	6.6187107	
+45.3714317	-75.7163719	
+53.1714298	15.408593468383426	
+36.2099932	44.0416571	
+41.07425675	73.08434394888657	
+47.5182409	-1.4810885	
+33.3963651	-94.0933424	
+35.5783862	45.4290334	
+60.87549065	71.88635961926104	
+36.2054125	43.9894978	
+25.0161231	121.3120496	
+47.1472566	1.432975	
+62.3844057	21.2531481	
+48.5467696	-53.4712245	
+59.3209714	18.0680412	
+58.3536522	6.1628312	
+26.2489753	50.6548651	
+60.207834250000005	19.611820806302994	
+66.6110782	26.3026364	
+25.0524624	121.493057	
+-32.7569579	-71.351978	
+35.0821819	-85.2063592	
+26.2644313	50.6173452	
+47.7069004	4.2412902	
+47.969458	0.547412	
+35.5809721	45.3838054	
+62.2771756	6.155602	
+53.1303595	103.10536278592531	
+41.4330206	2.1590883	
+26.2290827	50.5735031	
+37.3377275	28.1398957	
+51.1090332	17.0509448	
+36.2155321	44.0085018	
+25.0685912	121.4884098	
+26.2487834	50.6553013	
+39.2290143	33.6813698	
+36.71975505	52.73695369258881	Моховское сельское поселение, Покровский район, Óblast de Oriol, Distrito federal Central, Rusia
+35.5848407	45.4005851	República Autónoma de Crimea, Ucrania
+47.8615659	4.1367892	Ceel Dheer, Galguduud, Galmudug غامدوغ, Somalia
+26.2267376	50.5776798	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+36.1976102	44.0377685	Coordenadas en el mar u océano
+35.596294	45.4082531	República Autónoma de Crimea, Ucrania
+-15.5289354	-49.9353437	Coordenadas en el mar u océano
+36.2044871	44.0050831	Coordenadas en el mar u océano
+45.8857771	13.5547621	مديرية لودر, Gobernación de Abyan, Yemen
+35.5688188	45.3810232	República Autónoma de Crimea, Ucrania
+36.166993	43.9989558	Coordenadas en el mar u océano
+36.1650581	43.9939065	Coordenadas en el mar u océano
+53.156138850000005	15.397187500000001	Coordenadas en el mar u océano
+40.3981841	35.8561394	ناحية الکسرة, منطقة دير الزور, Gobernación de Deir ez-Zor, Siria
+55.3592826	25.8571034	Coordenadas en el mar u océano
+29.5770344	52.6206763	1А, Лясная вуліца, Мольча, Чыркавіцкі сельскі Савет, Светлагорскі раён, Provincia de Gómel, Belarús
+26.2300929	50.5769405	Великоомелянська сільська громада, Рівненський район, Óblast de Rivne, 35360, Ucrania
+33.8922053	130.9043982	
+26.2520185	50.6561649	вулиця Заріччя, Шпанів, Шпанівська сільська громада, Рівненський район, Óblast de Rivne, 35301, Ucrania
+-11.8782142	-77.0164471	Coordenadas en el mar u océano
+47.0975666	0.8985631	Coordenadas en el mar u océano
+36.544405	-93.577139	
+25.0370007	121.5556269	
+35.7010594	51.4875268	2-я Косторная, Любимовский сельсовет, Большесолдатский район, Óblast de Kursk, Distrito federal Central, Rusia
+32.8810158	130.6104031	
+45.4227739	9.140945883218809	Cali Saahid, Burco برعو, Togdheer, Somalia
+54.9979712	12.0039629	Coordenadas en el mar u océano
+47.3166379	3.3763637	Coordenadas en el mar u océano
+-47.7392329	-65.901628	Coordenadas en el mar u océano
+31.9406226	-112.8111883	
+37.4708205	127.1264638	
+40.738435	-103.2262382	
+6.7326041	100.9821544	
+37.9103724	-92.5181921	
+35.5753402	45.4567236	República Autónoma de Crimea, Ucrania
+33.3030674	44.3703767	Sebastopol, Южный федеральный округ, Rusia
+20.9906367	105.8555647	
+35.6207622	139.5169959	
+35.5674352	45.4009359	República Autónoma de Crimea, Ucrania
+37.4845231	126.902663	
+48.7790245	2.0078039	Coordenadas en el mar u océano
