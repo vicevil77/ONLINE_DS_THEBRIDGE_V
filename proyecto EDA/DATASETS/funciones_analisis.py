@@ -490,3 +490,35 @@ def traducir_columna(df, columna, idioma_destino):
 #columna = "Payload Data"
 #idioma_destino = 'es'
 #df_traducido = traducir_columna(df, columna, idioma_destino)
+
+
+
+# obetenr todo de un dataset
+def obtener_estadisticas(df):
+
+    resultado = pd.DataFrame()
+    for col in df.columns:
+        datos = {}
+        datos['porcentaje_cardinalidad'] = round(df[col].nunique() / len(df) * 100, 2)
+        datos['Tipo'] = df[col].dtype
+        if pd.api.types.is_numeric_dtype(df[col]):
+            datos['media'] = round(df[col].mean(), 2)
+            datos['moda'] = "No"
+            datos['std'] = round(df[col].std(), 2)
+            datos['var'] = round(df[col].var(), 2)
+            datos['Q1'] = round(df[col].quantile(0.25), 2)
+            datos['mediana'] = round(df[col].median(), 2)
+            datos['Q3'] = round(df[col].quantile(0.75), 2)
+            datos['Categoria'] = 'numerica continua' if df[col].nunique() > 10 else 'numerica discreta'
+        else:
+            datos['media'] = "No"
+            datos['moda'] = df[col].mode().iloc[0] if not df[col].mode().empty else "No"
+            datos['std'] = "No"
+            datos['var'] = "No"
+            datos['Q1'] = "No"
+            datos['mediana'] = "No"
+            datos['Q3'] = "No"
+            datos['Categoria'] = 'categorica ordinal' if df[col].nunique() > 2 else 'categorica nominal'
+        datos['porcentaje_NaN'] = round(df[col].isna().mean() * 100, 2)
+        resultado[col] = pd.Series(datos)
+    return resultado.transpose()
