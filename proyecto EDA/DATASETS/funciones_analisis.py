@@ -446,7 +446,7 @@ print(f"Diagrama de flujo guardado en: {imagen_path}")
 
 
 
-
+# geolocalizar con google maps(NO FUNCIONO)
 
 from googletrans import Translator
 def traducir_columna(df, columna, idioma_destino):
@@ -493,7 +493,7 @@ def traducir_columna(df, columna, idioma_destino):
 
 
 
-# obetenr todo de un dataset
+# obetenr todo de un dataset INFORMACION GENERAL:
 def obtener_estadisticas(df):
 
     resultado = pd.DataFrame()
