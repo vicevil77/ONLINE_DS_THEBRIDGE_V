@@ -1,0 +1,7 @@
+La entrega se realizó correctamente.
+Curso: 05_MachineLearning_DS_23-10, 05 Machine Learning
+Evaluación: Cuestionario Sprint Review - Sprint 11
+
+Fecha de entrega: 19/1/24 8:39
+Remitente: Víctor Manuel Martínez Barbera
+Número de confirmación: 6365468c51e4406c82e47bf85ec3a661
