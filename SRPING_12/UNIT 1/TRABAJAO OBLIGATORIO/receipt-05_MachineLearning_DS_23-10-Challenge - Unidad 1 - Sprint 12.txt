@@ -1,0 +1,8 @@
+La entrega se realizó correctamente.
+Curso: 05_MachineLearning_DS_23-10, 05 Machine Learning
+Evaluación: Challenge - Unidad 1 - Sprint 12
+
+Fecha de entrega: 21/1/24 21:31
+Tamaño de entrega: undefined
+Remitente: Víctor Manuel Martínez Barbera
+Número de confirmación: dfa7c98263cd44f9a07083f8eb176ec8
