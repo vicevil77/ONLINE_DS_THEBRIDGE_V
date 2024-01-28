@@ -1,0 +1,20 @@
+Sara Picó
+10:37
+Tipifica variables
+-	Añadir binaria
+
+get_features_num_regression
+
+-	Anadir columna si la correlacion es positiva o negativa
+
+-	Buscar dataframe que tenga numéricas y categóricas
+
+get_features_cat_regression
+
+-	repasar lo del pvalue de pearsonr
+
+-	revisar lo de la cardinalidad
+
+plot_features_cat_regression
+
+-	anadir subplots
