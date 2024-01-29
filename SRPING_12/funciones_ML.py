@@ -2,6 +2,7 @@
 from sklearn.linear_model import ElasticNet, Ridge, Lasso
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import make_scorer, mean_absolute_error
+from sklearn.metrics import mean_absolute_percentage_error
 
 # Definir el modelo
 model = ElasticNet()
@@ -35,9 +36,43 @@ mae_test = mean_absolute_error(test_y, predictions)
 mse_test = mean_squared_error(test_y, predictions)
 rmse_test = np.sqrt(mse_test)
 r2_test = r2_score(test_y, predictions)
+mape= mean_absolute_percentage_error(test_y, predictions)
 
 # Mostrar métricas en el conjunto de prueba
 print("MAE test:", mae_test)
 print("MSE test:", mse_test)
 print("RMSE test:", rmse_test)
 print("R2 test:", r2_test)
+print("MAPE test:", mape)
+
+
+#funcion para redimensionalr variables a 2 dimensiones  que puedan ser usadas es un arbol de decision
+def reshape_test_data(test_X):
+    """Redimensiona los datos de prueba a una matriz bidimensional.
+
+    Args:
+        test_X: Los datos de prueba a redimensionar.
+
+    Returns:
+        Los datos de prueba redimensionados.
+    """
+    if isinstance(test_X, pd.Series):
+        # Si test_X es una Series de pandas, conviértela a un array de NumPy
+        test_X_array = test_X.to_numpy()
+    elif isinstance(test_X, pd.DataFrame):
+        # Si test_X es un DataFrame de pandas, conviértelo a un array de NumPy
+        test_X_array = test_X.to_numpy()
+    else:
+        # Si test_X ya es un array de NumPy, no es necesario convertirlo
+        test_X_array = test_X
+
+    # Utiliza reshape si es necesario
+    if len(test_X_array.shape) == 1:
+        n_samples = test_X_array.shape[0]
+        return test_X_array.reshape(n_samples, -1)
+    else:
+        return test_X_array
+
+# Ejemplo de uso
+# Suponiendo que test_X es una Series o DataFrame de pandas
+test_X_reshaped = reshape_test_data(test_X)
