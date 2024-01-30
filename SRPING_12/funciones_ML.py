@@ -76,3 +76,11 @@ def reshape_test_data(test_X):
 # Ejemplo de uso
 # Suponiendo que test_X es una Series o DataFrame de pandas
 test_X_reshaped = reshape_test_data(test_X)
+
+#funcion para sacar MAE sin sklearn
+def mae(y_true, y_pred):
+    return np.mean(np.abs(y_true - y_pred))
+
+#funcion paea sacar el MAPE sin skleran
+def mape(y_true, y_pred):
+    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
