@@ -3,10 +3,19 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.linear_model import ElasticNet, Ridge, Lasso
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer, mean_absolute_error,mean_squared_error,r2_score
-from sklearn.metrics import mean_absolute_percentage_error
+from funciones_ML import *
+from gensim.models import Word2Vec
+from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, MinMaxScaler
+from sklearn.metrics import accuracy_score, ConfusionMatrixDisplay,classification_report,r2_score,RocCurveDisplay
+from sklearn.linear_model import LogisticRegression, LinearRegression, Ridge, Lasso, ElasticNet, SGDRegressor, SGDClassifier, RidgeClassifier
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, GradientBoostingClassifier, GradientBoostingRegressor
+from sklearn.svm import SVC, SVR
+import catboost
+import xgboost
+import lightgbm 
 
 
 # obetenr todo de un dataset INFORMACION GENERAL:
@@ -631,3 +640,114 @@ def mae(y_true, y_pred):
 #funcion paea sacar el MAPE sin skleran
 def mape(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
+def convertir_a_vectores_numericos_hashes(hashes, ssdeep_tlsh, metodo="tfidf"):
+  """
+  Convierte hashes y SSDEEP/TLSH a vectores numéricos.
+
+  Parámetros:
+    hashes: Lista de hashes (SHA256, MD5, etc.).
+    ssdeep_tlsh: Lista de valores SSDEEP o TLSH.
+    metodo: "tfidf" o "embeddings".
+
+  Retorno:
+    Matriz de vectores numéricos.
+  """
+
+  if metodo == "tfidf":
+    vectorizer = TfidfVectorizer(max_features=5000)
+    vectores = vectorizer.fit_transform(hashes + ssdeep_tlsh)
+  elif metodo == "embeddings":
+    # Entrenar modelo Word2Vec
+    model = Word2Vec([hashes + ssdeep_tlsh], min_count=1)
+    # Obtener vectores para cada hash/SSDEEP/TLSH
+    vectores = np.array([model.wv[hash] for hash in hashes + ssdeep_tlsh])
+  else:
+    raise ValueError("Método no válido: " + metodo)
+
+  return vectores
+
+
+
+
+
+
+def evaluar_modelo_simil_cos_hashes(modelo):
+  """
+  Evalúa la calidad del modelo Word2Vec usando la similitud del coseno.
+
+  Parámetros:
+    modelo: Modelo Word2Vec entrenado.
+
+  Retorno:
+    Puntuación promedio de la similitud del coseno entre pares de hashes similares.
+  """
+
+  pares_hashes = [("hash1", "hash2"), ("hash3", "hash4")]
+  puntuaciones = []
+
+  for hash1, hash2 in pares_hashes:
+    puntuaciones.append(modelo.wv.similarity(hash1, hash2))
+
+  return sum(puntuaciones) / len(puntuaciones)
+
+#promedio de las similitudes del coseno para todos los pares de hashes.
+
+
+def evaluar_modelo_clasifica_hashes(df, modelo):
+  """
+  Evalúa la calidad del modelo Word2Vec usando la precisión en la clasificación.
+
+  Parámetros:
+    modelo: Modelo Word2Vec entrenado.
+
+  Retorno:
+    Precisión en la clasificación de hashes conocidos como malware o benignos.
+  """
+
+  # Conversión de hashes a vectores
+  vectores_hashes = modelo.wv[[hash for hash in df["hash"]]]
+
+  # Entrenamiento de un clasificador (reemplazar con su propio clasificador)
+  clf = LogisticRegression()
+  clf.fit(vectores_hashes, df["clase"])
+
+  # Predicción de etiquetas para un conjunto de prueba (reemplazar con su propio conjunto de prueba)
+  y_pred = clf.predict(vectores_hashes)
+
+  return accuracy_score(df["clase"], y_pred)
+
+
+#ara predecir si un hash es malware o benigno
+
+
+def concatenar_datafrmes(df, directorio):  
+# Directorio que contiene los archivos CSV
+    directorio = r""
+
+    # Obtener la lista de archivos en el directorio
+    archivos_csv = [archivo for archivo in os.listdir(directorio) if archivo.endswith(".csv")]
+
+    # Inicializar una lista para almacenar los DataFrames
+    dfs = []
+
+    # Iterar sobre cada archivo y cargarlo como DataFrame
+    for archivo in archivos_csv:
+        ruta_archivo = os.path.join(directorio, archivo)
+        df = pd.read_csv(ruta_archivo)
+        dfs.append(df)
+
+    # Concatenar los DataFrames verticalmente (axis=0)
+    df_concat = pd.concat(dfs, axis=0, ignore_index=True)
+
+    return df_concat
+
+def contar_guiones(celda):
+    return str(celda).count("-") if str(celda) == "-" else 0
+
+# Contar los guiones en cada celda del DataFrame
+total_de_guiones = df.applymap(contar_guiones).sum().sum()
+
+print(f"Total de guiones en todo el DataFrame: {total_de_guiones}")
+
+
