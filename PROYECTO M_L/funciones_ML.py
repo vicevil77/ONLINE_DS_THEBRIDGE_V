@@ -745,9 +745,27 @@ def concatenar_datafrmes(df, directorio):
 def contar_guiones(celda):
     return str(celda).count("-") if str(celda) == "-" else 0
 
-# Contar los guiones en cada celda del DataFrame
-total_de_guiones = df.applymap(contar_guiones).sum().sum()
+def funcion_categorias(df):
+    
+    """
+    Obtiene información sobre el tipo de categoria de cada columna de un DataFrame.
 
-print(f"Total de guiones en todo el DataFrame: {total_de_guiones}")
+    Args:
+        df: El DataFrame del que se quiere obtener la información.
+
+    Returns:
+        Un diccionario con la información de cada columna.
+    """
+
+    resultado = pd.DataFrame()
+    for col in df.columns:
+        datos = {}
+        if pd.api.types.is_numeric_dtype(df[col]):
+            datos['Categoria'] = 'numerica continua' if df[col].nunique() > 10 else 'numerica discreta'
+        else:
+            datos['Categoria'] = 'categorica ordinal' if df[col].nunique() > 2 else 'categorica nominal'
+   
+        resultado[col] = pd.Series(datos)
+    return resultado.transpose()
 
 
