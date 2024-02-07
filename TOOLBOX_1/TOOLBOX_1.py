@@ -46,9 +46,9 @@ def funcion_categorias(df):
     for col in df.columns:
         datos = {}
         if pd.api.types.is_numeric_dtype(df[col]):
-            datos['Categoria'] = 'numerica continua' if df[col].nunique() > 10 else 'numerica discreta'
+            datos['Categoria'] = 'Numerica Continua' if df[col].nunique() > 10 else 'Numérica Discreta'
         else:
-            datos['Categoria'] = 'categorica ordinal' if df[col].nunique() > 2 else 'categorica nominal'
+            datos['Categoria'] = 'Categórica' if df[col].nunique() > 2 else 'Binaria'
    
         resultado[col] = pd.Series(datos)
     return resultado.transpose()
@@ -58,7 +58,7 @@ def funcion_categorias(df):
 
 
 #TERCERA    
-def get_features_num_regression(df, target_col,umbral_corr, pvalue=None):
+def get_features_num_regression(df, target_col,umbral_corr = 0.5, pvalue = None):
     """
     Devuelve una lista con las columnas numéricas del dataframe cuya correlación con la columna designada por "target_col" sea superior en valor absoluto al valor dado por "umbral_corr".
 
@@ -83,13 +83,18 @@ def get_features_num_regression(df, target_col,umbral_corr, pvalue=None):
     _, p_values = f_regression(df.drop(columns=[target_col]), df[target_col])
 
     # Filtramos las columnas según el umbral_corr y p-value, incluyendo la target nuevamente en la lista de correlaciones
-    columnas_correlacionadas = df.columns[abs(df.corr()[target_col]) >= umbral_corr].tolist()
+    columnas_correlacionadas_dir = df.columns[(df.corr()[target_col] >= umbral_corr)].tolist()
+    columnas_correlacionadas_indir = df.columns[(df.corr()[target_col] >= -(umbral_corr))].tolist()
 
     # Filtramos por significancia si se proporciona un p-value, agrupando columnas con su p_values
     if pvalue is not None:
-        columnas_correlacionadas = [col for col, p_val in zip(columnas_correlacionadas, p_values) if p_val <= pvalue]
+        columnas_correlacionadas_dir = [col for col, p_val in zip(columnas_correlacionadas_dir, p_values) if p_val <= pvalue]
+        columnas_correlacionadas_indir = [col for col, p_val in zip(columnas_correlacionadas_indir, p_values) if p_val <= pvalue]
 
-    return f"Las columnas numéricas con |valor superior| al valor {umbral_corr} aportado en la variable 'umbral_corr' son:{columnas_correlacionadas}"
+    nl ='\n'
+    print(f"Las columnas numéricas con |valor de correlación superior| a {umbral_corr} aportado en la variable 'umbral_corr' en referencia a {target_col} son: {nl}Directamente proporcionales:   {columnas_correlacionadas_dir} {nl}Indirectamente proporcionales: {columnas_correlacionadas_indir}")
+    
+    return columnas_correlacionadas_dir + columnas_correlacionadas_indir
 
 
 
@@ -146,88 +151,114 @@ def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, p
 
 
 #QUINTA 
-def get_features_cat_regression(df, target, cardin= 0, pvalue=0.05):
-    # Comprobar si 'target' es una columna numérica continua
-    if target not in df.columns or not pd.api.types.is_numeric_dtype(df[target]):
-        print(f"La columna '{target}' no es una variable numérica continua.")
-        return None
-
-    # comprobar y obtener columnas categóricas con cardinalidad superior a la establecida
-    columnas_cat = [col for col in df.columns if not pd.api.types.is_numeric_dtype(df[col])
-                           and df[col].nunique()/len(df)*100 > cardin]
-
-    if not columnas_cat:
-        print("No existen columnas categóricas en el DataFrame")
+def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
+    """
+    Esta función recibe un dataframe y dos argumentos adicionales: 'target_col' y 'pvalue'.
+    
+    Parámetros:
+    - dataframe: DataFrame de pandas.
+    - target_col: Nombre de la columna que actuará como el objetivo para un modelo de regresión.
+    - pvalue: Valor de p umbral para la significancia estadística (por defecto es 0.05).
+    
+    Devuelve:
+    - Una lista con las columnas categóricas cuya relación con 'target_col' es estadísticamente significativa.
+    - None si hay errores en los parámetros de entrada.
+    """
+    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
+    if target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col]):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
         return None
     
-     # Declarar variables fuera del bucle
-    columnas_significativas = []
-    corr = None  # Inicializar a None para el caso en que no haya ninguna columna significativa
-    pv = None
-    chi2_stat = None
-    chi2_pvalue = None
-    ttest_pvalue = None
-    contingency_table = None
-  
-    # Realizar pruebas de correlación y almacenar columnas estadisticamente  significativas
-    for col in columnas_cat:
-        # Comprobar si 'col' es una columna categórica
-        if not pd.api.types.is_numeric_dtype(df[col]):
-            print(f"Advertencia: La columna '{col}' es de tipo categórico, se ignorará en el análisis.")
-            continue
-       
-        # Realizar prueba de correlación de Pearson
-        corr, pv = pearsonr(df[col], df[target])
-
-        # Realizar prueba chi-cuadrado
-        contingency_table = pd.crosstab(df[col], df[target])
-        chi2_stat, chi2_pvalue, _, _ = chi2_contingency(contingency_table)
-
-        # Realizar prueba t de Student
-        _, ttest_pvalue = f_regression(df[col], df[target])
-
-        # Seleccionar el método de prueba en base al p-value
-        if pv < pvalue or chi2_pvalue < pvalue or ttest_pvalue < pvalue:
-            columnas_significativas.append((col, 'pearson' if pv < pvalue else 'chi2_test' if chi2_pvalue < pvalue else 't_test'))
-     
-    return columnas_significativas
+    # Comprueba si 'pvalue' es un float válido
+    if not isinstance(pvalue, float):
+        print("Error: 'pvalue' debería ser un float.")
+        return None
+    
+    # Identifica las columnas categóricas
+    cat_columns = dataframe.select_dtypes(include=['object', 'category']).columns.tolist()
+    
+    # Comprueba si hay columnas categóricas
+    if not cat_columns:
+        print("Error: No se encontraron columnas categóricas en el dataframe.")
+        return None
+    
+    # Realiza pruebas estadísticas y filtra columnas basadas en el valor de p
+    selected_columns = []
+    for cat_col in cat_columns:
+        contingency_table = pd.crosstab(dataframe[cat_col], dataframe[target_col])
+        
+        # Elige la prueba apropiada según la cardinalidad
+        if len(contingency_table) > 2:
+            _, p, _, _ = chi2_contingency(contingency_table)
+        else:
+            _, p = f_oneway(*[dataframe[target_col][dataframe[cat_col] == category] for category in dataframe[cat_col].unique()])
+        
+        if p < pvalue:
+            selected_columns.append(cat_col)
+    
+    return selected_columns
 
 
 
 #SEXTA
-#el parámetro 'wirh_indivual_plot, controla si debe generar o no histogramas individuales para cada combinación de variables categóricas y la columna objetivo con relacion significativa.
-# si esta en False solo devuelve una lista de columnas categoricas o este caso numericas con significacion  y si es True las pintara
-def plot_features_cat_regression(df, target, columns=None, pvalue=0.05, with_individual_plot=False):
-    # Si la lista de columnas no se proporciona, seleccionar las variables numéricas del DataFrame
+def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "", 
+                                  columns: list = [], pvalue: float = 0.05, 
+                                  with_individual_plot: bool = False) -> list:
+    """
+    Esta función recibe un dataframe y varios argumentos opcionales para visualizar y analizar la relación
+    entre variables categóricas y una columna objetivo en un modelo de regresión.
+
+    Parámetros:
+    - dataframe: DataFrame de pandas.
+    - target_col: Nombre de la columna que actuará como el objetivo para un modelo de regresión.
+    - columns: Lista de nombres de columnas categóricas a considerar (por defecto, todas las numéricas).
+    - pvalue: Valor de p umbral para la significancia estadística (por defecto es 0.05).
+    - with_individual_plot: Booleano que indica si se deben incluir gráficos individuales para cada columna (por defecto es False).
+
+    Devuelve:
+    - Una lista con las columnas seleccionadas que cumplen con las condiciones de significancia.
+    - None si hay errores en los parámetros de entrada.
+    """
+    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
+    if target_col and (target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col])):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+        return None
+    
+    # Comprueba si 'pvalue' es un float válido
+    if not isinstance(pvalue, float):
+        print("Error: 'pvalue' debería ser un float.")
+        return None
+    
+    # Comprueba si 'columns' es una lista válida de strings
+    if not isinstance(columns, list) or not all(isinstance(col, str) for col in columns):
+        print("Error: 'columns' debería ser una lista de strings.")
+        return None
+    
+    # Comprueba si 'with_individual_plot' es un booleano válido
+    if not isinstance(with_individual_plot, bool):
+        print("Error: 'with_individual_plot' debería ser un booleano.")
+        return None
+    
+    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el dataframe
     if not columns:
-        columns = df.select_dtypes(include='number').columns.tolist()
-
-    # Inicializar la lista de columnas significativas
-    columnas_cat = []
-
-    # Iterar sobre las columnas
-    for col in columns:
-        # Verificar que los datos en la columna son numéricos
-        if pd.to_numeric(df[col]).isna().any():
-            print(f"Advertencia: La columna '{col}' contiene valores no numéricos, se ignorará en el análisis.")
-            continue
-
-        # Realizar prueba de chi-cuadrado
-        contingency_table = pd.crosstab(df[col], df[target])
-        chi2_stat, chi2_pvalue, _, _ = chi2_contingency(contingency_table)
-
-        # Seleccionar el método de prueba en base al p-value
-        if chi2_pvalue < pvalue:
-            columnas_cat.append(col)
-
-            # Generar histogramas individuales si se requiere
-            if with_individual_plot:
-                plt.figsize=(10,5)
-                sns.histplot(data=df, x=col, hue=target, multiple="stack", bins=20,)
-                plt.title(f'Histograma para {col} agrupado por {target}')
-                plt.show()
-
-    return "Las columnas seleccionadas son:", columnas_cat
+        columns = dataframe.select_dtypes(include=['number']).columns.tolist()
+    
+    # Filtra columnas basadas en pruebas estadísticas
+    selected_columns = get_features_cat_regression(dataframe, target_col, pvalue)
+    selected_columns = list(set(selected_columns) & set(columns))
+    
+    if not selected_columns:
+        print("Ninguna columna cumple con las condiciones especificadas para trazar.")
+        return None
+    
+    # Histogramas
+    for cat_col in selected_columns:
+        plt.figure(figsize=(10, 6))
+        sns.histplot(data=dataframe, x=target_col, hue=cat_col, multiple="stack", kde=True)
+        plt.title(f"Histograma para {target_col} por {cat_col}")
+        plt.show()
+    
+    return selected_columns
 
 
 
