@@ -8,7 +8,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.feature_selection import f_regression
 from sklearn.metrics import make_scorer, mean_absolute_error,mean_squared_error,r2_score
 from sklearn.metrics import mean_absolute_percentage_error
-from scipy.stats import pearsonr, chi2_contingency, chi2
+from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
 
 
 # obetenr todo de un dataset INFORMACION GENERAL:
@@ -84,6 +84,46 @@ def pinta_distribucion_categoricas(df, columnas_categoricas, relativa=False, mos
         fig.legend(title='Legend Title', labels=['Frecuencia Relativa'], loc='upper right')
     
     plt.show()
+
+def pinta_distribucion_numericas(df, columnas_numericas, relativa=False, mostrar_valores=False):
+    num_columnas = len(columnas_numericas)
+    num_filas = (num_columnas // 2) + (num_columnas % 2)
+
+    fig, axes = plt.subplots(num_filas, 2, figsize=(15, 5 * num_filas))
+    axes = axes.flatten() 
+
+    for i, col in enumerate(columnas_numericas):
+        ax = axes[i]
+        if relativa:
+            total = df[col].value_counts().sum()
+            serie = df[col].value_counts().apply(lambda x: x / total)
+            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis')
+            ax.set_ylabel('Frecuencia Relativa')
+        else:
+            serie = df[col].value_counts()
+            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis')
+            ax.set_ylabel('Frecuencia')
+
+        ax.set_title(f'Distribución de {col}')
+        ax.set_xlabel('')
+        ax.tick_params(axis='x', rotation=45)
+
+        if mostrar_valores:
+            for p in ax.patches:
+                height = p.get_height()
+                ax.annotate(f'{height:.2f}', (p.get_x() + p.get_width() / 2., height), 
+                            ha='center', va='center', xytext=(0, 9), textcoords='offset points')
+
+    for j in range(i + 1, num_filas * 2):
+        axes[j].axis('off')
+
+    plt.tight_layout()
+    
+    # Añadir leyenda
+    if relativa:
+        fig.legend(title='Legend Title', labels=['Frecuencia Relativa'], loc='upper right')
+    
+    plt.show();
 
 
 def plot_categorical_relationship_fin(df, cat_col1, cat_col2, relative_freq=False, show_values=False, size_group = 5):
@@ -269,6 +309,21 @@ def plot_grouped_histograms(df, cat_col, num_col, group_size):
         plt.legend()
         plt.show()
 
+def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
+    num_unique = len(df)
+    for i in range(0, num_unique, group_size):
+        subset_df = df.iloc[i:i+group_size]
+        
+        plt.figure(figsize=(10, 6))
+        for index, row in subset_df.iterrows():
+            sns.histplot(subset_df[num_col1], kde=True, label=str(row[num_col2]))
+        
+        plt.title(f'Histograms of {num_col1} for {num_col2} (Group {i//group_size + 1})')
+        plt.xlabel(num_col1)
+        plt.ylabel('Frequency')
+        plt.legend()
+        plt.show()
+
 
 
 def grafico_dispersion_con_correlacion(df, columna_x, columna_y, tamano_puntos=50, mostrar_correlacion=False):
@@ -414,7 +469,7 @@ def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, p
                     columnas_para_pintar.append(col)
 
     # Número máximo de gráficas por grupo
-    max_graficas_por_grupo = 6
+    max_graficas_por_grupo = 4
 
     # Dividir en grupos según el número máximo de gráficas
     len(columnas_para_pintar) // max_graficas_por_grupo
@@ -429,6 +484,56 @@ def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, p
         plt.show()
     
     return "Las columnas con un mayor umbral_corr al establecido son", columnas_umbral_mayor
+
+
+
+def plot_hist_features_num_bivariante(dataframe: pd.DataFrame, target_col: int = "", 
+                                  columns: list = []) -> list:
+    
+    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
+    if target_col and (target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col])):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+        return None
+    
+    # Comprueba si 'columns' es una lista válida de strings
+    if not isinstance(columns, list) or not all(isinstance(col, str) for col in columns):
+        print("Error: 'columns' debería ser una lista de strings.")
+        return None
+    
+    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el dataframe
+    if not columns:
+        columns = dataframe.select_dtypes(include=['number']).columns.tolist()
+    
+    # Realiza pruebas estadísticas para cada columna
+    selected_columns = []
+    for col in columns:
+        if col == target_col:
+            continue
+        _, pvalue = f_oneway(dataframe[col], dataframe[target_col])
+        if pvalue < 0.05:  # Umbral de significancia
+            selected_columns.append(col)
+    
+    if not selected_columns:
+        print("Ninguna columna cumple con las condiciones especificadas para trazar.")
+        return None
+    
+    # Definir colores personalizados
+    num_colors = len(selected_columns)
+    colors = sns.color_palette("viridis", num_colors)
+    target_color = "red"
+    
+    # Histogramas
+    for idx, num_col in enumerate(selected_columns):
+        plt.figure(figsize=(6, 6))
+        sns.histplot(data=dataframe, x=target_col, hue=num_col, multiple="stack", kde=True, palette=[colors[idx]], legend=False)
+        sns.histplot(data=dataframe, x=target_col, color=target_color, kde=True, label=target_col, legend=False)
+        plt.title(f"Histograma para {target_col} por {num_col}")
+        plt.legend(labels=[num_col], loc='upper right', title='Columna')
+        plt.show();
+    #kernel interractivo para quitar letras mientras pinta
+    plt.ion()
+    
+    return selected_columns;
 
 
 def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
@@ -636,3 +741,56 @@ def mi_logaritmo(datos):
     else:
         # Añade una pequeña constante (por ejemplo, 1) para otras bases para manejar los ceros
         return np.log(datos + 1e-8)  # Ajusta la constante según sea necesario
+    
+def bivariante_analysis_scatter_num(df, target_column):
+    numeric_columns = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+    numeric_columns.remove(target_column)
+    
+    for col in numeric_columns:
+        plt.figure(figsize=(8, 6))
+        sns.scatterplot(data=df, x=col, y=target_column)
+        plt.title(f'Bivariate Analysis: {col} vs {target_column}')
+        plt.xlabel(col)
+        plt.ylabel(target_column)
+        plt.show()
+
+
+
+def bivariante_analysis_hist_num(df, target_column):
+    numeric_columns = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+    numeric_columns.remove(target_column)
+    
+    for col in numeric_columns:
+        plt.figure(figsize=(8, 6))
+        plt.hist(df[col], alpha=0.5, bins=20)
+        plt.title(f'Bivariate Analysis: {col} vs {target_column}')
+        plt.xlabel(col)
+        plt.ylabel(target_column)
+        plt.show()
+
+
+from scipy.stats import ttest_ind
+
+def test_t_student(df):
+    # Definir la variable objetivo
+    target = 'target'
+
+    # Filtrar las características numéricas del dataframe
+    features_num = df.select_dtypes(include=['number']).columns.tolist()
+
+    # Realizar la prueba t de Student para cada característica numérica
+    resultados_pruebas = {}
+    for feature in features_num:
+        # Realizar la prueba t de Student
+        t_statistic, p_value = ttest_ind(df[feature], df[target])
+        resultados_pruebas[feature] = {'t_statistic': t_statistic, 'p_value': p_value}
+
+    # Imprimir los resultados
+    for feature, result in resultados_pruebas.items():
+        print(f"--COLUMNA: {feature}")
+        print(f"Estadística de prueba t: {result['t_statistic']}")
+        print(f"Valor p: {result['p_value']}")
+        print("Significativo: ", "Sí" if result['p_value'] < 0.05 else "No")
+    return
+
+    
