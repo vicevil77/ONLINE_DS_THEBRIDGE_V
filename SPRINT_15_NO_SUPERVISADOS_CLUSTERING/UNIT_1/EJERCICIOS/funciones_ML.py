@@ -9,6 +9,7 @@ from sklearn.feature_selection import f_regression
 from sklearn.metrics import make_scorer, mean_absolute_error,mean_squared_error,r2_score
 from sklearn.metrics import mean_absolute_percentage_error
 from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
+from sklearn.cluster import KMeans
 
 
 # obetenr todo de un dataset INFORMACION GENERAL:
@@ -42,6 +43,72 @@ def obtener_estadisticas(df):
     return resultado.transpose()
 
 
+def plot_clusters(X, y=None):
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=1)
+    plt.xlabel("$x_1$", fontsize=14)
+    plt.ylabel("$x_2$", fontsize=14, rotation=0)
+
+
+def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
+                             show_xlabels=True, show_ylabels=True):
+    mins = X.min(axis=0) - 0.1
+    maxs = X.max(axis=0) + 0.1
+    xx, yy = np.meshgrid(np.linspace(mins[0], maxs[0], resolution),
+                         np.linspace(mins[1], maxs[1], resolution))
+    Z = clusterer.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+
+    plt.contourf(Z, extent=(mins[0], maxs[0], mins[1], maxs[1]),
+                cmap="Pastel2")
+    plt.contour(Z, extent=(mins[0], maxs[0], mins[1], maxs[1]),
+                linewidths=1, colors='k')
+
+
+def plot_clusterer_comparacion(clusterer1, clusterer2, X, title1=None, title2=None):
+    clusterer1.fit(X)
+    clusterer2.fit(X)
+
+    plt.figure(figsize=(10, 3.2))
+
+    plt.subplot(121)
+    plot_decision_boundaries(clusterer1, X)
+    if title1:
+        plt.title(title1, fontsize=14)
+
+    plt.subplot(122)
+    plot_decision_boundaries(clusterer2, X, show_ylabels=False)
+    if title2:
+        plt.title(title2, fontsize=14)
+
+
+
+def plot_elbow_method(data, max_clusters=10):
+    """
+    Calcula la suma de las distancias cuadradas intra-cluster para diferentes números de clusters
+    y traza el gráfico del codo para ayudar a determinar el número óptimo de clusters.
+
+    Parámetros:
+    - data: Los datos de entrada para el clustering.
+    - max_clusters: El número máximo de clusters a considerar (por defecto es 10).
+
+    Devuelve:
+    - None
+    """
+
+    inertia = []
+    for n_clusters in range(1, max_clusters + 1):
+        kmeans = KMeans(n_clusters=n_clusters, random_state=0)
+        kmeans.fit(data)
+        inertia.append(kmeans.inertia_)
+
+    # Trazar el gráfico del codo
+    plt.figure(figsize=(8, 6))
+    plt.plot(range(1, max_clusters + 1), inertia, marker='o', linestyle='--')
+    plt.xlabel('Número de clusters')
+    plt.ylabel('Inertia')
+    plt.title('Método del codo')
+    plt.grid(True)
+    plt.show()
 
 
 
@@ -535,7 +602,27 @@ def plot_hist_features_num_bivariante(dataframe: pd.DataFrame, target_col: int =
     
     return selected_columns;
 
+def categorical_correlation_heatmap(dataframe):
+    # Calcula la matriz de contingencia
+    contingency_matrix = pd.DataFrame(np.zeros((len(dataframe.columns), len(dataframe.columns))), columns=dataframe.columns, index=dataframe.columns)
+    for col1 in dataframe.columns:
+        for col2 in dataframe.columns:
+            contingency_matrix.loc[col1, col2] = pd.crosstab(dataframe[col1], dataframe[col2]).values.ravel()[0]
+    
+    # Calcula el coeficiente de contingencia
+    chi2, _, _, _ = chi2_contingency(contingency_matrix)
+    contingency_coefficient = np.sqrt(chi2 / (len(dataframe) * min(len(dataframe.columns)-1, len(dataframe.index)-1)))
+    
+    # Crea el heatmap
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(pd.DataFrame(contingency_coefficient, index=dataframe.columns, columns=dataframe.columns), annot=True, fmt=".2f", cmap="coolwarm", square=True, linewidths=0.5)
+    plt.title("Heatmap de Correlación Categórica (Coeficiente de Contingencia)")
+    plt.show()
 
+    return contingency_coefficient;
+
+
+    
 def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
     """
     Esta función recibe un dataframe y dos argumentos adicionales: 'target_col' y 'pvalue'.
