@@ -104,17 +104,19 @@ def plot_centroids(centroids, weights=None, circle_color='w', cross_color='b'):
 
 
 def encontrar_n_clusters(df, max_clusters=20):
-    
+    #preparacion datos
     X = df.values
-
-    # variables
+    
+    # lista para almacenar los valores de la inercia 
     inercias = []
+    
+    #  lista para almacenar los valores de la puntuación de silueta
     silhouette_scores = []
     
-    # Calcular inercia y puntuación de silueta para diferentes clusters
+    # Calcular inercia y puntuación de silueta para diferentes números de clusters
     for i in range(1, max_clusters+1):
         kmeans = KMeans(n_clusters=i, random_state=42)
-        kmeans.fit(X)# encuentro los cluesteres
+        kmeans.fit(X)
         
         # Calcular la inercia y la puntuación de silueta
         inercias.append(kmeans.inertia_)
@@ -122,7 +124,7 @@ def encontrar_n_clusters(df, max_clusters=20):
             silhouette_scores.append(silhouette_score(X, kmeans.labels_))
     
     # Dibujar el gráfico del método del codo
-    plt.figure(figsize=(20, 6))
+    plt.figure(figsize=(10, 6))
     plt.subplot(121)
     plt.plot(range(1, max_clusters+1), inercias, marker='o')
     plt.title('Método del Codo')
@@ -135,36 +137,9 @@ def encontrar_n_clusters(df, max_clusters=20):
     plt.title('Método de la Silueta')
     plt.xlabel('Número de Clusters')
     plt.ylabel('Puntuación de Silueta')
-    plt.show();
-
-
-
-
-def plot_silueta_score_con_K(df, max_k):
-    # almacenar los valores
-    silhouette_scores = []
-
-    # Rango de valores de k que deseas probar
-    k_values = range(2, max_k + 1)
-
-    # Iterar sobre diferentes valores de k
-    for k in k_values:
-        kmeans = KMeans(n_clusters=k, random_state=42)
-        find_labels_clusters = kmeans.fit_predict(df)
-        
-        # Calcular la puntuación de silueta para el clustering actual
-        silueta_point = silhouette_score(df, find_labels_clusters)
-        silhouette_scores.append(silueta_point)
-
-    # Trazar el gráfico de la evolución del score de la silueta
-    plt.figure(figsize=(12, 6))
-    plt.plot(k_values, silhouette_scores, marker='o', linestyle='-')
-    plt.xlabel('Número de Clusters (k)')
-    plt.ylabel('Puntuación de Silueta')
-    plt.title('Evolución del "Score de Silueta" para Diferentes Valores de k')
-    plt.xticks(k_values)
-    plt.grid(True)
-    plt.show();
+    
+    plt.tight_layout()
+    plt.show()
 
 
 
