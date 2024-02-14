@@ -12,6 +12,8 @@ from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
+import ptitprince as pt
+
 
 # obetenr todo de un dataset INFORMACION GENERAL:
 def obtener_estadisticas(df):
@@ -72,6 +74,36 @@ def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
                 cmap="Pastel2")
     plt.contour(Z, extent=(mins[0], maxs[0], mins[1], maxs[1]),
                 linewidths=1, colors='k')
+    
+
+
+def plot_dbscan(dbscan, X, size, show_xlabels=True, show_ylabels=True):
+    core_mask = np.zeros_like(dbscan.labels_, dtype=bool)
+    core_mask[dbscan.core_sample_indices_] = True
+    anomalies_mask = dbscan.labels_ == -1
+    non_core_mask = ~(core_mask | anomalies_mask)
+
+    cores = dbscan.components_
+    anomalies = X[anomalies_mask]
+    non_cores = X[non_core_mask]
+    
+    plt.scatter(cores[:, 0], cores[:, 1],
+                c=dbscan.labels_[core_mask], marker='o', s=size, cmap="Paired")
+    plt.scatter(cores[:, 0], cores[:, 1], marker='*', s=20, c=dbscan.labels_[core_mask])
+    plt.scatter(anomalies[:, 0], anomalies[:, 1],
+                c="r", marker="x", s=100)
+    plt.scatter(non_cores[:, 0], non_cores[:, 1], c=dbscan.labels_[non_core_mask], marker=".")
+    if show_xlabels:
+        plt.xlabel("$x_1$", fontsize=14)
+    else:
+        plt.tick_params(labelbottom=False)
+    if show_ylabels:
+        plt.ylabel("$x_2$", fontsize=14, rotation=0)
+    else:
+        plt.tick_params(labelleft=False)
+    plt.title("eps={:.2f}, min_samples={}".format(dbscan.eps, dbscan.min_samples), fontsize=14)
+
+    plt.show();
 
 
 def plot_clusterer_comparacion(clusterer1, clusterer2, X, title1=None, title2=None):
@@ -413,6 +445,28 @@ def plot_grouped_boxplots(df, cat_col, num_col):
         plt.show()
 
 
+def generar_raincloud_plot(dataframe):
+    # Filtrar columnas numéricas o categóricas ordinales
+    columnas_numericas = dataframe.select_dtypes(include=['number']).columns
+    columnas_categoricas_ordinales = [col for col in dataframe.columns if dataframe[col].dtype.name == 'category']
+
+    if len(columnas_numericas) == 0 and len(columnas_categoricas_ordinales) == 0:
+        print("No se encontraron columnas numéricas o categóricas ordinales en el dataframe.")
+        return
+
+    # Crear raincloud plots para cada columna
+    for col in columnas_numericas:
+        plt.figure(figsize=(8, 6))
+        pt.RainCloud(x=col, data=dataframe, orient='h')
+        plt.title(f'Raincloud Plot para {col}')
+        plt.show()
+
+    for col in columnas_categoricas_ordinales:
+        plt.figure(figsize=(8, 6))
+        pt.RainCloud(x=col, data=dataframe, orient='h')
+        plt.title(f'Raincloud Plot para {col}')
+        plt.show()
+
 
 def plot_grouped_histograms(df, cat_col, num_col, group_size):
     unique_cats = df[cat_col].unique()
@@ -430,7 +484,7 @@ def plot_grouped_histograms(df, cat_col, num_col, group_size):
         plt.xlabel(num_col)
         plt.ylabel('Frequency')
         plt.legend()
-        plt.show()
+        plt.show();
 
 def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
     num_unique = len(df)
@@ -446,6 +500,8 @@ def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
         plt.ylabel('Frequency')
         plt.legend()
         plt.show()
+
+
 
 
 
