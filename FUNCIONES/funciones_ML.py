@@ -5,8 +5,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import ElasticNet, Ridge, Lasso
 from sklearn.model_selection import GridSearchCV
+from sklearn.feature_selection import f_regression
 from sklearn.metrics import make_scorer, mean_absolute_error,mean_squared_error,r2_score
 from sklearn.metrics import mean_absolute_percentage_error
+from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
+from sklearn.cluster import KMeans
+from sklearn.cluster import DBSCAN
+from sklearn.metrics import silhouette_score
+import ptitprince as pt
 
 
 # obetenr todo de un dataset INFORMACION GENERAL:
@@ -40,6 +46,164 @@ def obtener_estadisticas(df):
     return resultado.transpose()
 
 
+def convertir_object_a_numeros(df):
+    for columna in df.columns:
+        if df[columna].dtype == 'object':  
+            categorias = df[columna].unique() 
+            mapeo = {categoria: valor for valor, categoria in enumerate(categorias)} 
+            df[columna] = df[columna].map(mapeo)  
+    return df
+
+
+def plot_clusters(X, y=None):
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=1)
+    plt.xlabel("$x_1$", fontsize=14)
+    plt.ylabel("$x_2$", fontsize=14, rotation=0)
+
+
+def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
+                             show_xlabels=True, show_ylabels=True):
+    mins = X.min(axis=0) - 0.1
+    maxs = X.max(axis=0) + 0.1
+    xx, yy = np.meshgrid(np.linspace(mins[0], maxs[0], resolution),
+                         np.linspace(mins[1], maxs[1], resolution))
+    Z = clusterer.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+
+    plt.contourf(Z, extent=(mins[0], maxs[0], mins[1], maxs[1]),
+                cmap="Pastel2")
+    plt.contour(Z, extent=(mins[0], maxs[0], mins[1], maxs[1]),
+                linewidths=1, colors='k')
+    
+
+
+def plot_dbscan(dbscan, X, size, show_xlabels=True, show_ylabels=True):
+    core_mask = dbscan.core_sample_indices_
+    anomalies_mask = dbscan.labels_ == -1
+    non_core_mask = ~np.isin(np.arange(len(X)), np.concatenate([core_mask, np.where(anomalies_mask)[0]]))
+
+    plt.scatter(X.loc[core_mask, X.columns[0]], X.loc[core_mask, X.columns[1]], c=dbscan.labels_[core_mask], marker='o', s=size, cmap="Paired")
+    plt.scatter(X.loc[core_mask, X.columns[0]], X.loc[core_mask, X.columns[1]], marker='*', s=20, c=dbscan.labels_[core_mask])
+    plt.scatter(X.loc[anomalies_mask, X.columns[0]], X.loc[anomalies_mask, X.columns[1]], c="r", marker="x", s=100)
+    plt.scatter(X.loc[non_core_mask, X.columns[0]], X.loc[non_core_mask, X.columns[1]], c=dbscan.labels_[non_core_mask], marker=".")
+
+    plt.xlabel("$x_1$", fontsize=14) if show_xlabels else plt.tick_params(labelbottom=False)
+    plt.ylabel("$x_2$", fontsize=14, rotation=0) if show_ylabels else plt.tick_params(labelleft=False)
+    
+    plt.title("eps={:.2f}, min_samples={}".format(dbscan.eps, dbscan.min_samples), fontsize=14)
+
+   
+
+
+def plot_clusterer_comparacion(clusterer1, clusterer2, X, title1=None, title2=None):
+    clusterer1.fit(X)
+    clusterer2.fit(X)
+
+    plt.figure(figsize=(10, 3.2))
+
+    plt.subplot(121)
+    plot_decision_boundaries(clusterer1, X)
+    if title1:
+        plt.title(title1, fontsize=14)
+
+    plt.subplot(122)
+    plot_decision_boundaries(clusterer2, X, show_ylabels=False)
+    if title2:
+        plt.title(title2, fontsize=14)
+
+
+def plot_centroids(centroids, weights=None, circle_color='w', cross_color='b'):
+    if weights is not None:
+        centroids = centroids[weights > weights.max() / 10]
+    plt.scatter(centroids[:, 0], centroids[:, 1],
+                marker='o', s=30, linewidths=8,
+                color=circle_color, zorder=10, alpha=0.9)
+    plt.scatter(centroids[:, 0], centroids[:, 1],
+                marker='x', s=15, linewidths=20,
+                color=cross_color, zorder=11, alpha=1)
+    
+
+def best_eps(df, min_eps, max_eps, paso_eps):
+    mejor_eps = None
+    mejor_silueta = -1
+    
+    for eps in range(min_eps, max_eps, paso_eps):
+        dbscan = DBSCAN(eps=eps)
+        labels = dbscan.fit_predict(df)
+        
+        # Ignorar el caso donde solo hay un grupo (no se puede calcular la silueta)
+        if len(set(labels)) > 1:
+            silueta = silhouette_score(df, labels)
+            if silueta > mejor_silueta:
+                mejor_silueta = silueta
+                mejor_eps = eps
+    
+    return mejor_eps, mejor_silueta
+
+
+
+def encontrar_n_clusters(df, max_clusters=20):
+    
+    X = df.values
+
+    # variables
+    inercias = []
+    silhouette_scores = []
+    
+    # Calcular inercia y puntuación de silueta para diferentes clusters
+    for i in range(1, max_clusters+1):
+        kmeans = KMeans(n_clusters=i, random_state=42)
+        kmeans.fit(X)# encuentro los cluesteres
+        
+        # Calcular la inercia y la puntuación de silueta
+        inercias.append(kmeans.inertia_)
+        if i > 1:
+            silhouette_scores.append(silhouette_score(X, kmeans.labels_))
+    
+    # Dibujar el gráfico del método del codo
+    plt.figure(figsize=(20, 6))
+    plt.subplot(121)
+    plt.plot(range(1, max_clusters+1), inercias, marker='o')
+    plt.title('Método del Codo')
+    plt.xlabel('Número de Clusters')
+    plt.ylabel('Inercia')
+    
+    # Dibujar el gráfico de la puntuación de silueta
+    plt.subplot(122)
+    plt.plot(range(2, max_clusters+1), silhouette_scores, marker='o')
+    plt.title('Método de la Silueta')
+    plt.xlabel('Número de Clusters')
+    plt.ylabel('Puntuación de Silueta')
+    plt.show();
+
+
+
+
+def plot_silueta_score_con_K(df, max_k):
+    # almacenar los valores
+    silhouette_scores = []
+
+    # Rango de valores de k que deseas probar
+    k_values = range(2, max_k + 1)
+
+    # Iterar sobre diferentes valores de k
+    for k in k_values:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        find_labels_clusters = kmeans.fit_predict(df)
+        
+        # Calcular la puntuación de silueta para el clustering actual
+        silueta_point = silhouette_score(df, find_labels_clusters)
+        silhouette_scores.append(silueta_point)
+
+    # Trazar el gráfico de la evolución del score de la silueta
+    plt.figure(figsize=(12, 6))
+    plt.plot(k_values, silhouette_scores, marker='o', linestyle='-')
+    plt.xlabel('Número de Clusters (k)')
+    plt.ylabel('Puntuación de Silueta')
+    plt.title('Evolución del "Score de Silueta" para Diferentes Valores de k')
+    plt.xticks(k_values)
+    plt.grid(True)
+    plt.show();
 
 
 
@@ -82,6 +246,46 @@ def pinta_distribucion_categoricas(df, columnas_categoricas, relativa=False, mos
         fig.legend(title='Legend Title', labels=['Frecuencia Relativa'], loc='upper right')
     
     plt.show()
+
+def pinta_distribucion_numericas(df, columnas_numericas, relativa=False, mostrar_valores=False):
+    num_columnas = len(columnas_numericas)
+    num_filas = (num_columnas // 2) + (num_columnas % 2)
+
+    fig, axes = plt.subplots(num_filas, 2, figsize=(15, 5 * num_filas))
+    axes = axes.flatten() 
+
+    for i, col in enumerate(columnas_numericas):
+        ax = axes[i]
+        if relativa:
+            total = df[col].value_counts().sum()
+            serie = df[col].value_counts().apply(lambda x: x / total)
+            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis')
+            ax.set_ylabel('Frecuencia Relativa')
+        else:
+            serie = df[col].value_counts()
+            sns.barplot(x=serie.index, y=serie, ax=ax, palette='viridis')
+            ax.set_ylabel('Frecuencia')
+
+        ax.set_title(f'Distribución de {col}')
+        ax.set_xlabel('')
+        ax.tick_params(axis='x', rotation=45)
+
+        if mostrar_valores:
+            for p in ax.patches:
+                height = p.get_height()
+                ax.annotate(f'{height:.2f}', (p.get_x() + p.get_width() / 2., height), 
+                            ha='center', va='center', xytext=(0, 9), textcoords='offset points')
+
+    for j in range(i + 1, num_filas * 2):
+        axes[j].axis('off')
+
+    plt.tight_layout()
+    
+    # Añadir leyenda
+    if relativa:
+        fig.legend(title='Legend Title', labels=['Frecuencia Relativa'], loc='upper right')
+    
+    plt.show();
 
 
 def plot_categorical_relationship_fin(df, cat_col1, cat_col2, relative_freq=False, show_values=False, size_group = 5):
@@ -248,6 +452,28 @@ def plot_grouped_boxplots(df, cat_col, num_col):
         plt.show()
 
 
+def generar_raincloud_plot(dataframe):
+    # Filtrar columnas numéricas o categóricas ordinales
+    columnas_numericas = dataframe.select_dtypes(include=['number']).columns
+    columnas_categoricas_ordinales = [col for col in dataframe.columns if dataframe[col].dtype.name == 'category']
+
+    if len(columnas_numericas) == 0 and len(columnas_categoricas_ordinales) == 0:
+        print("No se encontraron columnas numéricas o categóricas ordinales en el dataframe.")
+        return
+
+    # Crear raincloud plots para cada columna
+    for col in columnas_numericas:
+        plt.figure(figsize=(8, 6))
+        pt.RainCloud(x=col, data=dataframe, orient='h')
+        plt.title(f'Raincloud Plot para {col}')
+        plt.show()
+
+    for col in columnas_categoricas_ordinales:
+        plt.figure(figsize=(8, 6))
+        pt.RainCloud(x=col, data=dataframe, orient='h')
+        plt.title(f'Raincloud Plot para {col}')
+        plt.show()
+
 
 def plot_grouped_histograms(df, cat_col, num_col, group_size):
     unique_cats = df[cat_col].unique()
@@ -265,7 +491,24 @@ def plot_grouped_histograms(df, cat_col, num_col, group_size):
         plt.xlabel(num_col)
         plt.ylabel('Frequency')
         plt.legend()
+        plt.show();
+
+def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
+    num_unique = len(df)
+    for i in range(0, num_unique, group_size):
+        subset_df = df.iloc[i:i+group_size]
+        
+        plt.figure(figsize=(10, 6))
+        for index, row in subset_df.iterrows():
+            sns.histplot(subset_df[num_col1], kde=True, label=str(row[num_col2]))
+        
+        plt.title(f'Histograms of {num_col1} for {num_col2} (Group {i//group_size + 1})')
+        plt.xlabel(num_col1)
+        plt.ylabel('Frequency')
+        plt.legend()
         plt.show()
+
+
 
 
 
@@ -344,10 +587,9 @@ def bubble_plot(df, col_x, col_y, col_size, scale = 1000):
     plt.title(f'Burbujas de {col_x} vs {col_y} con Tamaño basado en {col_size}')
     plt.show()
 
-
 def get_features_num_regression(df, target_col,umbral_corr = 0.5, pvalue = None):
     """
-    Devuelve una lista con las columnas numéricas del dataframe cuya correlación con la columna designada por "target_col" sea superior en valor absoluto al valor dado por "umbral_corr".
+    Devuelve una lista con las columnas numéricas del df cuya correlación con la columna designada por "target_col" sea superior en valor absoluto al valor dado por "umbral_corr".
 
     Args:
         df: El DataFrame del que se quiere obtener las características correlacionadas.
@@ -382,7 +624,6 @@ def get_features_num_regression(df, target_col,umbral_corr = 0.5, pvalue = None)
     print(f"Las columnas numéricas con |valor de correlación superior| a {umbral_corr} aportado en la variable 'umbral_corr' en referencia a {target_col} son: {nl}Directamente proporcionales:   {columnas_correlacionadas_dir} {nl}Indirectamente proporcionales: {columnas_correlacionadas_indir}")
 
 
-
 def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, pvalue=None):
     """
     Crea un conjunto de pair plots para visualizar las correlaciones entre las columnas numéricas del DataFrame.
@@ -414,11 +655,11 @@ def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, p
                     columnas_para_pintar.append(col)
 
     # Número máximo de gráficas por grupo
-    max_graficas_por_grupo = 6
+    max_graficas_por_grupo = 4
 
     # Dividir en grupos según el número máximo de gráficas
     len(columnas_para_pintar) // max_graficas_por_grupo
-    # En una lista de comprension, iteramos en rango desde 0 hasta el numero de columnas a pintar, por cada grupo maximo establecido
+    # En un alista de comprension, iteramos en rango desde 0 hasta el numero de columnas a pintar, por cada grupo maximo establecido
     # creando graficas con columnas maxi de i+ grupo max establecido ( ejem: '0 hasta 0+6)
     columnas = [columnas_para_pintar[i:i+max_graficas_por_grupo] for i in range(0, len(columnas_para_pintar), max_graficas_por_grupo)]
 
@@ -432,14 +673,81 @@ def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, p
 
 
 
+def plot_hist_features_num_bivariante(df: pd.DataFrame, target_col: int = "", 
+                                  columns: list = []) -> list:
+    
+    # Comprueba si 'target_col' es una columna numérica válida en el df
+    if target_col and (target_col not in df.columns or not pd.api.types.is_numeric_dtype(df[target_col])):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el df.")
+        return None
+    
+    # Comprueba si 'columns' es una lista válida de strings
+    if not isinstance(columns, list) or not all(isinstance(col, str) for col in columns):
+        print("Error: 'columns' debería ser una lista de strings.")
+        return None
+    
+    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el df
+    if not columns:
+        columns = df.select_dtypes(include=['number']).columns.tolist()
+    
+    # Realiza pruebas estadísticas para cada columna
+    selected_columns = []
+    for col in columns:
+        if col == target_col:
+            continue
+        _, pvalue = f_oneway(df[col], df[target_col])
+        if pvalue < 0.05:  # Umbral de significancia
+            selected_columns.append(col)
+    
+    if not selected_columns:
+        print("Ninguna columna cumple con las condiciones especificadas para trazar.")
+        return None
+    
+    # Definir colores personalizados
+    num_colors = len(selected_columns)
+    colors = sns.color_palette("viridis", num_colors)
+    target_color = "red"
+    
+    # Histogramas
+    for idx, num_col in enumerate(selected_columns):
+        plt.figure(figsize=(6, 6))
+        sns.histplot(data=df, x=target_col, hue=num_col, multiple="stack", kde=True, palette=[colors[idx]], legend=False)
+        sns.histplot(data=df, x=target_col, color=target_color, kde=True, label=target_col, legend=False)
+        plt.title(f"Histograma para {target_col} por {num_col}")
+        plt.legend(labels=[num_col], loc='upper right', title='Columna')
+        plt.show();
+    #kernel interractivo para quitar letras mientras pinta
+    plt.ion()
+    
+    return selected_columns;
+
+def categorical_correlation_heatmap(df):
+    # Calcula la matriz de contingencia
+    contingency_matrix = pd.DataFrame(np.zeros((len(df.columns), len(df.columns))), columns=df.columns, index=df.columns)
+    for col1 in df.columns:
+        for col2 in df.columns:
+            contingency_matrix.loc[col1, col2] = pd.crosstab(df[col1], df[col2]).values.ravel()[0]
+    
+    # Calcula el coeficiente de contingencia
+    chi2, _, _, _ = chi2_contingency(contingency_matrix)
+    contingency_coefficient = np.sqrt(chi2 / (len(df) * min(len(df.columns)-1, len(df.index)-1)))
+    
+    # Crea el heatmap
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(pd.DataFrame(contingency_coefficient, index=df.columns, columns=df.columns), annot=True, fmt=".2f", cmap="coolwarm", square=True, linewidths=0.5)
+    plt.title("Heatmap de Correlación Categórica (Coeficiente de Contingencia)")
+    plt.show()
+
+    return contingency_coefficient;
 
 
-def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
+    
+def get_features_cat_regression(df: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
     """
-    Esta función recibe un dataframe y dos argumentos adicionales: 'target_col' y 'pvalue'.
+    Esta función recibe un df y dos argumentos adicionales: 'target_col' y 'pvalue'.
     
     Parámetros:
-    - dataframe: DataFrame de pandas.
+    - df: DataFrame de pandas.
     - target_col: Nombre de la columna que actuará como el objetivo para un modelo de regresión.
     - pvalue: Valor de p umbral para la significancia estadística (por defecto es 0.05).
     
@@ -447,9 +755,9 @@ def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue
     - Una lista con las columnas categóricas cuya relación con 'target_col' es estadísticamente significativa.
     - None si hay errores en los parámetros de entrada.
     """
-    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
-    if target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col]):
-        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+    # Comprueba si 'target_col' es una columna numérica válida en el df
+    if target_col not in df.columns or not pd.api.types.is_numeric_dtype(df[target_col]):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el df.")
         return None
     
     # Comprueba si 'pvalue' es un float válido
@@ -458,23 +766,23 @@ def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue
         return None
     
     # Identifica las columnas categóricas
-    cat_columns = dataframe.select_dtypes(include=['object', 'category']).columns.tolist()
+    cat_columns = df.select_dtypes(include=['object', 'category']).columns.tolist()
     
     # Comprueba si hay columnas categóricas
     if not cat_columns:
-        print("Error: No se encontraron columnas categóricas en el dataframe.")
+        print("Error: No se encontraron columnas categóricas en el df.")
         return None
     
     # Realiza pruebas estadísticas y filtra columnas basadas en el valor de p
     selected_columns = []
     for cat_col in cat_columns:
-        contingency_table = pd.crosstab(dataframe[cat_col], dataframe[target_col])
+        contingency_table = pd.crosstab(df[cat_col], df[target_col])
         
         # Elige la prueba apropiada según la cardinalidad
         if len(contingency_table) > 2:
             _, p, _, _ = chi2_contingency(contingency_table)
         else:
-            _, p = f_oneway(*[dataframe[target_col][dataframe[cat_col] == category] for category in dataframe[cat_col].unique()])
+            _, p = f_oneway(*[df[target_col][df[cat_col] == category] for category in df[cat_col].unique()])
         
         if p < pvalue:
             selected_columns.append(cat_col)
@@ -482,18 +790,15 @@ def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue
     return selected_columns
 
 
-
-
-
-def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "", 
+def plot_features_cat_regression(df: pd.DataFrame, target_col: str = "", 
                                   columns: list = [], pvalue: float = 0.05, 
                                   with_individual_plot: bool = False) -> list:
     """
-    Esta función recibe un dataframe y varios argumentos opcionales para visualizar y analizar la relación
+    Esta función recibe un df y varios argumentos opcionales para visualizar y analizar la relación
     entre variables categóricas y una columna objetivo en un modelo de regresión.
 
     Parámetros:
-    - dataframe: DataFrame de pandas.
+    - df: DataFrame de pandas.
     - target_col: Nombre de la columna que actuará como el objetivo para un modelo de regresión.
     - columns: Lista de nombres de columnas categóricas a considerar (por defecto, todas las numéricas).
     - pvalue: Valor de p umbral para la significancia estadística (por defecto es 0.05).
@@ -503,9 +808,9 @@ def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "",
     - Una lista con las columnas seleccionadas que cumplen con las condiciones de significancia.
     - None si hay errores en los parámetros de entrada.
     """
-    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
-    if target_col and (target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col])):
-        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+    # Comprueba si 'target_col' es una columna numérica válida en el df
+    if target_col and (target_col not in df.columns or not pd.api.types.is_numeric_dtype(df[target_col])):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el df.")
         return None
     
     # Comprueba si 'pvalue' es un float válido
@@ -523,12 +828,12 @@ def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "",
         print("Error: 'with_individual_plot' debería ser un booleano.")
         return None
     
-    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el dataframe
+    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el df
     if not columns:
-        columns = dataframe.select_dtypes(include=['number']).columns.tolist()
+        columns = df.select_dtypes(include=['number']).columns.tolist()
     
     # Filtra columnas basadas en pruebas estadísticas
-    selected_columns = get_features_cat_regression(dataframe, target_col, pvalue)
+    selected_columns = get_features_cat_regression(df, target_col, pvalue)
     selected_columns = list(set(selected_columns) & set(columns))
     
     if not selected_columns:
@@ -538,11 +843,12 @@ def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "",
     # Histogramas
     for cat_col in selected_columns:
         plt.figure(figsize=(10, 6))
-        sns.histplot(data=dataframe, x=target_col, hue=cat_col, multiple="stack", kde=True)
+        sns.histplot(data=df, x=target_col, hue=cat_col, multiple="stack", kde=True)
         plt.title(f"Histograma para {target_col} por {cat_col}")
         plt.show()
     
     return selected_columns
+
 
 
 
@@ -631,3 +937,66 @@ def mae(y_true, y_pred):
 #funcion paea sacar el MAPE sin skleran
 def mape(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
+def mi_logaritmo(datos):
+    base_logaritmo= "e"
+
+    if base_logaritmo == 'e':
+        # Usa np.log1p para el logaritmo natural de 1 más el valor (maneja los ceros)
+        return np.log1p(datos)
+    else:
+        # Añade una pequeña constante (por ejemplo, 1) para otras bases para manejar los ceros
+        return np.log(datos + 1e-8)  # Ajusta la constante según sea necesario
+    
+def bivariante_analysis_scatter_num(df, target_column):
+    numeric_columns = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+    numeric_columns.remove(target_column)
+    
+    for col in numeric_columns:
+        plt.figure(figsize=(8, 6))
+        sns.scatterplot(data=df, x=col, y=target_column)
+        plt.title(f'Bivariate Analysis: {col} vs {target_column}')
+        plt.xlabel(col)
+        plt.ylabel(target_column)
+        plt.show()
+
+
+
+def bivariante_analysis_hist_num(df, target_column):
+    numeric_columns = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+    numeric_columns.remove(target_column)
+    
+    for col in numeric_columns:
+        plt.figure(figsize=(8, 6))
+        plt.hist(df[col], alpha=0.5, bins=20)
+        plt.title(f'Bivariate Analysis: {col} vs {target_column}')
+        plt.xlabel(col)
+        plt.ylabel(target_column)
+        plt.show()
+
+
+from scipy.stats import ttest_ind
+
+def test_t_student(df):
+    # Definir la variable objetivo
+    target = 'target'
+
+    # Filtrar las características numéricas del df
+    features_num = df.select_dtypes(include=['number']).columns.tolist()
+
+    # Realizar la prueba t de Student para cada característica numérica
+    resultados_pruebas = {}
+    for feature in features_num:
+        # Realizar la prueba t de Student
+        t_statistic, p_value = ttest_ind(df[feature], df[target])
+        resultados_pruebas[feature] = {'t_statistic': t_statistic, 'p_value': p_value}
+
+    # Imprimir los resultados
+    for feature, result in resultados_pruebas.items():
+        print(f"--COLUMNA: {feature}")
+        print(f"Estadística de prueba t: {result['t_statistic']}")
+        print(f"Valor p: {result['p_value']}")
+        print("Significativo: ", "Sí" if result['p_value'] < 0.05 else "No")
+    return
+
+    
