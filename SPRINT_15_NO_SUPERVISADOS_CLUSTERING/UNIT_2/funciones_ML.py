@@ -10,8 +10,8 @@ from sklearn.metrics import make_scorer, mean_absolute_error,mean_squared_error,
 from sklearn.metrics import mean_absolute_percentage_error
 from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
 from sklearn.cluster import KMeans
+from sklearn.cluster import DBSCAN
 from sklearn.metrics import silhouette_score
-
 import ptitprince as pt
 
 
@@ -78,32 +78,21 @@ def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
 
 
 def plot_dbscan(dbscan, X, size, show_xlabels=True, show_ylabels=True):
-    core_mask = np.zeros_like(dbscan.labels_, dtype=bool)
-    core_mask[dbscan.core_sample_indices_] = True
+    core_mask = dbscan.core_sample_indices_
     anomalies_mask = dbscan.labels_ == -1
-    non_core_mask = ~(core_mask | anomalies_mask)
+    non_core_mask = ~np.isin(np.arange(len(X)), np.concatenate([core_mask, np.where(anomalies_mask)[0]]))
 
-    cores = dbscan.components_
-    anomalies = X[anomalies_mask]
-    non_cores = X[non_core_mask]
+    plt.scatter(X.loc[core_mask, X.columns[0]], X.loc[core_mask, X.columns[1]], c=dbscan.labels_[core_mask], marker='o', s=size, cmap="Paired")
+    plt.scatter(X.loc[core_mask, X.columns[0]], X.loc[core_mask, X.columns[1]], marker='*', s=20, c=dbscan.labels_[core_mask])
+    plt.scatter(X.loc[anomalies_mask, X.columns[0]], X.loc[anomalies_mask, X.columns[1]], c="r", marker="x", s=100)
+    plt.scatter(X.loc[non_core_mask, X.columns[0]], X.loc[non_core_mask, X.columns[1]], c=dbscan.labels_[non_core_mask], marker=".")
+
+    plt.xlabel("$x_1$", fontsize=14) if show_xlabels else plt.tick_params(labelbottom=False)
+    plt.ylabel("$x_2$", fontsize=14, rotation=0) if show_ylabels else plt.tick_params(labelleft=False)
     
-    plt.scatter(cores[:, 0], cores[:, 1],
-                c=dbscan.labels_[core_mask], marker='o', s=size, cmap="Paired")
-    plt.scatter(cores[:, 0], cores[:, 1], marker='*', s=20, c=dbscan.labels_[core_mask])
-    plt.scatter(anomalies[:, 0], anomalies[:, 1],
-                c="r", marker="x", s=100)
-    plt.scatter(non_cores[:, 0], non_cores[:, 1], c=dbscan.labels_[non_core_mask], marker=".")
-    if show_xlabels:
-        plt.xlabel("$x_1$", fontsize=14)
-    else:
-        plt.tick_params(labelbottom=False)
-    if show_ylabels:
-        plt.ylabel("$x_2$", fontsize=14, rotation=0)
-    else:
-        plt.tick_params(labelleft=False)
     plt.title("eps={:.2f}, min_samples={}".format(dbscan.eps, dbscan.min_samples), fontsize=14)
 
-    plt.show();
+   
 
 
 def plot_clusterer_comparacion(clusterer1, clusterer2, X, title1=None, title2=None):
@@ -132,6 +121,24 @@ def plot_centroids(centroids, weights=None, circle_color='w', cross_color='b'):
     plt.scatter(centroids[:, 0], centroids[:, 1],
                 marker='x', s=15, linewidths=20,
                 color=cross_color, zorder=11, alpha=1)
+    
+
+def best_eps(df, min_eps, max_eps, paso_eps):
+    mejor_eps = None
+    mejor_silueta = -1
+    
+    for eps in range(min_eps, max_eps, paso_eps):
+        dbscan = DBSCAN(eps=eps)
+        labels = dbscan.fit_predict(df)
+        
+        # Ignorar el caso donde solo hay un grupo (no se puede calcular la silueta)
+        if len(set(labels)) > 1:
+            silueta = silhouette_score(df, labels)
+            if silueta > mejor_silueta:
+                mejor_silueta = silueta
+                mejor_eps = eps
+    
+    return mejor_eps, mejor_silueta
 
 
 
@@ -445,7 +452,7 @@ def plot_grouped_boxplots(df, cat_col, num_col):
         plt.show()
 
 
-def generar_raincloud_plot(dataframe):
+def generar_raincloud_plot_para_num_cat(dataframe):
     # Filtrar columnas numéricas o categóricas ordinales
     columnas_numericas = dataframe.select_dtypes(include=['number']).columns
     columnas_categoricas_ordinales = [col for col in dataframe.columns if dataframe[col].dtype.name == 'category']
@@ -454,18 +461,35 @@ def generar_raincloud_plot(dataframe):
         print("No se encontraron columnas numéricas o categóricas ordinales en el dataframe.")
         return
 
+    # Contador de subplots
+    subplots = 0
+    num_subplots = len(columnas_numericas) + len(columnas_categoricas_ordinales)
+    num_filas = np.ceil(num_subplots / 3)  # Calcular el número de filas necesario para los subplots
+
     # Crear raincloud plots para cada columna
+    fig, axs = plt.subplots(int(num_filas), 3, figsize=(20, 4*num_filas))
+
     for col in columnas_numericas:
-        plt.figure(figsize=(8, 6))
-        pt.RainCloud(x=col, data=dataframe, orient='h')
-        plt.title(f'Raincloud Plot para {col}')
-        plt.show()
+        #nueva figura cada 3 en numericas
+        ax = axs[subplots // 3, subplots % 3]
+        pt.RainCloud(x=col, data=dataframe, ax=ax)
+        ax.set_title(f'Raincloud Plot para {col}')
+        subplots += 1
 
     for col in columnas_categoricas_ordinales:
-        plt.figure(figsize=(8, 6))
-        pt.RainCloud(x=col, data=dataframe, orient='h')
-        plt.title(f'Raincloud Plot para {col}')
-        plt.show()
+        #nueva figura cada 3  categoricas
+        ax = axs[subplots // 3, subplots % 3]
+        pt.RainCloud(x=col, data=dataframe, ax=ax)
+        ax.set_title(f'Raincloud Plot para {col}')
+        subplots += 1
+
+    # Eliminar los subplots no utilizados
+    for ax in axs.flat[subplots:]:
+        ax.remove()
+
+    plt.tight_layout()
+    plt.show();
+
 
 
 def plot_grouped_histograms(df, cat_col, num_col, group_size):
@@ -484,7 +508,7 @@ def plot_grouped_histograms(df, cat_col, num_col, group_size):
         plt.xlabel(num_col)
         plt.ylabel('Frequency')
         plt.legend()
-        plt.show()
+        plt.show();
 
 def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
     num_unique = len(df)
@@ -500,6 +524,26 @@ def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
         plt.ylabel('Frequency')
         plt.legend()
         plt.show()
+
+def plot_histogramas_por_columna(df):
+    columns = df.columns[2::]  # Columnas numéricas
+    n_cols = len(columns) # Número de columnas a pintar
+
+    # Calcular cuántas filas necesitaremos, asumiendo 2 columnas (subplots) por fila
+    n_rows = n_cols // 2 if n_cols % 2 == 0 else (n_cols // 2) + 1
+
+    # Configurar el tamaño de la figura para acomodar todos los subplots
+    plt.figure(figsize=(15, n_rows * 4))  # Ajusta el tamaño según el número de filas, altura por fila
+
+    for i, column in enumerate(columns):
+        plt.subplot(n_rows, 2, i + 1)  # Crea subplots en una cuadrícula de n_rows x 2
+        sns.histplot(data=df, x=column, hue='Channel')
+        plt.title(f'Histograma de {column}')
+        plt.xlabel(column)
+        plt.ylabel('Frecuencia')
+
+    plt.tight_layout()  # Ajusta automáticamente los subplots para que encajen en la figura
+    plt.show()
 
 
 

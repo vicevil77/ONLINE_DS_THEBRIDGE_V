@@ -452,7 +452,7 @@ def plot_grouped_boxplots(df, cat_col, num_col):
         plt.show()
 
 
-def generar_raincloud_plot(dataframe):
+def generar_raincloud_plot_para_num_cat(dataframe):
     # Filtrar columnas numéricas o categóricas ordinales
     columnas_numericas = dataframe.select_dtypes(include=['number']).columns
     columnas_categoricas_ordinales = [col for col in dataframe.columns if dataframe[col].dtype.name == 'category']
@@ -461,18 +461,35 @@ def generar_raincloud_plot(dataframe):
         print("No se encontraron columnas numéricas o categóricas ordinales en el dataframe.")
         return
 
+    # Contador de subplots
+    subplots = 0
+    num_subplots = len(columnas_numericas) + len(columnas_categoricas_ordinales)
+    num_filas = np.ceil(num_subplots / 3)  # Calcular el número de filas necesario para los subplots
+
     # Crear raincloud plots para cada columna
+    fig, axs = plt.subplots(int(num_filas), 3, figsize=(20, 4*num_filas))
+
     for col in columnas_numericas:
-        plt.figure(figsize=(8, 6))
-        pt.RainCloud(x=col, data=dataframe, orient='h')
-        plt.title(f'Raincloud Plot para {col}')
-        plt.show()
+        #nueva figura cada 3 en numericas
+        ax = axs[subplots // 3, subplots % 3]
+        pt.RainCloud(x=col, data=dataframe, ax=ax)
+        ax.set_title(f'Raincloud Plot para {col}')
+        subplots += 1
 
     for col in columnas_categoricas_ordinales:
-        plt.figure(figsize=(8, 6))
-        pt.RainCloud(x=col, data=dataframe, orient='h')
-        plt.title(f'Raincloud Plot para {col}')
-        plt.show()
+        #nueva figura cada 3  categoricas
+        ax = axs[subplots // 3, subplots % 3]
+        pt.RainCloud(x=col, data=dataframe, ax=ax)
+        ax.set_title(f'Raincloud Plot para {col}')
+        subplots += 1
+
+    # Eliminar los subplots no utilizados
+    for ax in axs.flat[subplots:]:
+        ax.remove()
+
+    plt.tight_layout()
+    plt.show();
+
 
 
 def plot_grouped_histograms(df, cat_col, num_col, group_size):
