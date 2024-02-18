@@ -1,0 +1,7 @@
+La entrega se realizó correctamente.
+Curso: 05_MachineLearning_DS_23-10, 05 Machine Learning
+Evaluación: Cuestionario Warm Up - Sprint 16
+
+Fecha de entrega: 18/2/24 9:31
+Remitente: Víctor Manuel Martínez Barbera
+Número de confirmación: b2eece8f9eca4ac1998f4ab72ecb5e22
