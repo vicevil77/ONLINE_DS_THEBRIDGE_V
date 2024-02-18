@@ -10,6 +10,9 @@ from sklearn.metrics import make_scorer, mean_absolute_error,mean_squared_error,
 from sklearn.metrics import mean_absolute_percentage_error
 from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+
+import ptitprince as pt
 
 
 # obetenr todo de un dataset INFORMACION GENERAL:
@@ -43,6 +46,15 @@ def obtener_estadisticas(df):
     return resultado.transpose()
 
 
+def convertir_object_a_numeros(df):
+    for columna in df.columns:
+        if df[columna].dtype == 'object':  
+            categorias = df[columna].unique() 
+            mapeo = {categoria: valor for valor, categoria in enumerate(categorias)} 
+            df[columna] = df[columna].map(mapeo)  
+    return df
+
+
 def plot_clusters(X, y=None):
     plt.scatter(X[:, 0], X[:, 1], c=y, s=1)
     plt.xlabel("$x_1$", fontsize=14)
@@ -62,6 +74,36 @@ def plot_decision_boundaries(clusterer, X, resolution=1000, show_centroids=True,
                 cmap="Pastel2")
     plt.contour(Z, extent=(mins[0], maxs[0], mins[1], maxs[1]),
                 linewidths=1, colors='k')
+    
+
+
+def plot_dbscan(dbscan, X, size, show_xlabels=True, show_ylabels=True):
+    core_mask = np.zeros_like(dbscan.labels_, dtype=bool)
+    core_mask[dbscan.core_sample_indices_] = True
+    anomalies_mask = dbscan.labels_ == -1
+    non_core_mask = ~(core_mask | anomalies_mask)
+
+    cores = dbscan.components_
+    anomalies = X[anomalies_mask]
+    non_cores = X[non_core_mask]
+    
+    plt.scatter(cores[:, 0], cores[:, 1],
+                c=dbscan.labels_[core_mask], marker='o', s=size, cmap="Paired")
+    plt.scatter(cores[:, 0], cores[:, 1], marker='*', s=20, c=dbscan.labels_[core_mask])
+    plt.scatter(anomalies[:, 0], anomalies[:, 1],
+                c="r", marker="x", s=100)
+    plt.scatter(non_cores[:, 0], non_cores[:, 1], c=dbscan.labels_[non_core_mask], marker=".")
+    if show_xlabels:
+        plt.xlabel("$x_1$", fontsize=14)
+    else:
+        plt.tick_params(labelbottom=False)
+    if show_ylabels:
+        plt.ylabel("$x_2$", fontsize=14, rotation=0)
+    else:
+        plt.tick_params(labelleft=False)
+    plt.title("eps={:.2f}, min_samples={}".format(dbscan.eps, dbscan.min_samples), fontsize=14)
+
+    plt.show();
 
 
 def plot_clusterer_comparacion(clusterer1, clusterer2, X, title1=None, title2=None):
@@ -93,33 +135,68 @@ def plot_centroids(centroids, weights=None, circle_color='w', cross_color='b'):
 
 
 
-def plot_elbow_method(data, max_clusters=10):
-    """
-    Calcula la suma de las distancias cuadradas intra-cluster para diferentes números de clusters
-    y traza el gráfico del codo para ayudar a determinar el número óptimo de clusters.
+def encontrar_n_clusters(df, max_clusters=20):
+    
+    X = df.values
 
-    Parámetros:
-    - data: Los datos de entrada para el clustering.
-    - max_clusters: El número máximo de clusters a considerar (por defecto es 10).
+    # variables
+    inercias = []
+    silhouette_scores = []
+    
+    # Calcular inercia y puntuación de silueta para diferentes clusters
+    for i in range(1, max_clusters+1):
+        kmeans = KMeans(n_clusters=i, random_state=42)
+        kmeans.fit(X)# encuentro los cluesteres
+        
+        # Calcular la inercia y la puntuación de silueta
+        inercias.append(kmeans.inertia_)
+        if i > 1:
+            silhouette_scores.append(silhouette_score(X, kmeans.labels_))
+    
+    # Dibujar el gráfico del método del codo
+    plt.figure(figsize=(20, 6))
+    plt.subplot(121)
+    plt.plot(range(1, max_clusters+1), inercias, marker='o')
+    plt.title('Método del Codo')
+    plt.xlabel('Número de Clusters')
+    plt.ylabel('Inercia')
+    
+    # Dibujar el gráfico de la puntuación de silueta
+    plt.subplot(122)
+    plt.plot(range(2, max_clusters+1), silhouette_scores, marker='o')
+    plt.title('Método de la Silueta')
+    plt.xlabel('Número de Clusters')
+    plt.ylabel('Puntuación de Silueta')
+    plt.show();
 
-    Devuelve:
-    - None
-    """
 
-    inertia = []
-    for n_clusters in range(1, max_clusters + 1):
-        kmeans = KMeans(n_clusters=n_clusters, random_state=0)
-        kmeans.fit(data)
-        inertia.append(kmeans.inertia_)
 
-    # Trazar el gráfico del codo
-    plt.figure(figsize=(8, 6))
-    plt.plot(range(1, max_clusters + 1), inertia, marker='o', linestyle='--')
-    plt.xlabel('Número de clusters')
-    plt.ylabel('Inertia')
-    plt.title('Método del codo')
+
+def plot_silueta_score_con_K(df, max_k):
+    # almacenar los valores
+    silhouette_scores = []
+
+    # Rango de valores de k que deseas probar
+    k_values = range(2, max_k + 1)
+
+    # Iterar sobre diferentes valores de k
+    for k in k_values:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        find_labels_clusters = kmeans.fit_predict(df)
+        
+        # Calcular la puntuación de silueta para el clustering actual
+        silueta_point = silhouette_score(df, find_labels_clusters)
+        silhouette_scores.append(silueta_point)
+
+    # Trazar el gráfico de la evolución del score de la silueta
+    plt.figure(figsize=(12, 6))
+    plt.plot(k_values, silhouette_scores, marker='o', linestyle='-')
+    plt.xlabel('Número de Clusters (k)')
+    plt.ylabel('Puntuación de Silueta')
+    plt.title('Evolución del "Score de Silueta" para Diferentes Valores de k')
+    plt.xticks(k_values)
     plt.grid(True)
-    plt.show()
+    plt.show();
 
 
 
@@ -368,6 +445,28 @@ def plot_grouped_boxplots(df, cat_col, num_col):
         plt.show()
 
 
+def generar_raincloud_plot(dataframe):
+    # Filtrar columnas numéricas o categóricas ordinales
+    columnas_numericas = dataframe.select_dtypes(include=['number']).columns
+    columnas_categoricas_ordinales = [col for col in dataframe.columns if dataframe[col].dtype.name == 'category']
+
+    if len(columnas_numericas) == 0 and len(columnas_categoricas_ordinales) == 0:
+        print("No se encontraron columnas numéricas o categóricas ordinales en el dataframe.")
+        return
+
+    # Crear raincloud plots para cada columna
+    for col in columnas_numericas:
+        plt.figure(figsize=(8, 6))
+        pt.RainCloud(x=col, data=dataframe, orient='h')
+        plt.title(f'Raincloud Plot para {col}')
+        plt.show()
+
+    for col in columnas_categoricas_ordinales:
+        plt.figure(figsize=(8, 6))
+        pt.RainCloud(x=col, data=dataframe, orient='h')
+        plt.title(f'Raincloud Plot para {col}')
+        plt.show()
+
 
 def plot_grouped_histograms(df, cat_col, num_col, group_size):
     unique_cats = df[cat_col].unique()
@@ -385,7 +484,7 @@ def plot_grouped_histograms(df, cat_col, num_col, group_size):
         plt.xlabel(num_col)
         plt.ylabel('Frequency')
         plt.legend()
-        plt.show()
+        plt.show();
 
 def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
     num_unique = len(df)
@@ -401,6 +500,8 @@ def plot_grouped_histograms_num(df, num_col1, num_col2, group_size):
         plt.ylabel('Frequency')
         plt.legend()
         plt.show()
+
+
 
 
 
@@ -481,7 +582,7 @@ def bubble_plot(df, col_x, col_y, col_size, scale = 1000):
 
 def get_features_num_regression(df, target_col,umbral_corr = 0.5, pvalue = None):
     """
-    Devuelve una lista con las columnas numéricas del dataframe cuya correlación con la columna designada por "target_col" sea superior en valor absoluto al valor dado por "umbral_corr".
+    Devuelve una lista con las columnas numéricas del df cuya correlación con la columna designada por "target_col" sea superior en valor absoluto al valor dado por "umbral_corr".
 
     Args:
         df: El DataFrame del que se quiere obtener las características correlacionadas.
@@ -565,12 +666,12 @@ def plot_features_num_regression(df, target_col="", columns=[], umbral_corr=0, p
 
 
 
-def plot_hist_features_num_bivariante(dataframe: pd.DataFrame, target_col: int = "", 
+def plot_hist_features_num_bivariante(df: pd.DataFrame, target_col: int = "", 
                                   columns: list = []) -> list:
     
-    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
-    if target_col and (target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col])):
-        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+    # Comprueba si 'target_col' es una columna numérica válida en el df
+    if target_col and (target_col not in df.columns or not pd.api.types.is_numeric_dtype(df[target_col])):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el df.")
         return None
     
     # Comprueba si 'columns' es una lista válida de strings
@@ -578,16 +679,16 @@ def plot_hist_features_num_bivariante(dataframe: pd.DataFrame, target_col: int =
         print("Error: 'columns' debería ser una lista de strings.")
         return None
     
-    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el dataframe
+    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el df
     if not columns:
-        columns = dataframe.select_dtypes(include=['number']).columns.tolist()
+        columns = df.select_dtypes(include=['number']).columns.tolist()
     
     # Realiza pruebas estadísticas para cada columna
     selected_columns = []
     for col in columns:
         if col == target_col:
             continue
-        _, pvalue = f_oneway(dataframe[col], dataframe[target_col])
+        _, pvalue = f_oneway(df[col], df[target_col])
         if pvalue < 0.05:  # Umbral de significancia
             selected_columns.append(col)
     
@@ -603,8 +704,8 @@ def plot_hist_features_num_bivariante(dataframe: pd.DataFrame, target_col: int =
     # Histogramas
     for idx, num_col in enumerate(selected_columns):
         plt.figure(figsize=(6, 6))
-        sns.histplot(data=dataframe, x=target_col, hue=num_col, multiple="stack", kde=True, palette=[colors[idx]], legend=False)
-        sns.histplot(data=dataframe, x=target_col, color=target_color, kde=True, label=target_col, legend=False)
+        sns.histplot(data=df, x=target_col, hue=num_col, multiple="stack", kde=True, palette=[colors[idx]], legend=False)
+        sns.histplot(data=df, x=target_col, color=target_color, kde=True, label=target_col, legend=False)
         plt.title(f"Histograma para {target_col} por {num_col}")
         plt.legend(labels=[num_col], loc='upper right', title='Columna')
         plt.show();
@@ -613,20 +714,20 @@ def plot_hist_features_num_bivariante(dataframe: pd.DataFrame, target_col: int =
     
     return selected_columns;
 
-def categorical_correlation_heatmap(dataframe):
+def categorical_correlation_heatmap(df):
     # Calcula la matriz de contingencia
-    contingency_matrix = pd.DataFrame(np.zeros((len(dataframe.columns), len(dataframe.columns))), columns=dataframe.columns, index=dataframe.columns)
-    for col1 in dataframe.columns:
-        for col2 in dataframe.columns:
-            contingency_matrix.loc[col1, col2] = pd.crosstab(dataframe[col1], dataframe[col2]).values.ravel()[0]
+    contingency_matrix = pd.DataFrame(np.zeros((len(df.columns), len(df.columns))), columns=df.columns, index=df.columns)
+    for col1 in df.columns:
+        for col2 in df.columns:
+            contingency_matrix.loc[col1, col2] = pd.crosstab(df[col1], df[col2]).values.ravel()[0]
     
     # Calcula el coeficiente de contingencia
     chi2, _, _, _ = chi2_contingency(contingency_matrix)
-    contingency_coefficient = np.sqrt(chi2 / (len(dataframe) * min(len(dataframe.columns)-1, len(dataframe.index)-1)))
+    contingency_coefficient = np.sqrt(chi2 / (len(df) * min(len(df.columns)-1, len(df.index)-1)))
     
     # Crea el heatmap
     plt.figure(figsize=(10, 8))
-    sns.heatmap(pd.DataFrame(contingency_coefficient, index=dataframe.columns, columns=dataframe.columns), annot=True, fmt=".2f", cmap="coolwarm", square=True, linewidths=0.5)
+    sns.heatmap(pd.DataFrame(contingency_coefficient, index=df.columns, columns=df.columns), annot=True, fmt=".2f", cmap="coolwarm", square=True, linewidths=0.5)
     plt.title("Heatmap de Correlación Categórica (Coeficiente de Contingencia)")
     plt.show()
 
@@ -634,12 +735,12 @@ def categorical_correlation_heatmap(dataframe):
 
 
     
-def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
+def get_features_cat_regression(df: pd.DataFrame, target_col: str, pvalue: float = 0.05) -> list:
     """
-    Esta función recibe un dataframe y dos argumentos adicionales: 'target_col' y 'pvalue'.
+    Esta función recibe un df y dos argumentos adicionales: 'target_col' y 'pvalue'.
     
     Parámetros:
-    - dataframe: DataFrame de pandas.
+    - df: DataFrame de pandas.
     - target_col: Nombre de la columna que actuará como el objetivo para un modelo de regresión.
     - pvalue: Valor de p umbral para la significancia estadística (por defecto es 0.05).
     
@@ -647,9 +748,9 @@ def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue
     - Una lista con las columnas categóricas cuya relación con 'target_col' es estadísticamente significativa.
     - None si hay errores en los parámetros de entrada.
     """
-    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
-    if target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col]):
-        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+    # Comprueba si 'target_col' es una columna numérica válida en el df
+    if target_col not in df.columns or not pd.api.types.is_numeric_dtype(df[target_col]):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el df.")
         return None
     
     # Comprueba si 'pvalue' es un float válido
@@ -658,23 +759,23 @@ def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue
         return None
     
     # Identifica las columnas categóricas
-    cat_columns = dataframe.select_dtypes(include=['object', 'category']).columns.tolist()
+    cat_columns = df.select_dtypes(include=['object', 'category']).columns.tolist()
     
     # Comprueba si hay columnas categóricas
     if not cat_columns:
-        print("Error: No se encontraron columnas categóricas en el dataframe.")
+        print("Error: No se encontraron columnas categóricas en el df.")
         return None
     
     # Realiza pruebas estadísticas y filtra columnas basadas en el valor de p
     selected_columns = []
     for cat_col in cat_columns:
-        contingency_table = pd.crosstab(dataframe[cat_col], dataframe[target_col])
+        contingency_table = pd.crosstab(df[cat_col], df[target_col])
         
         # Elige la prueba apropiada según la cardinalidad
         if len(contingency_table) > 2:
             _, p, _, _ = chi2_contingency(contingency_table)
         else:
-            _, p = f_oneway(*[dataframe[target_col][dataframe[cat_col] == category] for category in dataframe[cat_col].unique()])
+            _, p = f_oneway(*[df[target_col][df[cat_col] == category] for category in df[cat_col].unique()])
         
         if p < pvalue:
             selected_columns.append(cat_col)
@@ -682,15 +783,15 @@ def get_features_cat_regression(dataframe: pd.DataFrame, target_col: str, pvalue
     return selected_columns
 
 
-def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "", 
+def plot_features_cat_regression(df: pd.DataFrame, target_col: str = "", 
                                   columns: list = [], pvalue: float = 0.05, 
                                   with_individual_plot: bool = False) -> list:
     """
-    Esta función recibe un dataframe y varios argumentos opcionales para visualizar y analizar la relación
+    Esta función recibe un df y varios argumentos opcionales para visualizar y analizar la relación
     entre variables categóricas y una columna objetivo en un modelo de regresión.
 
     Parámetros:
-    - dataframe: DataFrame de pandas.
+    - df: DataFrame de pandas.
     - target_col: Nombre de la columna que actuará como el objetivo para un modelo de regresión.
     - columns: Lista de nombres de columnas categóricas a considerar (por defecto, todas las numéricas).
     - pvalue: Valor de p umbral para la significancia estadística (por defecto es 0.05).
@@ -700,9 +801,9 @@ def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "",
     - Una lista con las columnas seleccionadas que cumplen con las condiciones de significancia.
     - None si hay errores en los parámetros de entrada.
     """
-    # Comprueba si 'target_col' es una columna numérica válida en el dataframe
-    if target_col and (target_col not in dataframe.columns or not pd.api.types.is_numeric_dtype(dataframe[target_col])):
-        print(f"Error: '{target_col}' no es una columna numérica válida en el dataframe.")
+    # Comprueba si 'target_col' es una columna numérica válida en el df
+    if target_col and (target_col not in df.columns or not pd.api.types.is_numeric_dtype(df[target_col])):
+        print(f"Error: '{target_col}' no es una columna numérica válida en el df.")
         return None
     
     # Comprueba si 'pvalue' es un float válido
@@ -720,12 +821,12 @@ def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "",
         print("Error: 'with_individual_plot' debería ser un booleano.")
         return None
     
-    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el dataframe
+    # Si 'columns' está vacío, utiliza todas las columnas numéricas en el df
     if not columns:
-        columns = dataframe.select_dtypes(include=['number']).columns.tolist()
+        columns = df.select_dtypes(include=['number']).columns.tolist()
     
     # Filtra columnas basadas en pruebas estadísticas
-    selected_columns = get_features_cat_regression(dataframe, target_col, pvalue)
+    selected_columns = get_features_cat_regression(df, target_col, pvalue)
     selected_columns = list(set(selected_columns) & set(columns))
     
     if not selected_columns:
@@ -735,7 +836,7 @@ def plot_features_cat_regression(dataframe: pd.DataFrame, target_col: str = "",
     # Histogramas
     for cat_col in selected_columns:
         plt.figure(figsize=(10, 6))
-        sns.histplot(data=dataframe, x=target_col, hue=cat_col, multiple="stack", kde=True)
+        sns.histplot(data=df, x=target_col, hue=cat_col, multiple="stack", kde=True)
         plt.title(f"Histograma para {target_col} por {cat_col}")
         plt.show()
     
@@ -873,7 +974,7 @@ def test_t_student(df):
     # Definir la variable objetivo
     target = 'target'
 
-    # Filtrar las características numéricas del dataframe
+    # Filtrar las características numéricas del df
     features_num = df.select_dtypes(include=['number']).columns.tolist()
 
     # Realizar la prueba t de Student para cada característica numérica
