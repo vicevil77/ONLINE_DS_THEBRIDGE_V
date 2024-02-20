@@ -177,8 +177,6 @@ def encontrar_n_clusters(df, max_clusters=20):
     plt.show();
 
 
-
-
 def plot_silueta_score_con_K(df, max_k):
     # almacenar los valores
     silhouette_scores = []
@@ -248,6 +246,27 @@ def plot_grafica_variance_ratio_explain(df, figsize=(10, 5)):
 
     return ax
 
+
+def graficar_VE(ve, n_componentes, titulo="Varianza Explicada"):
+  """
+  Función para graficar la Varianza Explicada (VE)
+
+  Parámetros:
+    ve: Array con los valores de VE para cada componente principal.
+    n_componentes: Número de componentes principales.
+    titulo: Título del gráfico.
+
+  Retorno:
+    None. Muestra un gráfico de la VE.
+  """
+
+  plt.figure(figsize=(10, 6))
+  plt.plot(range(1, n_componentes + 1), ve, "bo-")
+  plt.xlabel("Componente Principal")
+  plt.ylabel("Varianza Explicada")
+  plt.title(titulo)
+  plt.grid()
+  plt.show()
 
 
 def pinta_distribucion_categoricas(df, columnas_categoricas, relativa=False, mostrar_valores=False):
