@@ -268,6 +268,38 @@ def graficar_VE(ve, n_componentes, titulo="Varianza Explicada"):
   plt.grid()
   plt.show()
 
+
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+def plot_elementos_serie_temporal(df, start_date, end_date, filt=None):
+    # Realizar la descomposición estacional
+    result = seasonal_decompose(df[start_date:end_date]['value'], 
+                                model='multiplicative', 
+                                filt=filt, 
+                                extrapolate_trend='freq')
+
+    # Calcular el componente cíclico
+    cyclic = result.trend / result.seasonal
+
+    # Crear una figura y ejes
+    fig, axes = plt.subplots(5, 1, figsize=(12, 10), sharex=True)
+
+    # Graficar los cuatro componentes
+    df[start_date:end_date]['value'].plot(ax=axes[0], label='Serie original')
+    result.trend.plot(ax=axes[1], label='Tendencia', color='red')
+    result.seasonal.plot(ax=axes[2], label='Estacionalidad', color='green')
+    cyclic.plot(ax=axes[3], label='Cíclico', color='purple')
+    result.resid.plot(ax=axes[4], label='Residuo', color='orange')
+
+    # Ajustar la leyenda y etiquetas
+    for ax in axes:
+        ax.legend()
+        ax.set_ylabel('Valor')
+
+    plt.tight_layout()
+    plt.show()
+
+
 def plot_modelos_regression_metrics(y_true, y_pred):
     # Calcular las métricas
     mae = mean_absolute_error(y_true, y_pred)
@@ -289,6 +321,46 @@ def plot_modelos_regression_metrics(y_true, y_pred):
     plt.text(0.05, 0.95, metrics_text, transform=plt.gca().transAxes, fontsize=12, verticalalignment='top')
 
     plt.show()
+
+
+def graficar_series_temporales_X_periodos_anuales(df, figsize=(15, 10), fontsize=12):
+
+  if not isinstance(df, pd.DataFrame):
+    raise TypeError("df debe ser un DataFrame")
+  if df.empty:
+    raise ValueError("df no puede estar vacío")
+
+  # Obtener la columna de fecha (índice)
+  fecha_col = df.index.name
+
+  # Validar que el índice sea datetime
+  if not pd.api.types.is_datetime64_dtype(df.index):
+    raise TypeError("El índice del DataFrame debe ser de tipo datetime")
+  # Obtener los años únicos
+
+  anios = df.index.year.unique()
+  # Crear la figura
+
+  fig, axes = plt.subplots(nrows=len(anios) // 3 + 1, ncols=3, figsize=figsize)
+  # Recorrer los años y graficar las series temporales
+
+  for i, anio in enumerate(anios):
+    df_anio = df[df.index.year == anio]
+    for j, columna in enumerate(df_anio.columns):
+      ax = axes[i // 3, i % 3]
+      df_anio[columna].plot(ax=ax, marker=".", title=f"{anio} - {columna}")
+      ax.set_xlabel("")
+      ax.set_ylabel("")
+      ax.tick_params(labelsize=fontsize)
+
+  # Eliminar los ejes vacíos
+  for ax in axes.ravel():
+    if not ax.has_data():
+      ax.set_visible(False)
+
+  # Ajustar la figura
+  fig.tight_layout()
+  plt.show()
 
 
 
