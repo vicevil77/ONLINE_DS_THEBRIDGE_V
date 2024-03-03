@@ -177,8 +177,6 @@ def encontrar_n_clusters(df, max_clusters=20):
     plt.show();
 
 
-
-
 def plot_silueta_score_con_K(df, max_k):
     # almacenar los valores
     silhouette_scores = []
@@ -204,6 +202,240 @@ def plot_silueta_score_con_K(df, max_k):
     plt.xticks(k_values)
     plt.grid(True)
     plt.show();
+
+
+def plot_grafica_variance_ratio_explain(df, figsize=(10, 5)):
+    """
+    Grafica la varianza explicada por cada componente principal en un análisis de PCA.
+
+    Args:
+        df (pandas.DataFrame): El DataFrame de entrada que contiene los datos.
+        figsize (tuple, optional): El tamaño de la figura. Defaults to (10, 5).
+
+    Returns:
+        matplotlib.axes._axes.Axes: El gráfico generado.
+    """
+
+    # Realizamos PCA con un máximo de componentes igual al número de muestras
+    pca = PCA(n_components=min(df.shape[0], df.shape[1]))
+    pca.fit(df)
+
+    # Creamos el gráfico usando Seaborn
+    fig, ax = plt.subplots(figsize=figsize)
+    sns.barplot(
+        x=list(range(1, pca.n_components_ + 1)),
+        y=pca.explained_variance_ratio_,
+        color='skyblue',
+        ax=ax
+    )
+
+    # Anotamos cada barra con la varianza explicada
+    for i, y in enumerate(pca.explained_variance_ratio_):
+        ax.text(i, y + 0.02, f"{y:.2f}", ha='center', fontsize=12)
+
+    # Personalizamos las etiquetas y el título del eje
+    ax.set_xlabel('Componente Principal', fontsize=14)
+    ax.set_ylabel('Varianza Explicada', fontsize=14)
+    ax.set_title(f'Varianza Explicada por Componente Principal (máximo {pca.n_components_} componentes)')
+
+    # Ajustamos los límites del eje y la cuadrícula
+    ax.set_xticks(range(1, pca.n_components_ + 1))
+    ax.set_xlim(0.5, pca.n_components_ + 0.5)
+    ax.set_ylim(0, 1.05)
+    ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.7)
+
+    return ax
+
+
+def graficar_VE(ve, n_componentes, titulo="Varianza Explicada"):
+  """
+  Función para graficar la Varianza Explicada (VE)
+
+  Parámetros:
+    ve: Array con los valores de VE para cada componente principal.
+    n_componentes: Número de componentes principales.
+    titulo: Título del gráfico.
+
+  Retorno:
+    None. Muestra un gráfico de la VE.
+  """
+
+  plt.figure(figsize=(10, 6))
+  plt.plot(range(1, n_componentes + 1), ve, "bo-")
+  plt.xlabel("Componente Principal")
+  plt.ylabel("Varianza Explicada")
+  plt.title(titulo)
+  plt.grid()
+  plt.show()
+
+
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+def plot_elementos_serie_temporal(df, start_date, end_date, filt=None):
+    # Realizar la descomposición estacional
+    result = seasonal_decompose(df[start_date:end_date]['value'], 
+                                model='multiplicative', 
+                                filt=filt, 
+                                extrapolate_trend='freq')
+
+    # Calcular el componente cíclico
+    cyclic = result.trend / result.seasonal
+
+    # Crear una figura y ejes
+    fig, axes = plt.subplots(5, 1, figsize=(12, 10), sharex=True)
+
+    # Graficar los cuatro componentes
+    df[start_date:end_date]['value'].plot(ax=axes[0], label='Serie original')
+    result.trend.plot(ax=axes[1], label='Tendencia', color='red')
+    result.seasonal.plot(ax=axes[2], label='Estacionalidad', color='green')
+    cyclic.plot(ax=axes[3], label='Cíclico', color='purple')
+    result.resid.plot(ax=axes[4], label='Residuo', color='orange')
+
+    # Ajustar la leyenda y etiquetas
+    for ax in axes:
+        ax.legend()
+        ax.set_ylabel('Valor')
+
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_modelos_regression_metrics(y_true, y_pred):
+    # Calcular las métricas
+    mae = mean_absolute_error(y_true, y_pred)
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mse)
+    r2 = r2_score(y_true, y_pred)
+
+    # Crear el gráfico de dispersión con la línea de regresión
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y_true, y_pred, color='blue', label='Datos reales vs. Predicciones')
+    plt.plot([min(y_true), max(y_true)], [min(y_true), max(y_true)], color='red', linestyle='--', label='Línea de regresión')
+    plt.title('Gráfico de Regresión')
+    plt.xlabel('Valores Verdaderos')
+    plt.ylabel('Valores Predichos')
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15), ncol=2)
+
+    # Anotar las métricas en el gráfico
+    metrics_text = f"MAE: {mae:.2f}\nMSE: {mse:.2f}\nRMSE: {rmse:.2f}\nR2: {r2:.2f}"
+    plt.text(0.05, 0.95, metrics_text, transform=plt.gca().transAxes, fontsize=12, verticalalignment='top')
+
+    plt.show()
+
+
+def graficar_series_temporales_X_periodos_anuales(df, figsize=(15, 10), fontsize=12):
+
+  if not isinstance(df, pd.DataFrame):
+    raise TypeError("df debe ser un DataFrame")
+  if df.empty:
+    raise ValueError("df no puede estar vacío")
+
+  # Obtener la columna de fecha (índice)
+  fecha_col = df.index.name
+
+  # Validar que el índice sea datetime
+  if not pd.api.types.is_datetime64_dtype(df.index):
+    raise TypeError("El índice del DataFrame debe ser de tipo datetime")
+  # Obtener los años únicos
+
+  anios = df.index.year.unique()
+  # Crear la figura
+
+  fig, axes = plt.subplots(nrows=len(anios) // 3 + 1, ncols=3, figsize=figsize)
+  # Recorrer los años y graficar las series temporales
+
+  for i, anio in enumerate(anios):
+    df_anio = df[df.index.year == anio]
+    for j, columna in enumerate(df_anio.columns):
+      ax = axes[i // 3, i % 3]
+      df_anio[columna].plot(ax=ax, marker=".", title=f"{anio} - {columna}")
+      ax.set_xlabel("")
+      ax.set_ylabel("")
+      ax.tick_params(labelsize=fontsize)
+
+  # Eliminar los ejes vacíos
+  for ax in axes.ravel():
+    if not ax.has_data():
+      ax.set_visible(False)
+
+  # Ajustar la figura
+  fig.tight_layout()
+  plt.show()
+
+
+import xml.etree.ElementTree as ET
+import pandas as pd
+
+def xml_a_df(xml_data):
+    try:
+        # Intenta el análisis gestionando la codificación (considera eliminar la declaración si es posible)
+        datos_codificados = xml_data.encode('utf-8')  # Reemplaza 'utf-8' con la codificación real
+        root = ET.fromstring(datos_codificados)
+
+        # Inicializar una lista para almacenar los diccionarios de tweets
+        lista_tweets = []
+
+        # Recorrer cada elemento tweet
+        for tweet in root.findall('tweet'):
+            # Crear un diccionario para cada tweet
+            tweet_dict = {}
+
+            # Extraer información del tweet y agregarla al diccionario
+            tweet_dict['tweet_ID'] = tweet.find('tweetid').text
+            tweet_dict['usuario'] = tweet.find('user').text
+
+            # Extraer contenido del tweet de manera segura
+            content = tweet.find('content')
+            tweet_dict['contenido'] = content.text.strip() if content is not None and content.text else None
+
+            tweet_dict['fecha'] = tweet.find('date').text
+            tweet_dict['idioma'] = tweet.find('lang').text
+
+            # Extraer información de sentimiento 
+            sentimientos = tweet.find('sentimientos')
+            if sentimientos is not None:
+                lista_sentimientos = []
+                for polaridad in sentimientos.findall('polarity'):
+                    sentimiento = {
+                        'valor': polaridad.find('value').text,
+                        'tipo': polaridad.find('type').text
+                    }
+                    # Extraer entidad de sentimiento de manera segura
+                    entidad = polaridad.find('entity')
+                    if entidad is not None:
+                        sentimiento['entidad'] = entidad.text
+                    lista_sentimientos.append(sentimiento)
+                tweet_dict['sentimientos'] = lista_sentimientos
+            else:
+                tweet_dict['sentimientos'] = None
+
+            # Extraer información del tema
+            temas = tweet.find('topics')
+            if temas is not None:
+                lista_temas = [tema.text for tema in temas.findall('topic')]
+                tweet_dict['temas'] = lista_temas
+            else:
+                tweet_dict['temas'] = None
+
+            # Agregar el diccionario del tweet a la lista
+            lista_tweets.append(tweet_dict)
+
+        # Crear el DataFrame a partir de la lista de diccionarios de tweets
+        df = pd.DataFrame(lista_tweets)
+        return df
+
+    except ValueError as e:
+        # Manejar problemas de codificación si ocurren
+        print(f"Error al analizar XML: {e}")
+        return None
+
+# Ejemplo de uso
+with open('archivo.xml', 'r') as file:
+    data = file.read()
+
+df_resultado = xml_a_dataframe(data)
+print(df_resultado)
+
 
 
 
@@ -452,7 +684,7 @@ def plot_grouped_boxplots(df, cat_col, num_col):
         plt.show()
 
 
-def generar_raincloud_plot(dataframe):
+def generar_raincloud_plot_para_num_cat(dataframe):
     # Filtrar columnas numéricas o categóricas ordinales
     columnas_numericas = dataframe.select_dtypes(include=['number']).columns
     columnas_categoricas_ordinales = [col for col in dataframe.columns if dataframe[col].dtype.name == 'category']
@@ -461,18 +693,35 @@ def generar_raincloud_plot(dataframe):
         print("No se encontraron columnas numéricas o categóricas ordinales en el dataframe.")
         return
 
+    # Contador de subplots
+    subplots = 0
+    num_subplots = len(columnas_numericas) + len(columnas_categoricas_ordinales)
+    num_filas = np.ceil(num_subplots / 3)  # Calcular el número de filas necesario para los subplots
+
     # Crear raincloud plots para cada columna
+    fig, axs = plt.subplots(int(num_filas), 3, figsize=(20, 4*num_filas))
+
     for col in columnas_numericas:
-        plt.figure(figsize=(8, 6))
-        pt.RainCloud(x=col, data=dataframe, orient='h')
-        plt.title(f'Raincloud Plot para {col}')
-        plt.show()
+        #nueva figura cada 3 en numericas
+        ax = axs[subplots // 3, subplots % 3]
+        pt.RainCloud(x=col, data=dataframe, ax=ax)
+        ax.set_title(f'Raincloud Plot para {col}')
+        subplots += 1
 
     for col in columnas_categoricas_ordinales:
-        plt.figure(figsize=(8, 6))
-        pt.RainCloud(x=col, data=dataframe, orient='h')
-        plt.title(f'Raincloud Plot para {col}')
-        plt.show()
+        #nueva figura cada 3  categoricas
+        ax = axs[subplots // 3, subplots % 3]
+        pt.RainCloud(x=col, data=dataframe, ax=ax)
+        ax.set_title(f'Raincloud Plot para {col}')
+        subplots += 1
+
+    # Eliminar los subplots no utilizados
+    for ax in axs.flat[subplots:]:
+        ax.remove()
+
+    plt.tight_layout()
+    plt.show();
+
 
 
 def plot_grouped_histograms(df, cat_col, num_col, group_size):
