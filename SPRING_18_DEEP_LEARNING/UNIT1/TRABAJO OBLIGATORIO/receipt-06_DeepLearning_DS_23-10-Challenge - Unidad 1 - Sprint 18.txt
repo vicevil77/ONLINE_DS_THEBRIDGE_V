@@ -1,0 +1,8 @@
+La entrega se realizó correctamente.
+Curso: 06_DeepLearning_DS_23-10, 06 Deep Learning
+Evaluación: Challenge - Unidad 1 - Sprint 18
+
+Fecha de entrega: 3/3/24 21:23
+Tamaño de entrega: undefined
+Remitente: Víctor Manuel Martínez Barbera
+Número de confirmación: a673f470afb5483f824c41b37585f0ce
