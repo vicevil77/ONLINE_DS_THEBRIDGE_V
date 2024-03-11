@@ -1,7 +1,0 @@
-La entrega se realizó correctamente.
-Curso: 06_DeepLearning_DS_23-10, 06 Deep Learning
-Evaluación: Cuestionario Warm Up - Sprint 19
-
-Fecha de entrega: 10/3/24 13:11
-Remitente: Víctor Manuel Martínez Barbera
-Número de confirmación: 6977f51491be494a83fc9eff4a389410
