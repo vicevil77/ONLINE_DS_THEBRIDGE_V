@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+#from cuml.decomposition import PCA
 from sklearn.linear_model import ElasticNet, Ridge, Lasso
 from sklearn.model_selection import GridSearchCV
 from sklearn.feature_selection import f_regression
@@ -12,13 +13,9 @@ from scipy.stats import pearsonr, chi2_contingency, chi2, f_oneway
 from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
 from sklearn.metrics import silhouette_score
-from catboost import CatBoostClassifier, Pool
+#from catboost import CatBoostClassifier, Pool
 from collections import Counter
 from scipy.stats import f_oneway, chi2_contingency
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
@@ -28,7 +25,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.feature_selection import SelectKBest, f_classif, SelectFromModel, RFE
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import StratifiedKFold
-from mlxtend.feature_selection import SequentialFeatureSelector
+#from mlxtend.feature_selection import SequentialFeatureSelector
+#from statsmodels.tsa.seasonal import seasonal_decompose
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
 
@@ -287,7 +285,6 @@ def graficar_VE(ve, n_componentes, titulo="Varianza Explicada"):
   plt.show()
 
 
-from statsmodels.tsa.seasonal import seasonal_decompose
 
 def plot_elementos_serie_temporal(df, start_date, end_date, filt=None):
     # Realizar la descomposición estacional
